@@ -1,0 +1,32 @@
+﻿#blockui {
+    .blockuibackground {
+        z-index: 99999;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: #000;
+        opacity: .5;
+    }
+
+    .blockuicontainer {
+        z-index: 99999;
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 100vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: wait;
+
+        & > div {
+            color: white;
+            min-width: 280px;
+            text-align: center;
+            text-shadow: 0 0 4px black
+        }
+    }
+}

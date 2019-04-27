@@ -1,0 +1,29 @@
+﻿@model MyBlog.Engine.Data.Models.PostDisplayedBase
+<div class="info">
+    <div>
+        <div>
+            <span class="date">
+                <i aria-hidden="true"></i>
+                <span class="sr-only">@Resources.PostInfoDate</span>
+                @Model.DateCreatedGmt.ToShortDateString()
+            </span>
+            <span class="comments">
+                <i aria-hidden="true"></i>
+                @(Model.CommentsCount == 0 ? Resources.NoComments : Model.CommentsCount + " " + Resources.NComments)
+            </span>
+        </div>
+        @if (Model.Categories.Any())
+        {
+        <div class="categories" role="navigation" aria-label="@Resources.PostInfoCategories">
+            <i aria-hidden="true"></i>
+            <ul>
+                @foreach (var category in Model.Categories)
+                {
+                <li><a asp-action="Category" asp-route-id="@category.Id" class="category">@category.Name</a></li>
+                }
+            </ul>
+        </div>
+        }
+    </div>
+    <socials id="@Model.Id" title="@Model.Title" uri="@Model.Url"></socials>
+</div>

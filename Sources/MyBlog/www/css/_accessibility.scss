@@ -1,0 +1,81 @@
+﻿#skiptocontent a {
+    position: absolute;
+    z-index: 999999999;
+    top: -10em;
+    left: 0;
+    transition: top 1s ease-out, background 1s linear;
+    padding: 10px;
+    color: white;
+    border: 1px solid white;
+    border-bottom-right-radius: 6px;
+
+    &:focus {
+        top: 0;
+        transition: top .1s ease-in, background .5s linear;
+        background: red;
+        outline: 0;
+        text-decoration: none;
+    }
+}
+
+// Focus tricks
+*:focus {
+    outline: 0;
+    animation: borderFocusFade 3s forwards;
+}
+
+@keyframes borderFocusFade {
+    from {
+        border-color: lightYellow;
+    }
+
+    to {
+        border-color: $focus-color;
+    }
+}
+a:focus {
+    text-decoration: underline;
+}
+.card {
+    .card-header, .card-body {
+        a:focus:not(.btn):not(.category):not(.btn) {
+            animation: bgFocusFade 3s forwards;
+        }
+    }
+}
+@keyframes bgFocusFade {
+    from {
+        background: lightYellow;
+    }
+
+    to {
+        background: $card-bg;
+    }
+}
+
+.nav-link {
+    border-width: $focus-width;
+    border-color: transparent;
+    border-style: solid;
+}
+
+a:focus img {
+    border-width: $focus-width;
+    border-style: solid;
+    animation: borderFocusFade 3s forwards;
+}
+button:hover:not(.close), button:focus:not(.close), :not(.close) a:hover .btn, a:focus .btn {
+    box-shadow: 1px 1px 4px rgba(0,0,0,0.8);
+}
+.share a {
+
+        &:focus, &:hover, button:hover, button:focus {
+            box-shadow: 1px 1px 4px rgba(0,0,0,0.8);
+            border-width: 2px;
+            border-style: solid;
+        }
+    }
+
+    label.focus {
+        text-decoration: underline;
+    }

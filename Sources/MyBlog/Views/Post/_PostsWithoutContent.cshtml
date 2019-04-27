@@ -1,0 +1,28 @@
+﻿@model MyBlog.Engine.Data.Models.PostWithoutContent[]
+@foreach (var item in Model)
+{
+    <article class="list-group-item">
+        <h3><a href="@item.Url">@Html.Raw(item.Title)</a></h3>
+        <div class="info">
+            <div>
+                <div class="date">
+                    <i aria-hidden="true"></i>
+                    <span class="sr-only">@Resources.PostInfoDate</span>
+                    @item.DateCreatedGmt.ToShortDateString()
+                </div>
+                @if (item.Categories?.Any() ?? false)
+                {
+                    <div class="categories" role="navigation" aria-label="@Resources.PostInfoCategories">
+                        <i aria-hidden="true"></i>
+                        <ul>
+                            @foreach (var category in item.Categories)
+                            {
+                                <li><a asp-action="Category" asp-route-id="@category.Id" class="category">@category.Name</a></li>
+                            }
+                        </ul>
+                    </div>
+                }
+            </div>
+        </div>
+    </article>
+}

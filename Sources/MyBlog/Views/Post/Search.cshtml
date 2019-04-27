@@ -1,0 +1,34 @@
+﻿@model MyBlog.Models.SearchFilter
+@inject IOptions<Settings> options
+@{
+    ViewBag.Title = WebUtility.HtmlDecode(Model.Title + " - " + Model.SubTitle);
+    ViewBag.Description = WebUtility.HtmlDecode(Model.Description);
+}
+<panel>
+    <div class="page-header">
+        <h2>@Model.Title <small>"@Model.SubTitle"</small></h2>
+    </div>
+    <div id="items" class="list-group list-group-flush">
+        @if (Model.Items?.Any() ?? false)
+        {
+            <partial name="_PostsWithoutContent" model="Model.Items" />
+        }
+        else
+        {
+            <p>@Resources.EmptySearchResultMessage</p>
+        }
+    </div>
+</panel>
+<div class="indexednavigation">
+    @if (Model.HaveMoreResults)
+    {
+        <button type="button" id="btn-getmore" class="btn btn-primary" data-action="@Model.Action" data-args="@Model.Id?page=@Model.NextPage&query=@Uri.EscapeDataString(Model.Query)">@Resources.GetMorePost</button>
+    }
+    <div id="pagination">
+        <pagination action="@Model.Action"
+                    count="Model.Available"
+                    page="Model.Page"
+                    page-size="options.Value.PostQuantityPerSearch"
+                    route-values="new { Id = Model.Id, Query = Model.Query }"></pagination>
+    </div>
+</div>

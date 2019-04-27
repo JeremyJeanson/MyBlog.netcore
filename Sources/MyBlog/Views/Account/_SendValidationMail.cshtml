@@ -1,0 +1,9 @@
+﻿@model System.Boolean
+@if (Model)
+{
+    <div class="alert alert-success">@Resources.SendValidationMailSuccess</div>
+}
+else
+{
+    <div class="alert alert-danger">@Resources.SendValidationMailError</div>
+}

@@ -1,0 +1,95 @@
+﻿@model MyBlog.Models.Details
+@inject IOptions<Settings> options
+@{
+    ViewBag.Title = WebUtility.HtmlDecode(Model.Post?.Title);
+    ViewBag.Description = Model.Description;
+    String dateJson = Newtonsoft.Json.JsonConvert.ToString(Model.Post.DateCreatedGmt);
+}
+@section scripts{
+    <script src="~/js/post.js" async></script>
+    <script src="~/js/post-details.js" async></script>
+}
+@section ldjson{
+    <script type="application/ld+json">
+        {
+        "@@context": "http://schema.org",
+        "@@type": "NewsArticle",
+        "mainEntityOfPage": {
+        "@@type": "WebPage",
+        "@@id": "@Model.Post.Url"
+        },
+        "headline": "@Model.Post.Title",
+        "image": [
+        "@options.Value.Url/images/me.png"
+        ],
+        "datePublished": @Html.Raw(dateJson),
+        "dateModified": @Html.Raw(dateJson),
+        "author": {
+        "@@type": "Person",
+        "name": "@options.Value.AuthorName"
+        },
+        "publisher": {
+        "@@type": "Organization",
+        "name": "@options.Value.Title",
+        "logo": {
+        "@@type": "ImageObject",
+        "url": "@options.Value.Url/images/logo.png"
+        }
+        },
+        "description":"@Model.Description"
+        }
+    </script>
+}
+<partial name="_Post" model="Model.Post" />
+<nav aria-label="pages" class="previous-next">
+    <div class="btn-group d-flex flex-column flex-md-row" role="group">
+        @if (Model.PreviousPost != null)
+        {
+            <a class="btn btn-outline-primary flex-fill mb-4" href="@Model.PreviousPost.Url"><span aria-hidden="true">&larr;</span> @Html.Raw(Model.PreviousPost.Title)</a>
+        }
+        @if (Model.NextPost != null)
+        {
+            <a class="btn btn-outline-primary flex-fill mb-4" href="@Model.NextPost.Url">@Html.Raw(Model.NextPost.Title) <span aria-hidden="true">&rarr;</span></a>
+        }
+    </div>
+</nav>
+<panel icon="fa-comments" title="@Resources.Comments">
+    @if (Model.Post.CommentsCount > 0)
+    {
+    <div class="detailscomments">
+        @foreach (var comment in Model.Post.Comments)
+        {
+            <div class="list-group-item">
+                <h4>
+                    <span><i></i>@comment.Author</span> <small>@comment.DateCreatedGmt.ToShortDateString()</small>
+                </h4>
+                <div>@Html.Raw(comment.Html)</div>
+            </div>
+        }
+    </div>
+    }
+    <div>
+        @if (Model.Comment == null)
+        {
+            <p>@Resources.LogInPriorToComment</p>
+            <button class="btn btn-primary login pull-right" onclick="App.Login()"><i class="fas fa-sign-in-alt"></i> @Resources.LogInOrSignUp</button>
+        }
+        else
+        {
+            <div class="form-check mb-3">
+                <input asp-for="CurrentUserSubscibed" class="form-check-input" />
+                <label asp-for="CurrentUserSubscibed" class="form-check-label" id="CurrentUserSubscibedLabel"></label>
+            </div>
+            <form asp-action="Comment" method="post" asp-antiforgery="true">
+                <div class="form-group">
+                    <input asp-for="@Model.Post.Id" type="hidden" />
+                    <textarea asp-for="Comment.Text" class="form-control" rows="10" placeholder="@Resources.EnterComment"></textarea>
+                    <span asp-validation-for="Comment.Text" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="@Resources.Send" class="btn btn-primary pull-right" />
+                </div>
+            </form>
+        }
+    </div>
+</panel>

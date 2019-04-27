@@ -1,0 +1,18 @@
+﻿@model MyBlog.Engine.Data.Models.PostWithSummary
+@inject IOptions<Settings> options
+<article-card title="@Model.Title" uri="@Model.Url">
+    <partial name="_PostInfos" model="Model" />
+    <div class="content">
+        @Html.Raw(Model.HtmlSummary)
+    </div>
+    <div>
+        @if (Model.ContentIsSplitted)
+        {
+            <a class="btn btn-primary" href="@Model.Url">@Resources.ReadMore <span class="sr-only"> @Resources.ReadMoreAboutSuffix</span>&rarr;</a>
+        }
+        <div class="author">
+            <i aria-hidden="true"></i>
+            @options.Value.AuthorName
+        </div>
+    </div>
+</article-card>

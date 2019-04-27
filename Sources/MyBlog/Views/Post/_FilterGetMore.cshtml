@@ -1,0 +1,14 @@
+﻿@model MyBlog.Models.PostsFilter
+@inject IOptions<Settings> options
+<partial name="_PostsWithoutContent" model="Model.Items" />
+<script>
+@if (Model.HaveMoreResults)
+{
+    <text>$("#btn-getmore").data("args", "@Model.Id?page=@Model.NextPage");</text>
+}
+else
+{
+    <text>$("#btn-getmore").hide();</text>
+}
+    $("#pagination").html('@Html.Raw(Html.GetPagination(Model.Action, Model.Available, Model.Page, options.Value.PostQuantityPerSearch, new { Id = Model.Id }))');
+</script>

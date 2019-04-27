@@ -1,0 +1,51 @@
+﻿@model MyBlog.Models.Posts
+@inject IOptions<Settings> options
+@{
+    if (Model.Page > 0)
+    {
+        ViewBag.Title = options.Value.Title + " - Page " + Model.Page;
+    }
+}
+@section scripts{
+    <script src="~/js/post.js" async asp-append-version="true"></script>
+}
+@section ldjson{
+    <partial name="_OrganisationLdJson" />
+    <script type="application/ld+json">
+        {
+        "@@context": "http://schema.org",
+        "@@type": "ItemList",
+        "itemListElement": [
+        @{
+            Int32 position = 0;
+            foreach (var post in Model.Items)
+            {
+                position++;
+                if (position != 1)
+                {
+                    <text>,</text>
+                }
+                <text>{"@@type": "ListItem","position": "@position","url":"@post.Url"}</text>
+            }
+        }
+        ]}
+    </script>
+}
+<div id="items">
+    @foreach (var item in Model.Items)
+    {
+        <partial name="_PostWithSummary" model="item" />
+    }
+</div>
+<div class="indexednavigation">
+    @if (Model.HaveMoreResults)
+    {
+        <button type="button" id="btn-getmore" class="btn btn-primary" data-action="Index" data-args="?page=@Model.NextPage">@Resources.GetMorePost</button>
+    }
+    <div id="pagination">
+        <pagination action="Index"
+                    count="Model.Available"
+                    page="Model.Page"
+                    page-size="options.Value.PostQuantityPerPage"></pagination>
+    </div>
+</div>

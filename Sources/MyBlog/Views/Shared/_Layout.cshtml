@@ -1,0 +1,197 @@
+﻿@inject LayoutViewModel model
+@inject IOptions<MyBlog.Engine.Settings> options
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no" />
+    <meta name="description" content="@(ViewBag.Description ?? "Un petit recueil de trucs astuces sur les developpements .net, XAML, Xamarin, UWP, WPF, WCF et Workflow Foundation entre autre")">
+    <meta name="robots" content="index" />
+    <title>@(ViewBag.Title ?? options.Value.Title)</title>
+    <link rel="icon" href="~/favicon.ico" type="image/x-icon" />
+    <link rel="alternate" title="@(options.Value.Title) - RSS" type="application/rss+xml" href="@Url.Action("Rss","Feed")" />
+    <link rel="alternate" title="@(options.Value.Title) - Atom" type="application/atom+xml" href="@Url.Action("Atom","Feed")" />
+    <link rel="edituri" type="application/rsd+xml" href="/rsd.xml" />
+    <link rel="wlwmanifest" type="application/wlwmanifest+xml" href="/wlwmanifest.xml" />       
+    <partial name="_Style" model="model.UserSettings"/>
+    @RenderSection("head", false)
+    @if (IsSectionDefined("ldjson"))
+    {
+        @RenderSection("ldjson")
+    }
+    else
+    {
+        <partial name="_OrganisationLdJson" />
+    }
+</head>
+<body class="bigheader">
+    <div id="skiptocontent"><a href="#maincontent">Skip to main content <span aria-hidden="true">&rarr;</span></a></div>
+    <header class="fixed-top">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container">
+                <a class="navbar-brand" href="/">
+                    <div>
+                        <img src="~/images/logo.png" alt="@options.Value.Title" aria-hidden="true" />
+                        <h1>
+                            @options.Value.Title
+                            <small>@Html.Raw(options.Value.SubTitle)</small>
+                        </h1>
+                    </div>
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarcollapse" aria-controls="navbarcollapse" aria-expanded="false" aria-label="@Resources.ToggleNavigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-end" id="navbarcollapse">
+                    <ul class="navbar-nav">
+                        <li>
+                            <a class="nav-link" href="#" onclick="My.PostAndDisplay('@System.Net.WebUtility.HtmlEncode(Resources.AccessibilityFullTitle)','@Url.Action("_Accessibility","UserSettings")',null)">
+                                <span class="sr-only">@Resources.AccessibilityFullTitle</span>
+                                <span aria-hidden="true"><i class="fab fa-accessible-icon"></i> @Resources.Accessibility</span>
+                            </a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i aria-hidden="true" class="fas fa-tags"></i> @Resources.Categories</a>
+                            <div class="dropdown-menu">
+                                @foreach (var category in model.Categories)
+                                {
+                                    <a class="dropdown-item d-flex justify-content-between align-items-center" href="@Url.Action("Category", "Post", new { Id = category.Id })">@category.Name <span class="badge badge-pill badge-primary">@category.Count</span></a>
+                                }
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fas fa-rss" aria-hidden="true"></i> @Resources.Feeds</a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="@Url.Action("Atom","Feed")" type="application/atom+xml"><i class="fas fa-rss" aria-hidden="true"></i> @Resources.FeedAtom</a>
+                                <a class="dropdown-item" href="@Url.Action("Rss","Feed")" type="application/rss+xml"><i class="fas fa-rss" aria-hidden="true"></i> @Resources.FeedRss</a>
+                            </div>
+                        </li>
+                        <li>
+                            <a class="nav-link" href="@Url.Action("Index","Mail")"><i class="fas fa-envelope"></i> @Resources.Mail</a>
+                        </li>
+                        @if (model.User == null)
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link" href="#" onclick="App.Login()" id="login"><i class="fas fa-sign-in-alt"></i> @Resources.LogInOrSignUp</a>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user-circle" aria-hidden="true"></i> @(model.User.Name)</a>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="@Url.Action("Edit","Account")"><i class="far fa-id-card" aria-hidden="true"></i> @Resources.EditAccount</a>
+                                    <a class="dropdown-item" href="@Url.Action("Logout", "Authentication")"><i class="fas fa-sign-out-alt" aria-hidden="true"></i> @Resources.Logout</a>
+                                </div>
+                            </li>
+                        }
+                    </ul>
+                    @using (Html.BeginForm("Search", "Post", FormMethod.Get, new { @class = "form-inline my-2 my-lg-0", role = "search" }))
+                    {
+                        <div class="input-group">
+                            <input type="text" class="form-control" aria-label="@Resources.SearchText" placeholder="@Resources.SearchText" id="query" name="query">
+                            <span class="input-group-append">
+                                <button type="submit" class="btn btn-light" aria-label="@Resources.Search">
+                                    <span class="fas fa-search"></span>
+                                </button>
+                            </span>
+                        </div>
+                    }
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container" id="maincontent">
+        <div class="row">
+            <main class="col-lg-9">
+                @RenderBody()
+            </main>
+            <aside class="col-lg-3">
+                <panel id="me" icon="fa-id-badge" title="@options.Value.AuthorName">
+                    <div class="row">
+                        <div class="col-lg-12 col-3">
+                            <img class="img-fluid mx-auto d-block rounded-circle" src="~/images/me.png" alt="@options.Value.AuthorName" />
+                        </div>
+                        <div class="col-lg-12 col-9">
+                            @Html.Raw("<center>[Your bio, ... etc ...]</center>")<br />
+                            <a class="float-right" href="@Url.Action("Index","About")"><i class="fas fa-info"></i> @Resources.About</a>
+                        </div>
+                    </div>
+                </panel>
+                <panel title="@Resources.Categories" icon="fa-tags" remove-padding="true">
+                    <div class="list-group list-group-wrap">
+                        @foreach (var item in model.Categories)
+                        {
+                            <a class="list-group-item list-group-item-action col-12 col-sm-6 col-md-4 col-lg-12 d-flex justify-content-between align-items-center" href="@Url.Action("Category", "Post", new { Id = item.Id })">@item.Name <span class="badge badge-pill badge-primary">@item.Count</span></a>
+                        }
+                    </div>
+                </panel>
+                <panel id="links">
+                    <a href="https://twitter.com/[YourName]" target="_blank" class="btn btn-block btn-social btn-twitter">
+                        <i class="fab fa-twitter"></i> Twitter
+                    </a>
+                    <a href="https://www.linkedin.com/in/[YourName]" target="_blank" class="btn btn-block btn-social btn-linkedin">
+                        <i class="fab fa-linkedin-in"></i> LinkedIn
+                    </a>
+                    <a href="https://www.viadeo.com/fr/profile/[YourName]" target="_blank" class="btn btn-block btn-social btn-viadeo">
+                        <i class="fab fa-viadeo"></i> Viadéo
+                    </a>
+                </panel>
+                <panel title="@Resources.Archives" icon="fa-calendar" remove-padding="true">
+                    <div class="list-group list-group-wrap">
+                        @foreach (var item in model.Archives)
+                        {
+                            <a class="list-group-item  list-group-item-action col-6 col-sm-3 col-lg-12 d-flex justify-content-between align-items-center" href="@Url.Action("Archive", "Post", new { Id = item.Id.Id })">@item.Title <span class="badge badge-pill badge-primary">@item.Count</span></a>
+                        }
+                    </div>
+                </panel>
+            </aside>
+        </div>
+    </div>
+    <footer>
+        <div class="container d-flex flex-column">
+            <div class="d-flex justify-content-center justify-content-md-start">
+                <i class="fas fa-lightbulb" aria-hidden="true"></i> @Resources.Disclamer
+            </div>
+            <div class="d-flex flex-column justify-content-center flex-md-row justify-content-md-between">
+                <ul class="list-unstyled d-flex flex-column  align-items-center align-items-md-start">
+                    <li>
+                        <a href="@Url.Action("Index","About")"><i class="fas fa-info" aria-hidden="true"></i> @Resources.About</a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("PrivacyAndUsage","About")"><i class="fas fa-user-secret" aria-hidden="true"></i> @Resources.PrivacyPolicy</a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Cookies","About")"><i class="fas fa-cookie-bite" aria-hidden="true"></i> @Resources.CookiesPolityTitle</a>
+                    </li>
+                </ul>
+                <ul class="list-unstyled  d-flex  flex-column  align-items-center align-items-md-start">
+                    <li><i class="fas fa-code" aria-hidden="true"></i> @(model.Version)</li>
+                    <li><i class="fas fa-cloud" aria-hidden="true"></i> @(Resources.HostedOnAzure)</li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+    <script src="~/js/common.js" asp-append-version="true"></script>
+    @if (!model.UserSettings.CookiesConcentClosed)
+    {
+        <div class="alert alert-info fade show footeralert" id="cookieConcent">
+            <div class="container">
+                <a href="#" class="close" aria-label="close"><span aria-hidden="true">&times;</span></a>
+                <h2><i class="fas fa-cookie-bite"></i> @Resources.CookiesConcentTitle <small>@Html.ActionLink(Resources.CookiesPolityTitle, "Cookies", "About", null, new { @class = "alert-link" })</small></h2>
+                @Resources.CookiesConcentContent
+            </div>
+        </div>
+        <script>
+            $(function () {
+                setTimeout(function () { $("#cookieConcent").alert("close"); }, 10000);
+                $("#cookieConcent .close").click(function () {
+                    $.post("@Url.Action("CookiesConcentClosed", "UserSettings")", function () { $("#cookieConcent").alert("close"); })
+                });
+            });
+        </script>
+    }
+    <script src="~/js/layout.js" asp-append-version="true" async></script>
+    @RenderSection("scripts", false)
+</body>
+</html>

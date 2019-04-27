@@ -1,0 +1,434 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="About" xml:space="preserve">
+    <value>About</value>
+  </data>
+  <data name="Archives" xml:space="preserve">
+    <value>Archives</value>
+  </data>
+  <data name="Categories" xml:space="preserve">
+    <value>Categories</value>
+  </data>
+  <data name="Category" xml:space="preserve">
+    <value>Category</value>
+  </data>
+  <data name="FeedAtom" xml:space="preserve">
+    <value>Atom</value>
+  </data>
+  <data name="FeedRss" xml:space="preserve">
+    <value>RSS</value>
+  </data>
+  <data name="GetMorePost" xml:space="preserve">
+    <value>Get more posts</value>
+  </data>
+  <data name="GetMoreResults" xml:space="preserve">
+    <value>Get more results</value>
+  </data>
+  <data name="Mail" xml:space="preserve">
+    <value>Contact</value>
+  </data>
+  <data name="MailSended" xml:space="preserve">
+    <value>&lt;p&gt;Mail sended.&lt;/p&gt;&lt;p&gt;Thank you. I will reply as soon as possible.&lt;/p&gt;</value>
+  </data>
+  <data name="MailSendError" xml:space="preserve">
+    <value>Sorry, We are not abble to send your mail.</value>
+  </data>
+  <data name="Me" xml:space="preserve">
+    <value>Me</value>
+  </data>
+  <data name="MeContent" xml:space="preserve">
+    <value>Je surf sur la vague .net depuis ses débuts et j'aime partager les expériences que j'y fais...</value>
+  </data>
+  <data name="ReadMore" xml:space="preserve">
+    <value>Read more</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="Send" xml:space="preserve">
+    <value>Send</value>
+  </data>
+  <data name="SenderMail" xml:space="preserve">
+    <value>Your email</value>
+  </data>
+  <data name="SenderName" xml:space="preserve">
+    <value>Your name</value>
+  </data>
+  <data name="Subject" xml:space="preserve">
+    <value>Your subject</value>
+  </data>
+  <data name="VersionSuffix" xml:space="preserve">
+    <value>by Jérémy Jeanson</value>
+  </data>
+  <data name="Feeds" xml:space="preserve">
+    <value>Feeds</value>
+  </data>
+  <data name="HostedOnAzure" xml:space="preserve">
+    <value>Hosted on Microsoft Azure</value>
+  </data>
+  <data name="ExternalLoginCallbackError" xml:space="preserve">
+    <value>&lt;p&gt;An error occurred during the login process. We are sorry.&lt;/p&gt;&lt;p&gt;Please try again later.&lt;/p&gt;</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="EditAccount" xml:space="preserve">
+    <value>Edit your profile</value>
+  </data>
+  <data name="EditAccountError" xml:space="preserve">
+    <value>Sorry we are not able to save your profile. Please try again later.</value>
+  </data>
+  <data name="EditAccountInformation" xml:space="preserve">
+    <value>Your email is only used when you request to be notified of comments on post you are following.</value>
+  </data>
+  <data name="EditAccountSuccess" xml:space="preserve">
+    <value>Informations saved.</value>
+  </data>
+  <data name="LogoutSuccess" xml:space="preserve">
+    <value>You have successfully logget out.</value>
+  </data>
+  <data name="Information" xml:space="preserve">
+    <value>Information</value>
+  </data>
+  <data name="LogInOrSignUp" xml:space="preserve">
+    <value>Login in</value>
+  </data>
+  <data name="Logout" xml:space="preserve">
+    <value>Log out</value>
+  </data>
+  <data name="Comments" xml:space="preserve">
+    <value>Comments</value>
+  </data>
+  <data name="NoComments" xml:space="preserve">
+    <value>No comments</value>
+  </data>
+  <data name="NComments" xml:space="preserve">
+    <value>comments</value>
+  </data>
+  <data name="LogInPriorToComment" xml:space="preserve">
+    <value>You have to be logged in to comment this post.</value>
+  </data>
+  <data name="EnterComment" xml:space="preserve">
+    <value>Enter a comment to add to this post</value>
+  </data>
+  <data name="EnterEmail" xml:space="preserve">
+    <value>Enter an e-mail</value>
+  </data>
+  <data name="EnterMessage" xml:space="preserve">
+    <value>Enter your message</value>
+  </data>
+  <data name="EnterName" xml:space="preserve">
+    <value>Enter a display name</value>
+  </data>
+  <data name="EnterSubject" xml:space="preserve">
+    <value>Enter a subject for this message</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>E-Mail</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="EmailValidationContentFormat" xml:space="preserve">
+    <value>&lt;p&gt;Hi {0},&lt;/p&gt;
+&lt;p&gt;Your mail was used on {1}. To ensure you have requested it, your e-mail will not be used without your validation.&lt;/p&gt;
+&lt;p&gt;If you want to be able to comment en receive comment updates, please use &lt;a href='{2}' alt="Validation url"&gt;this link&lt;/a&gt; to validate your e-mail.&lt;/p&gt;
+&lt;p&gt;If you cannot use this link, copy and past this url in your web browser : {2}&lt;/p&gt;
+&lt;p&gt;Best regards,&lt;/p&gt;</value>
+  </data>
+  <data name="EmailValidationSubject" xml:space="preserve">
+    <value>Mail confirmation</value>
+  </data>
+  <data name="EMailCommentAddedContent" xml:space="preserve">
+    <value>&lt;p&gt;Hi {0},&lt;/p&gt;
+&lt;p&gt;A new comment has been hadded to the post &lt;a href='{1}' alt='{2}'&gt;'{2}'&lt;/p&gt;
+&lt;p&gt;{1}&lt;/p&gt;</value>
+  </data>
+  <data name="EMailCommentAddedSubject" xml:space="preserve">
+    <value>New comment on '{0}'</value>
+  </data>
+  <data name="EmailValidationStatusKo" xml:space="preserve">
+    <value>Your e-mail has not been validated yet. Please, check your mailbox.</value>
+  </data>
+  <data name="EmailValidationStatusOk" xml:space="preserve">
+    <value>Your e-mail has been validated.</value>
+  </data>
+  <data name="SendValidationMail" xml:space="preserve">
+    <value>Send a new validation mail</value>
+  </data>
+  <data name="SendValidationMailError" xml:space="preserve">
+    <value>Sorry we are not able to send a validation mail. Please check your porfile and try again later.</value>
+  </data>
+  <data name="SendValidationMailSuccess" xml:space="preserve">
+    <value>Mail send. Please check your mailbox.</value>
+  </data>
+  <data name="SubscribToCommentNotification" xml:space="preserve">
+    <value>I want receive an e-mail when someone post a comment to this post.</value>
+  </data>
+  <data name="SubscribToCommentNotificationError" xml:space="preserve">
+    <value>Sorry we are not able to update yoursubscription Please try again later.</value>
+  </data>
+  <data name="SubscribToCommentNotificationSuccess" xml:space="preserve">
+    <value>Your subscription has been updated.</value>
+  </data>
+  <data name="Disclamer" xml:space="preserve">
+    <value>This is a personal weblog. The opinions expressed here represent my own and not those of my employer.</value>
+  </data>
+  <data name="PrivacyPolicy" xml:space="preserve">
+    <value>Privacy Policy </value>
+  </data>
+  <data name="PrivacyPolicyContent" xml:space="preserve">
+    <value>&lt;p&gt;To  allow you to log in, this application have to store Open Auth informations shared by your providers (Facebook, Twitter.. .etc...). It si only technical data (token). Out of this application, this informations cannot be used and have none interest.&lt;/p&gt;&lt;p&gt;Informations collected when you are ednting you profile are used only by this application and are not shared with third parties or other applications. At any time, you are able to edit/delete your informations. It will be permanently removed from the database.&lt;/p&gt;</value>
+  </data>
+  <data name="TermsOfService" xml:space="preserve">
+    <value>Terms of service</value>
+  </data>
+  <data name="TermsOfServiceContent" xml:space="preserve">
+    <value>This service have no rules. Be  fun, fine and benevolent to enjoy it.</value>
+  </data>
+  <data name="ReadMoreAboutSuffix" xml:space="preserve">
+    <value>about this article</value>
+  </data>
+  <data name="EmptySearchResultMessage" xml:space="preserve">
+    <value>There are no results for this search.</value>
+  </data>
+  <data name="CookiesConcentContent" xml:space="preserve">
+    <value>This website uses cookies and similar technologies to allow us to promote our services and enhance your browsing experience. If you continue to use this website you agree to our use of cookies.</value>
+  </data>
+  <data name="CookiesConcentTitle" xml:space="preserve">
+    <value>Cookies</value>
+  </data>
+  <data name="CookiesPolityTitle" xml:space="preserve">
+    <value>Cookie Policy</value>
+  </data>
+  <data name="CookiesPolityContent" xml:space="preserve">
+    <value>&lt;p&gt;This website use cookie to enhance your browsing experience.&lt;/p&gt;
+Cookies that could be used are:
+&lt;ul&gt;&lt;li&gt;To save your settings.
+&lt;/li&gt;&lt;li&gt;To preserver your session when you are authenticated via social networks.
+&lt;/li&gt;&lt;li&gt;To analyze pages the most view, to have an idea about the content loved by users.&lt;/li&gt;
+&lt;/ul&gt;</value>
+  </data>
+  <data name="AccessibilitySettingsFontTitle" xml:space="preserve">
+    <value>Font</value>
+  </data>
+  <data name="AccessibilitySettingsFontUseDefault" xml:space="preserve">
+    <value>Use the default font</value>
+  </data>
+  <data name="AccessibilitySettingsFontUseDylexia" xml:space="preserve">
+    <value>Use the dyslexic font</value>
+  </data>
+  <data name="Accessibility" xml:space="preserve">
+    <value>Accessibility</value>
+  </data>
+  <data name="AccessibilityFullTitle" xml:space="preserve">
+    <value>Accessibility settings</value>
+  </data>
+  <data name="AboutDescription" xml:space="preserve">
+    <value>Informations about {0}, author of this blog</value>
+  </data>
+  <data name="ArchivesDescription" xml:space="preserve">
+    <value>Archives for {0}</value>
+  </data>
+  <data name="CategoryDescription" xml:space="preserve">
+    <value>Posts in the category '{0}'</value>
+  </data>
+  <data name="ContactDescription" xml:space="preserve">
+    <value>Contact {0}, author of this blog</value>
+  </data>
+  <data name="CookiesPolityDescription" xml:space="preserve">
+    <value>Informations about our Cookie Policy</value>
+  </data>
+  <data name="PrivacyPolicyDescription" xml:space="preserve">
+    <value>Informations about our Privacy Policy</value>
+  </data>
+  <data name="SearchDescription" xml:space="preserve">
+    <value>Search result for '{0}'</value>
+  </data>
+  <data name="Share" xml:space="preserve">
+    <value>Share</value>
+  </data>
+  <data name="ShareWith" xml:space="preserve">
+    <value>Share with</value>
+  </data>
+  <data name="ToggleNavigation" xml:space="preserve">
+    <value>Toggle navigation</value>
+  </data>
+  <data name="ShowMoreShareOptions" xml:space="preserve">
+    <value>Show more share options</value>
+  </data>
+  <data name="AccessibilitySettingsZoom" xml:space="preserve">
+    <value>Zoom</value>
+  </data>
+  <data name="AccessibilitySettingsTextAlign" xml:space="preserve">
+    <value>Text alignment</value>
+  </data>
+  <data name="No" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>Yes</value>
+  </data>
+  <data name="AccessibilitySettingsSetTextIsJutified" xml:space="preserve">
+    <value>Justify the text</value>
+  </data>
+  <data name="AccessibilitySettingsSetTextIsNotJutified" xml:space="preserve">
+    <value>Align text on left</value>
+  </data>
+  <data name="AccessibilitySettingsLineHeight" xml:space="preserve">
+    <value>Space between two lines</value>
+  </data>
+  <data name="AccessibilitySettingsLineHeight100" xml:space="preserve">
+    <value>Use the default space</value>
+  </data>
+  <data name="AccessibilitySettingsLineHeight200" xml:space="preserve">
+    <value>Double space</value>
+  </data>
+  <data name="AccessibilitySettingsLineHeight300" xml:space="preserve">
+    <value>Triple space</value>
+  </data>
+  <data name="AccessibilityThemeDark" xml:space="preserve">
+    <value>Use the dark theme</value>
+  </data>
+  <data name="AccessibilityTheme" xml:space="preserve">
+    <value>Theme</value>
+  </data>
+  <data name="AccessibilityThemeDefault" xml:space="preserve">
+    <value>Use the default theme</value>
+  </data>
+  <data name="AccessibilityThemeHighContrast" xml:space="preserve">
+    <value>Use the high contrast theme</value>
+  </data>
+  <data name="PostInfoCategories" xml:space="preserve">
+    <value>Categories of this article</value>
+  </data>
+  <data name="PostInfoDate" xml:space="preserve">
+    <value>Date of publication</value>
+  </data>
+  <data name="SearchText" xml:space="preserve">
+    <value>Text to search</value>
+  </data>
+  <data name="Message" xml:space="preserve">
+    <value>Your message</value>
+  </data>
+  <data name="LogInWith" xml:space="preserve">
+    <value>Log in using your {0} account</value>
+  </data>
+</root>

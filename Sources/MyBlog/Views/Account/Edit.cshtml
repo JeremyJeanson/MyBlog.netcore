@@ -1,0 +1,52 @@
+﻿@model MyBlog.Engine.Models.EditAccount
+@{
+    ViewBag.Title = Resources.EditAccount;
+}
+@section scripts{
+    <script src="~/js/account-edit.js" async></script>
+}
+<panel title="@Resources.EditAccount">
+    <div class="alert alert-info">@Resources.EditAccountInformation</div>
+    @if (Model.Success.HasValue)
+    {
+        if (Model.Success.Value)
+        {
+            <div class="alert alert-success">@Resources.EditAccountSuccess</div>
+        }
+        else
+        {
+            <div class="alert alert-danger">@Resources.EditAccountError</div>
+        }
+    }
+    <form asp-action="Edit" method="post" asp-antiforgery="true">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group row">
+            <label asp-for="User.Name" class="control-label col-md-2"></label>
+            <div class="col-md-10">
+                <input asp-for="User.Name" class="form-control" placeholder="@Resources.EnterName" />
+                <span asp-validation-for="User.Name" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="User.Email" class="control-label col-md-2"></label>
+            <div class="col-md-10">
+                <input asp-for="User.Email" class="form-control" placeholder="@Resources.EnterEmail" />
+                <span asp-validation-for="User.Email" class="text-danger"></span>
+                @if (Model.User.EmailValidate)
+                {
+                    <i class="fas fa-check-circle" aria-hidden="true"></i> @Resources.EmailValidationStatusOk
+                }
+                else if (Model.User.Id != 0)
+                {
+                    <i class="fas fa-exclamation-circle" aria-hidden="true"></i> @Resources.EmailValidationStatusKo<br />
+                    <button type="button" class="btn btn-primary" id="sendvalidationmail"><i class="fas fa-paper-plane" aria-hidden="true"></i> @Resources.SendValidationMail</button>
+                }
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="offset-md-2 col-md-10">
+                <input type="submit" value="@Resources.Save" class="btn btn-primary" />
+            </div>
+        </div>
+    </form>
+</panel>

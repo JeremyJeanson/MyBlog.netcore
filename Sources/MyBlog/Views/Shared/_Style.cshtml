@@ -1,0 +1,47 @@
+﻿@model MyBlog.Engine.Models.UserSettings
+@switch (Model.Theme)
+{
+    case 1:
+        {
+            <link href="~/css/dark.css" rel="stylesheet" asp-append-version="true" />
+            break;
+        }
+    case 2:
+        {
+            <link href="~/css/high-contrast.css" rel="stylesheet" asp-append-version="true" />
+            break;
+        }
+    default:
+        {
+            <link href="~/css/default.css" rel="stylesheet" asp-append-version="true" />
+            break;
+        }
+}
+<style id="layoutStyle">
+    @if (Model.UseDyslexicFont) {
+        <text>
+        @@font-face {
+        font-family: "OpenDyslexic";
+        src: url("/fonts/opendyslexic-regular.otf");
+        font-weight: normal;
+        font-style: normal;
+    }
+        </text>
+    }
+
+    body {
+        text-align: @(Model.TextIsJutified ? "justify" : "left");
+        @if (Model.UseDyslexicFont)
+        {
+            <text>font-family: "OpenDyslexic","Helvetica Neue", Arial;</text>
+        }
+        @if (Model.Zoom >0)
+        {
+            <text>zoom:@(Model.Zoom==1 ?"125":"150")%;</text>
+        }
+        @if (Model.LineHeight>0)
+        {
+            <text>line-height:@(Model.LineHeight==1?"200":"300")%;</text>
+        }
+    }
+</style>

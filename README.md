@@ -33,8 +33,7 @@ This blog engine include many features :
 # Tech skills and libraries used
 - .net Core 2.2.
 - ASP .net MVC.
-- NPM
-- Gulp
+- TypeScript.
 - Azure SQL.
 - Azure Blob.
 - Entity Framework Core.
@@ -42,6 +41,8 @@ This blog engine include many features :
 - Bootstrap 4 (SASS version).
 - Font Awesome (for icons).
 - Highlight.js (to render code in blog posts).
+- NPM.
+- Gulp.
 
 # Getting Started
 ## 1. Software requierments.
@@ -63,9 +64,9 @@ Deploiment requirements :
 ## 2. Installation process
 To use this code follow this steps :
 - Clone this repository.
-- Customize the configuration file (many settings are available in this `appSettings` section)
-- Customize the layout file (many settings are available in this `_Layout.cshtml` section)
-- Customize the CSS (`bundle-layout.scss` file contain colors used by bootstrap 4 theme)
+- Customize the configuration file (all settings are available via `appsettings.json`)
+- Customize the layout file (`_Layout.cshtml` View in Shared folder)
+- Customize the CSS (colors used by bootstrap 4 themes are in `default.scss`, `dark.scss` and `high-contrast.scss`. each file allow to build a standealone theme)
 - Run and enjoy ;)
 
 ## 3. User creation and credentials
@@ -79,6 +80,15 @@ If you are writing a long post, it can be split in two parts (with a link at the
 To split a post in two part, you have to edit the HTML of the post. First part should be inside `<summary></summary>`. The second part should be behind the `</summary>`.
 
 Easy no?
+
+## 5. Use a database from MyBlog.net (framework version) to MyBlog.net core
+Prior to migrate, take time to backup your database.
+
+MyBlog.net core use EF core for migration. The first migration include SQL to permit to switch from the .net framework app to the .net core. You have nothing to do.
+
+You have only to update your app.
+
+> You only have to take care to the migration process if you forked the project, and if you have made some change to the EF 6 DataContext and Models.
 
 # Contribute
 Contributions are open. Juste send your ideas or Pull Request ;)

@@ -1,0 +1,51 @@
+﻿@model MyBlog.Engine.Models.UserSettings
+<div class="form" id="accessibilityForm">
+    <div class="form-group">
+        <label for="themeOptions" class="col-sm-12">@Resources.AccessibilityTheme</label>
+        <div id="themeOptions" class="btn-group-vertical btn-group-toggle d-flex" data-toggle="buttons" role="group">
+            <radio-button group="themeOptions" checked="Model.Theme==0" title="@Resources.AccessibilityThemeDefault" onclick="Accessibility.setThemeDefault()" />
+            <radio-button group="themeOptions" checked="Model.Theme==1" title="@Resources.AccessibilityThemeDark" onclick="Accessibility.setThemeDark()" />
+            <radio-button group="themeOptions" checked="Model.Theme==2" title="@Resources.AccessibilityThemeHighContrast" onclick="Accessibility.setThemeHighContrast()" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="fontOptions" class="col-sm-12">@Resources.AccessibilitySettingsFontTitle</label>
+        <div id="fontOptions" class="btn-group-vertical btn-group-toggle d-flex" data-toggle="buttons" role="group">
+            <radio-button group="fontOptions" checked="!Model.UseDyslexicFont" title="@Resources.AccessibilitySettingsFontUseDefault" onclick="Accessibility.setDefaultFont()" />
+            <radio-button group="fontOptions" checked="Model.UseDyslexicFont" title="@Resources.AccessibilitySettingsFontUseDylexia" onclick="Accessibility.setDysFont()" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="textjustifyOptions" class="col-sm-12">@Resources.AccessibilitySettingsTextAlign</label>
+        <div id="textjustifyOptions" class="btn-group-vertical btn-group-toggle d-flex" data-toggle="buttons" role="group">
+            <radio-button group="textjustifyOptions" checked="Model.TextIsJutified" title="@Resources.AccessibilitySettingsSetTextIsJutified" onclick="Accessibility.setTextIsJutified()" />
+            <radio-button group="textjustifyOptions" checked="!Model.TextIsJutified" title="@Resources.AccessibilitySettingsSetTextIsNotJutified" onclick="Accessibility.setTextIsNotJutified()" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="lineOptions" class="col-sm-12">@Resources.AccessibilitySettingsLineHeight</label>
+        <div id="lineOptions" class="btn-group-vertical btn-group-toggle d-flex" data-toggle="buttons" role="group">
+            <radio-button group="lineOptions" checked="Model.LineHeight==0" title="@Resources.AccessibilitySettingsLineHeight100" onclick="Accessibility.setLineHeight100()" />
+            <radio-button group="lineOptions" checked="Model.LineHeight==1" title="@Resources.AccessibilitySettingsLineHeight200" onclick="Accessibility.setLineHeight200()" />
+            <radio-button group="lineOptions" checked="Model.LineHeight==2" title="@Resources.AccessibilitySettingsLineHeight300" onclick="Accessibility.setLineHeight300()" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="zoomOptions" class="col-sm-12">@Resources.AccessibilitySettingsZoom</label>
+        <div id="zoomOptions" class="btn-group-vertical btn-group-toggle d-flex" data-toggle="buttons" role="group">
+            <radio-button group="zoomOptions" checked="Model.Zoom==0" title="100 %" onclick="Accessibility.setSetZoom100()" />
+            <radio-button group="zoomOptions" checked="Model.Zoom==1" title="125 %" onclick="Accessibility.setSetZoom125()" />
+            <radio-button group="zoomOptions" checked="Model.Zoom==2" title="150 %" onclick="Accessibility.setSetZoom150()" />
+        </div>
+    </div>
+</div>
+<script>
+    // Accessibilit radio issue
+    $('input[type=radio]')
+        .focus(function () {
+            $(this).closest("label").addClass("focus");
+        })
+        .blur(function () {
+            $(this).closest("label").removeClass("focus");
+        });
+</script>

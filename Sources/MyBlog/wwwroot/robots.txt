@@ -1,0 +1,6 @@
+user-agent: *
+disallow: /mail
+disallow: /mail/index
+disallow: /share
+disallow: /share/index
+disallow: /metaweblog

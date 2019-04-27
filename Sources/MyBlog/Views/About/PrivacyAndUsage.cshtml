@@ -1,0 +1,11 @@
+﻿@{ 
+    ViewBag.Title = Resources.PrivacyPolicy;
+    ViewBag.Description = Resources.PrivacyPolicyDescription;
+}
+<panel title="@Resources.PrivacyPolicy" icon="fa-user-secret">
+    @Html.Raw(Resources.PrivacyPolicyContent)
+</panel>
+@*@using (Html.BeginPanel(Resources.TermsOfService))
+{
+    @Html.Raw(Resources.TermsOfServiceContent)
+}*@

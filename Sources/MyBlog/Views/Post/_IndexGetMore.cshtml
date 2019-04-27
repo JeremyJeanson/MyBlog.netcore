@@ -1,0 +1,17 @@
+﻿@model MyBlog.Models.Posts
+@inject IOptions<Settings> Options
+@foreach (var item in Model.Items)
+{
+    <partial name="_PostWithSummary" model="item" />
+}
+<script>
+@if (Model.HaveMoreResults)
+{
+    <text>$("#btn-getmore").data("args","?page=@Model.NextPage");</text>
+}
+else
+{
+    <text>$("#btn-getmore").hide();</text>
+}
+    $("#pagination").html('@Html.Raw(Html.GetPagination("Index", Model.Available, Model.Page, Options.Value.PostQuantityPerPage,null))');
+</script>

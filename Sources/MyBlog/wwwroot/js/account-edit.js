@@ -1,0 +1,1 @@
+My.ready(function(){var n=document.getElementById("sendvalidationmail");n&&(n.onclick=function(){My.PostAndDisplay(n.innerHTML,"/Account/SendValidationMail",null)})});

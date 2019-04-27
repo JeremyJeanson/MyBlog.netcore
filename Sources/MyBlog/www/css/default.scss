@@ -1,0 +1,27 @@
+﻿// Theme
+$blue: #337ab7;
+$dark: #222;
+$enable-shadows: true;
+
+$body-bg: #f0f0f0;
+$header-bg: #fff;
+
+$body-color: #212529;
+$info-color: #6c757d;
+$small-color: #6c757d;
+
+$white: #fff;
+$black: #000;
+$navbar-dark-color: $white;
+$navbar-dark-hover-color: $white;
+$navbar-light-color: rgba($black, .9);
+$navbar-light-hover-color: rgba($black, 1);
+
+$card-bg: #fff;
+$card-border-color: rgba($black, .125);
+
+$code-color: #a31515;
+$blockquote-bg: #f8f9fa;
+$blockquote-border: #dee2e6;
+
+@import "all.scss";

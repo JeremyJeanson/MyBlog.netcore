@@ -1,0 +1,10 @@
+﻿@model MyBlog.Engine.Data.Models.PostWithDetails
+@inject IOptions<Settings> Options
+<article-card title="@Model.Title">
+    <partial name="_PostInfos" model="Model" />
+    <div class="content">@Html.Raw(Model.HtmlFull)</div>
+    <div class="author">
+        <i aria-hidden="true"></i>
+        @Options.Value.AuthorName
+    </div>
+</article-card>

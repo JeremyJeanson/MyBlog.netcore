@@ -1,0 +1,44 @@
+﻿@inject IOptions<Settings> options
+@model MyBlog.Models.Mail
+@{ 
+    ViewBag.Title = Resources.Mail;
+    ViewBag.Description = String.Format(Resources.ContactDescription, options.Value.AuthorName);
+}
+<panel title="@Resources.Mail" icon="fa-envelope">
+    <form asp-controller="Mail" method="post" asp-antiforgery="true">
+        <div asp-validation-summary="ModelOnly" class="text-danger"/>
+        <div class="form-group row">
+            <label asp-for="SenderName" class="control-label col-md-2"></label>
+            <div class="col-md-10">
+                <input asp-for="SenderName" class="form-control" placeholder="@Resources.EnterName"/>
+                <span asp-validation-for="SenderName" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="SenderMail" class="control-label col-md-2"></label>
+            <div class="col-md-10">
+                <input asp-for="SenderMail" class="form-control" placeholder="@Resources.EnterEmail" />
+                <span asp-validation-for="SenderMail" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="Subject" class="control-label col-md-2"></label>
+            <div class="col-md-10">
+                <input asp-for="Subject" class="form-control" placeholder="@Resources.EnterSubject" />
+                <span asp-validation-for="Subject" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="Content" class="control-label col-md-2"></label>
+            <div class="col-md-10">
+                <textarea asp-for="Content" class="form-control" placeholder="@Resources.EnterMessage" rows="10"></textarea>
+                <span asp-validation-for="Content" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="offset-md-2 col-md-10">
+                <input type="submit" value="@Resources.Send" class="btn btn-primary" />
+            </div>
+        </div>
+    </form>
+</panel>

@@ -1,0 +1,15 @@
+﻿@inject IOptions<MyBlog.Engine.Settings> options
+<script type="application/ld+json">
+    {
+    "@@context": "http://schema.org",
+    "@@type": "Organization",
+    "name": "@(options.Value.AuthorName)",
+    "url": "@(options.Value.Url)",
+    "logo": "@(options.Value.Url)/images/logo.png",
+    "sameAs": [
+    "https://twitter.com/JeremyJeanson",
+    "https://www.linkedin.com/in/jeremyjeanson",
+    "https://plus.google.com/106963170149599001962"
+    ]
+    }
+</script>

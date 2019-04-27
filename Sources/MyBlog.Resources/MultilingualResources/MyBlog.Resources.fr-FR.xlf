@@ -1,0 +1,438 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-US" target-language="fr-FR" original="MYBLOG.RESOURCES/STRINGS/RESOURCES.RESX" tool-id="MultilingualAppToolkit" product-name="n/a" product-version="n/a" build-num="n/a">
+    <header>
+      <tool tool-id="MultilingualAppToolkit" tool-name="Multilingual App Toolkit" tool-version="4.0.6900.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="MYBLOG.RESOURCES/STRINGS/RESOURCES.RESX" datatype="resx">
+        <trans-unit id="About" translate="yes" xml:space="preserve">
+          <source>About</source>
+          <target state="final">À propos</target>
+        </trans-unit>
+        <trans-unit id="Archives" translate="yes" xml:space="preserve">
+          <source>Archives</source>
+          <target state="final">Archives</target>
+        </trans-unit>
+        <trans-unit id="Categories" translate="yes" xml:space="preserve">
+          <source>Categories</source>
+          <target state="final">Catégories</target>
+        </trans-unit>
+        <trans-unit id="Category" translate="yes" xml:space="preserve">
+          <source>Category</source>
+          <target state="final">Catégorie</target>
+        </trans-unit>
+        <trans-unit id="FeedAtom" translate="no" xml:space="preserve">
+          <source>Atom</source>
+          <target state="final">Atom</target>
+        </trans-unit>
+        <trans-unit id="FeedRss" translate="no" xml:space="preserve">
+          <source>RSS</source>
+          <target state="final">RSS</target>
+        </trans-unit>
+        <trans-unit id="GetMorePost" translate="yes" xml:space="preserve">
+          <source>Get more posts</source>
+          <target state="final">Voir plus d'éléments</target>
+        </trans-unit>
+        <trans-unit id="GetMoreResults" translate="yes" xml:space="preserve">
+          <source>Get more results</source>
+          <target state="final">Voir plus d'éléments</target>
+        </trans-unit>
+        <trans-unit id="Mail" translate="yes" xml:space="preserve">
+          <source>Contact</source>
+          <target state="final">Contact</target>
+        </trans-unit>
+        <trans-unit id="MailSended" translate="yes" xml:space="preserve">
+          <source><bpt id="1">&lt;p&gt;</bpt>Mail sended.<ept id="1">&lt;/p&gt;</ept><bpt id="2">&lt;p&gt;</bpt>Thank you. I will reply as soon as possible.<ept id="2">&lt;/p&gt;</ept></source>
+          <target state="final"><bpt id="1">&lt;p&gt;</bpt>Mail envoyé.<ept id="1">&lt;/p&gt;</ept><bpt id="2">&lt;p&gt;</bpt>Merci. Je répondrai dès que possible.<ept id="2">&lt;/p&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="MailSendError" translate="yes" xml:space="preserve">
+          <source>Sorry, We are not abble to send your mail.</source>
+          <target state="final">Désolé, Nous ne somme pas en mesure d'envoyer votre mail.</target>
+        </trans-unit>
+        <trans-unit id="Me" translate="yes" xml:space="preserve">
+          <source>Me</source>
+          <target state="final">Moi</target>
+        </trans-unit>
+        <trans-unit id="MeContent" translate="yes" xml:space="preserve">
+          <source>Je surf sur la vague .net depuis ses débuts et j'aime partager les expériences que j'y fais...</source>
+          <target state="final">Je surf sur la vague .net depuis ses débuts et j'aime partager les expériences que j'y fais...</target>
+        </trans-unit>
+        <trans-unit id="ReadMore" translate="yes" xml:space="preserve">
+          <source>Read more</source>
+          <target state="final">Lire la suite</target>
+        </trans-unit>
+        <trans-unit id="Search" translate="yes" xml:space="preserve">
+          <source>Search</source>
+          <target state="final">Rechercher</target>
+        </trans-unit>
+        <trans-unit id="Send" translate="yes" xml:space="preserve">
+          <source>Send</source>
+          <target state="final">Envoyer</target>
+        </trans-unit>
+        <trans-unit id="SenderMail" translate="yes" xml:space="preserve">
+          <source>Your email</source>
+          <target state="final">Votre e-mail</target>
+        </trans-unit>
+        <trans-unit id="SenderName" translate="yes" xml:space="preserve">
+          <source>Your name</source>
+          <target state="final">Votre nom</target>
+        </trans-unit>
+        <trans-unit id="Subject" translate="yes" xml:space="preserve">
+          <source>Your subject</source>
+          <target state="final">Votre objet</target>
+        </trans-unit>
+        <trans-unit id="VersionSuffix" translate="yes" xml:space="preserve">
+          <source>by Jérémy Jeanson</source>
+          <target state="final">par Jérémy Jeanson</target>
+        </trans-unit>
+        <trans-unit id="Feeds" translate="yes" xml:space="preserve">
+          <source>Feeds</source>
+          <target state="final">Flux</target>
+        </trans-unit>
+        <trans-unit id="HostedOnAzure" translate="yes" xml:space="preserve">
+          <source>Hosted on Microsoft Azure</source>
+          <target state="final">Hébergé via Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="ExternalLoginCallbackError" translate="yes" xml:space="preserve">
+          <source><bpt id="1">&lt;p&gt;</bpt>An error occurred during the login process. We are sorry.<ept id="1">&lt;/p&gt;</ept><bpt id="2">&lt;p&gt;</bpt>Please try again later.<ept id="2">&lt;/p&gt;</ept></source>
+          <target state="final"><bpt id="1">&lt;p&gt;</bpt>Une erreur est survenue lors de votre a connexion. Nous en somme désolé.<ept id="1">&lt;/p&gt;</ept><bpt id="2">&lt;p&gt;</bpt>S'il vous plaît, veuillez tenter l'opération ultérieurement.<ept id="2">&lt;/p&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="Save" translate="yes" xml:space="preserve">
+          <source>Save</source>
+          <target state="final">Enregistrer</target>
+        </trans-unit>
+        <trans-unit id="EditAccount" translate="yes" xml:space="preserve">
+          <source>Edit your profile</source>
+          <target state="final">Editez votre profil</target>
+        </trans-unit>
+        <trans-unit id="EditAccountError" translate="yes" xml:space="preserve">
+          <source>Sorry we are not able to save your profile. Please try again later.</source>
+          <target state="final">Désolé, nous ne sommes pas en mesure d'enregister votre profil. Veuillez tenté l'opération ultérieurement.</target>
+        </trans-unit>
+        <trans-unit id="EditAccountInformation" translate="yes" xml:space="preserve">
+          <source>Your email is only used when you request to be notified of comments on post you are following.</source>
+          <target state="final">Votre e-mail ne sera utilisé que pour vous notifier de nouveaux commentaires sur les articles que vous aurez choisi de suivre.</target>
+        </trans-unit>
+        <trans-unit id="EditAccountSuccess" translate="yes" xml:space="preserve">
+          <source>Informations saved.</source>
+          <target state="final">Informations enregistrées.</target>
+        </trans-unit>
+        <trans-unit id="LogoutSuccess" translate="yes" xml:space="preserve">
+          <source>You have successfully logget out.</source>
+          <target state="final">Vous avez été déconnecté.</target>
+        </trans-unit>
+        <trans-unit id="Information" translate="yes" xml:space="preserve">
+          <source>Information</source>
+          <target state="final">Information</target>
+        </trans-unit>
+        <trans-unit id="LogInOrSignUp" translate="yes" xml:space="preserve">
+          <source>Login in</source>
+          <target state="final">Se connecter</target>
+        </trans-unit>
+        <trans-unit id="Logout" translate="yes" xml:space="preserve">
+          <source>Log out</source>
+          <target state="final">Se déconnecter</target>
+        </trans-unit>
+        <trans-unit id="Comments" translate="yes" xml:space="preserve">
+          <source>Comments</source>
+          <target state="final">Commentaires</target>
+        </trans-unit>
+        <trans-unit id="NoComments" translate="yes" xml:space="preserve">
+          <source>No comments</source>
+          <target state="final">Pas de commentaires</target>
+        </trans-unit>
+        <trans-unit id="NComments" translate="yes" xml:space="preserve">
+          <source>comments</source>
+          <target state="final">commentaires</target>
+        </trans-unit>
+        <trans-unit id="LogInPriorToComment" translate="yes" xml:space="preserve">
+          <source>You have to be logged in to comment this post.</source>
+          <target state="final">Vous devez être connecter pour commenter cet article.</target>
+        </trans-unit>
+        <trans-unit id="EnterComment" translate="yes" xml:space="preserve">
+          <source>Enter a comment to add to this post</source>
+          <target state="final">Entrez un commentaire à ajouter à cet article</target>
+        </trans-unit>
+        <trans-unit id="EnterEmail" translate="yes" xml:space="preserve">
+          <source>Enter an e-mail</source>
+          <target state="final">Entrez un e-mail</target>
+        </trans-unit>
+        <trans-unit id="EnterMessage" translate="yes" xml:space="preserve">
+          <source>Enter your message</source>
+          <target state="final">Entrez votre message.</target>
+        </trans-unit>
+        <trans-unit id="EnterName" translate="yes" xml:space="preserve">
+          <source>Enter a display name</source>
+          <target state="final">Entrez un nom.</target>
+        </trans-unit>
+        <trans-unit id="EnterSubject" translate="yes" xml:space="preserve">
+          <source>Enter a subject for this message</source>
+          <target state="final">Entrez un objet pour ce message</target>
+        </trans-unit>
+        <trans-unit id="Email" translate="yes" xml:space="preserve">
+          <source>E-Mail</source>
+          <target state="final">E-Mail</target>
+        </trans-unit>
+        <trans-unit id="Name" translate="yes" xml:space="preserve">
+          <source>Name</source>
+          <target state="final">Nom</target>
+        </trans-unit>
+        <trans-unit id="EmailValidationContentFormat" translate="yes" xml:space="preserve">
+          <source><bpt id="1">&lt;p&gt;</bpt>Hi {0},<ept id="1">&lt;/p&gt;</ept>
+<bpt id="2">&lt;p&gt;</bpt>Your mail was used on {1}. To ensure you have requested it, your e-mail will not be used without your validation.<ept id="2">&lt;/p&gt;</ept>
+<bpt id="3">&lt;p&gt;</bpt>If you want to be able to comment en receive comment updates, please use <bpt id="4">&lt;a href='{2}' alt="Validation url"&gt;</bpt>this link<ept id="4">&lt;/a&gt;</ept> to validate your e-mail.<ept id="3">&lt;/p&gt;</ept>
+<bpt id="5">&lt;p&gt;</bpt>If you cannot use this link, copy and past this url in your web browser : {2}<ept id="5">&lt;/p&gt;</ept>
+<bpt id="6">&lt;p&gt;</bpt>Best regards,<ept id="6">&lt;/p&gt;</ept></source>
+          <target state="final"><bpt id="1">&lt;p&gt;</bpt>Bonjour {0},<ept id="1">&lt;/p&gt;</ept>
+<bpt id="2">&lt;p&gt;</bpt>Votre e-mail et été enregistré sur le sute {1}. Afin de s'assure que celui-ci a été avec votre accord, votre e-mail ne serra pas utilisé sans votre validation.<ept id="2">&lt;/p&gt;</ept>
+<bpt id="3">&lt;p&gt;</bpt>Si vous souhaiter pouvoir commenter des articles et être notifier des nouveaux commentaires, SVP utilisez <bpt id="4">&lt;a href='{2}' alt="Validation url"&gt;</bpt>ce lien<ept id="4">&lt;/a&gt;</ept> pour valider votre e-mail.<ept id="3">&lt;/p&gt;</ept>
+<bpt id="5">&lt;p&gt;</bpt>Si vous ne pouvez pas utiliser celui-ci, copiez et coller l'addresse suivante dans votre navigateur : {2}<ept id="5">&lt;/p&gt;</ept>
+<bpt id="6">&lt;p&gt;</bpt>Cordialement,<ept id="6">&lt;/p&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="EmailValidationSubject" translate="yes" xml:space="preserve">
+          <source>Mail confirmation</source>
+          <target state="final">Confirmation d'e-mail</target>
+        </trans-unit>
+        <trans-unit id="EMailCommentAddedContent" translate="yes" xml:space="preserve">
+          <source><bpt id="1">&lt;p&gt;</bpt>Hi {0},<ept id="1">&lt;/p&gt;</ept>
+<bpt id="2">&lt;p&gt;</bpt>A new comment has been hadded to the post <it id="3" pos="open">&lt;a href='{1}' alt='{2}'&gt;</it>'{2}'<ept id="2">&lt;/p&gt;</ept>
+<bpt id="4">&lt;p&gt;</bpt>{1}<ept id="4">&lt;/p&gt;</ept></source>
+          <target state="final"><bpt id="1">&lt;p&gt;</bpt>Bonjour {0},<ept id="1">&lt;/p&gt;</ept>
+<bpt id="2">&lt;p&gt;</bpt>Un nouveau commentaire a été ajouté à l'article <it id="3" pos="open">&lt;a href='{1}' alt='{2}'&gt;</it>'{2}'<ept id="2">&lt;/p&gt;</ept>
+<bpt id="4">&lt;p&gt;</bpt>{1}<ept id="4">&lt;/p&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="EMailCommentAddedSubject" translate="yes" xml:space="preserve">
+          <source>New comment on '{0}'</source>
+          <target state="final">Nouveau commentaire sur '{0}'</target>
+        </trans-unit>
+        <trans-unit id="EmailValidationStatusKo" translate="yes" xml:space="preserve">
+          <source>Your e-mail has not been validated yet. Please, check your mailbox.</source>
+          <target state="final">Votre e-mail n'a pas été validé pour le moment. S'il vous plaît, vérifiez votre boite mail.</target>
+        </trans-unit>
+        <trans-unit id="EmailValidationStatusOk" translate="yes" xml:space="preserve">
+          <source>Your e-mail has been validated.</source>
+          <target state="final">Votre e-mail a été vérifié.</target>
+        </trans-unit>
+        <trans-unit id="SendValidationMail" translate="yes" xml:space="preserve">
+          <source>Send a new validation mail</source>
+          <target state="final">Envoyer un nouvel e-mail de vérfication</target>
+        </trans-unit>
+        <trans-unit id="SendValidationMailError" translate="yes" xml:space="preserve">
+          <source>Sorry we are not able to send a validation mail. Please check your porfile and try again later.</source>
+          <target state="final">Désolé, nous ne somme pas en mesure de valider votre e-mail. S'il vous plaît, veuillez vérifier votre profile et votre boite mail.</target>
+        </trans-unit>
+        <trans-unit id="SendValidationMailSuccess" translate="yes" xml:space="preserve">
+          <source>Mail send. Please check your mailbox.</source>
+          <target state="final">Mail envoyé. S'il vous plaît, vérifiez votre boite mail.</target>
+        </trans-unit>
+        <trans-unit id="SubscribToCommentNotification" translate="yes" xml:space="preserve">
+          <source>I want receive an e-mail when someone post a comment to this post.</source>
+          <target state="final">Je veux recevoir un e-mail quand un commentaire est ajouté à cet article.</target>
+        </trans-unit>
+        <trans-unit id="SubscribToCommentNotificationError" translate="yes" xml:space="preserve">
+          <source>Sorry we are not able to update yoursubscription Please try again later.</source>
+          <target state="final">Désolé, nous ne somme pas en mesure de mettre à jour votre inscription. S'il vous plaît, veuillez tenter l'opération ultérieurement.</target>
+        </trans-unit>
+        <trans-unit id="SubscribToCommentNotificationSuccess" translate="yes" xml:space="preserve">
+          <source>Your subscription has been updated.</source>
+          <target state="final">Votre inscription a été mise à jour.</target>
+        </trans-unit>
+        <trans-unit id="Disclamer" translate="yes" xml:space="preserve">
+          <source>This is a personal weblog. The opinions expressed here represent my own and not those of my employer.</source>
+          <target state="final">Les idées exprimées sur ce site sont les miennes et n'engagent pas mon employeur.</target>
+        </trans-unit>
+        <trans-unit id="PrivacyPolicy" translate="yes" xml:space="preserve">
+          <source>Privacy Policy </source>
+          <target state="final">Politique de confidentialité</target>
+        </trans-unit>
+        <trans-unit id="PrivacyPolicyContent" translate="yes" xml:space="preserve">
+          <source><bpt id="1">&lt;p&gt;</bpt>To  allow you to log in, this application have to store Open Auth informations shared by your providers (Facebook, Twitter.. .etc...). It si only technical data (token). Out of this application, this informations cannot be used and have none interest.<ept id="1">&lt;/p&gt;</ept><bpt id="2">&lt;p&gt;</bpt>Informations collected when you are ednting you profile are used only by this application and are not shared with third parties or other applications. At any time, you are able to edit/delete your informations. It will be permanently removed from the database.<ept id="2">&lt;/p&gt;</ept></source>
+          <target state="final"><bpt id="1">&lt;p&gt;</bpt>Afin de vous permettre de vous connecter, cette application doit stocker les informations d'authentification OpenAuth partagées par vos fournisseurs (Facebook, Twitter... etc...). Il s'agit uniquement de données techniques (token). Hors de cette application, ces informations ne peuvent pas être utilisées et n'ont aucun intérêt.<ept id="1">&lt;/p&gt;</ept><bpt id="2">&lt;p&gt;</bpt>Les informations collectés lors de la saise de votre profile sont uniquement utilisées par cette application et ne sont pas partégées avec d'autres applications. A tout moment, vous être en mesure d'éditer ou supprimer ces  informations. Elles seront suprimées définitivement de la base de données.<ept id="2">&lt;/p&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="TermsOfService" translate="yes" xml:space="preserve">
+          <source>Terms of service</source>
+          <target state="final">Conditions d'utilisation</target>
+        </trans-unit>
+        <trans-unit id="TermsOfServiceContent" translate="yes" xml:space="preserve">
+          <source>This service have no rules. Be  fun, fine and benevolent to enjoy it.</source>
+          <target state="final">Ce service n'a pas de règles. Soyez sympathique et bienveillant pour en profiter.</target>
+        </trans-unit>
+        <trans-unit id="ReadMoreAboutSuffix" translate="yes" xml:space="preserve">
+          <source>about this article</source>
+          <target state="final">de cet article</target>
+        </trans-unit>
+        <trans-unit id="EmptySearchResultMessage" translate="yes" xml:space="preserve">
+          <source>There are no results for this search.</source>
+          <target state="final">Il n'y a aucun résultat pour cette recherche.</target>
+        </trans-unit>
+        <trans-unit id="CookiesConcentContent" translate="yes" xml:space="preserve">
+          <source>This website uses cookies and similar technologies to allow us to promote our services and enhance your browsing experience. If you continue to use this website you agree to our use of cookies.</source>
+          <target state="final">Ce site utilise des cookies pour améliorer votre expérience de navigation (paramètres personnels). Si vous continuez de naviguer sur ce site, vous êtes en accord avec cet usage des cookies.</target>
+        </trans-unit>
+        <trans-unit id="CookiesConcentTitle" translate="no" xml:space="preserve">
+          <source>Cookies</source>
+          <target state="final">Cookies</target>
+        </trans-unit>
+        <trans-unit id="CookiesPolityTitle" translate="yes" xml:space="preserve">
+          <source>Cookie Policy</source>
+          <target state="final">Usage des cookies</target>
+        </trans-unit>
+        <trans-unit id="CookiesPolityContent" translate="yes" xml:space="preserve">
+          <source><bpt id="1">&lt;p&gt;</bpt>This website use cookie to enhance your browsing experience.<ept id="1">&lt;/p&gt;</ept>
+Cookies that could be used are:
+<bpt id="2">&lt;ul&gt;</bpt><bpt id="3">&lt;li&gt;</bpt>To save your settings.
+<ept id="3">&lt;/li&gt;</ept><bpt id="4">&lt;li&gt;</bpt>To preserver your session when you are authenticated via social networks.
+<ept id="4">&lt;/li&gt;</ept><bpt id="5">&lt;li&gt;</bpt>To analyze pages the most view, to have an idea about the content loved by users.<ept id="5">&lt;/li&gt;</ept>
+<ept id="2">&lt;/ul&gt;</ept></source>
+          <target state="final"><bpt id="1">&lt;p&gt;</bpt>Ce site utilise des cookies pour améliorer votre expérience de navigation.<ept id="1">&lt;/p&gt;</ept>
+Les cookies peuvent être utilisés pour:
+<bpt id="2">&lt;ul&gt;</bpt><bpt id="3">&lt;li&gt;</bpt>Conserver vos préférences.
+<ept id="3">&lt;/li&gt;</ept><bpt id="4">&lt;li&gt;</bpt>Préserver l'état de votre session quand vous êtes authentifié via les réseaux sociaux.<ept id="4">&lt;/li&gt;</ept><bpt id="5">&lt;li&gt;</bpt>Analyser les pages les plus vues et avoir une idée du contenu apprécié par les utilisateurs.<ept id="5">&lt;/li&gt;</ept>
+<ept id="2">&lt;/ul&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="AccessibilitySettingsFontTitle" translate="yes" xml:space="preserve">
+          <source>Font</source>
+          <target state="final">Police</target>
+        </trans-unit>
+        <trans-unit id="AccessibilitySettingsFontUseDefault" translate="yes" xml:space="preserve">
+          <source>Use the default font</source>
+          <target state="final">Utiliser la police à défaut
+</target>
+        </trans-unit>
+        <trans-unit id="AccessibilitySettingsFontUseDylexia" translate="yes" xml:space="preserve">
+          <source>Use the dyslexic font</source>
+          <target state="final">Utilisez la police pour dyslexiques</target>
+        </trans-unit>
+        <trans-unit id="Accessibility" translate="yes" xml:space="preserve">
+          <source>Accessibility</source>
+          <target state="final">Accessibilité</target>
+        </trans-unit>
+        <trans-unit id="AccessibilityFullTitle" translate="yes" xml:space="preserve">
+          <source>Accessibility settings</source>
+          <target state="final">Paramètres d'accessibilité</target>
+        </trans-unit>
+        <trans-unit id="AboutDescription" translate="yes" xml:space="preserve">
+          <source>Informations about {0}, author of this blog</source>
+          <target state="final">Informations au sujet de {0}, auteur de ce blog</target>
+        </trans-unit>
+        <trans-unit id="ArchivesDescription" translate="yes" xml:space="preserve">
+          <source>Archives for {0}</source>
+          <target state="final">Archives de {0}</target>
+        </trans-unit>
+        <trans-unit id="CategoryDescription" translate="yes" xml:space="preserve">
+          <source>Posts in the category '{0}'</source>
+          <target state="final">Articles dans la catégorie '{0}'</target>
+        </trans-unit>
+        <trans-unit id="ContactDescription" translate="yes" xml:space="preserve">
+          <source>Contact {0}, author of this blog</source>
+          <target state="final">Contacter {0}, auteur de ce blog</target>
+        </trans-unit>
+        <trans-unit id="CookiesPolityDescription" translate="yes" xml:space="preserve">
+          <source>Informations about our Cookie Policy</source>
+          <target state="final">Informations au sujet de notre utilisation des Cookies</target>
+        </trans-unit>
+        <trans-unit id="PrivacyPolicyDescription" translate="yes" xml:space="preserve">
+          <source>Informations about our Privacy Policy</source>
+          <target state="final">Informations au sujet de notre politique de confidentialité</target>
+        </trans-unit>
+        <trans-unit id="SearchDescription" translate="yes" xml:space="preserve">
+          <source>Search result for '{0}'</source>
+          <target state="final">Résultats de la recherche pour '{0}'</target>
+        </trans-unit>
+        <trans-unit id="Share" translate="yes" xml:space="preserve">
+          <source>Share</source>
+          <target state="final">Partager</target>
+        </trans-unit>
+        <trans-unit id="ShareWith" translate="yes" xml:space="preserve">
+          <source>Share with</source>
+          <target state="final">Partager avec</target>
+        </trans-unit>
+        <trans-unit id="ToggleNavigation" translate="yes" xml:space="preserve">
+          <source>Toggle navigation</source>
+          <target state="final">Afficher ou masquer le menu de navigation</target>
+        </trans-unit>
+        <trans-unit id="ShowMoreShareOptions" translate="yes" xml:space="preserve">
+          <source>Show more share options</source>
+          <target state="final">Afficher plus d'options de partage</target>
+        </trans-unit>
+        <trans-unit id="AccessibilitySettingsZoom" translate="yes" xml:space="preserve">
+          <source>Zoom</source>
+          <target state="final">Zoom</target>
+        </trans-unit>
+        <trans-unit id="AccessibilitySettingsSetTextIsJutified" translate="yes" xml:space="preserve">
+          <source>Justify the text</source>
+          <target state="final">Justifier le texte</target>
+        </trans-unit>
+        <trans-unit id="No" translate="yes" xml:space="preserve">
+          <source>No</source>
+          <target state="final">Non</target>
+        </trans-unit>
+        <trans-unit id="Yes" translate="yes" xml:space="preserve">
+          <source>Yes</source>
+          <target state="final">Oui</target>
+        </trans-unit>
+        <trans-unit id="AccessibilitySettingsTextAlign" translate="yes" xml:space="preserve">
+          <source>Text alignment</source>
+          <target state="final">Alignement du texte</target>
+        </trans-unit>
+        <trans-unit id="AccessibilitySettingsSetTextIsNotJutified" translate="yes" xml:space="preserve">
+          <source>Align text on left</source>
+          <target state="final">Aligner le texte sur la gauche</target>
+        </trans-unit>
+        <trans-unit id="AccessibilitySettingsLineHeight" translate="yes" xml:space="preserve">
+          <source>Space between two lines</source>
+          <target state="final">Espace entre deux lignes</target>
+        </trans-unit>
+        <trans-unit id="AccessibilitySettingsLineHeight100" translate="yes" xml:space="preserve">
+          <source>Use the default space</source>
+          <target state="final">Utilisez l'espace par défaut</target>
+        </trans-unit>
+        <trans-unit id="AccessibilitySettingsLineHeight200" translate="yes" xml:space="preserve">
+          <source>Double space</source>
+          <target state="final">Doubler l'espace</target>
+        </trans-unit>
+        <trans-unit id="AccessibilitySettingsLineHeight300" translate="yes" xml:space="preserve">
+          <source>Triple space</source>
+          <target state="final">Tripler l'espace</target>
+        </trans-unit>
+        <trans-unit id="AccessibilityTheme" translate="yes" xml:space="preserve">
+          <source>Theme</source>
+          <target state="final">Thème</target>
+        </trans-unit>
+        <trans-unit id="AccessibilityThemeDefault" translate="yes" xml:space="preserve">
+          <source>Use the default theme</source>
+          <target state="final">Utiliser le thème clair</target>
+        </trans-unit>
+        <trans-unit id="AccessibilityThemeDark" translate="yes" xml:space="preserve">
+          <source>Use the dark theme</source>
+          <target state="final">Utiliser le thème sombre</target>
+        </trans-unit>
+        <trans-unit id="AccessibilityThemeHighContrast" translate="yes" xml:space="preserve">
+          <source>Use the high contrast theme</source>
+          <target state="final">Utiliser le thème à contraste élevé</target>
+        </trans-unit>
+        <trans-unit id="PostInfoCategories" translate="yes" xml:space="preserve">
+          <source>Categories of this article</source>
+          <target state="final">Catégories de cet article</target>
+        </trans-unit>
+        <trans-unit id="PostInfoDate" translate="yes" xml:space="preserve">
+          <source>Date of publication</source>
+          <target state="final">Date de publication</target>
+        </trans-unit>
+        <trans-unit id="SearchText" translate="yes" xml:space="preserve">
+          <source>Text to search</source>
+          <target state="final">Texte à rechercher</target>
+        </trans-unit>
+        <trans-unit id="Message" translate="yes" xml:space="preserve">
+          <source>Your message</source>
+          <target state="final">Votre message</target>
+        </trans-unit>
+        <trans-unit id="LogInWith" translate="yes" xml:space="preserve">
+          <source>Log in using your {0} account</source>
+          <target state="final">Se connecter en utilisant votre compte {0}</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

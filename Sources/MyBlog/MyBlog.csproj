@@ -1,0 +1,64 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <AssemblyVersion>2.0.0.25</AssemblyVersion>
+    <FileVersion>2.0.0.25</FileVersion>
+    <NeutralLanguage>en-US</NeutralLanguage>
+    <Version>1.0.0</Version>
+    <TypeScriptToolsVersion>3.3</TypeScriptToolsVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="www\js\Account-Edit.ts" />
+    <None Remove="www\js\App.ts" />
+    <None Remove="www\js\Get-More-Items.ts" />
+    <None Remove="www\js\Post-Details.ts" />
+    <None Remove="www\js\_my.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.BrowserLink" Version="2.2.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MyBlog.Engine.Data\MyBlog.Engine.Data.csproj" />
+    <ProjectReference Include="..\MyBlog.Engine\MyBlog.Engine.csproj" />
+    <ProjectReference Include="..\MyBlog.Resources\MyBlog.Resources.csproj" />
+    <ProjectReference Include="..\MyLib.Web\MyLib.Web.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Views\Account\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <TypeScriptCompile Include="www\js\Account-Edit.ts" />
+    <TypeScriptCompile Include="www\js\Get-More-Items.ts" />
+    <TypeScriptCompile Include="www\js\App.ts" />
+    <TypeScriptCompile Include="www\js\Post-Details.ts" />
+    <TypeScriptCompile Include="www\js\_my.ts" />
+    <TypeScriptCompile Include="www\js\Accessibility.ts" />
+  </ItemGroup>
+
+  <ProjectExtensions><VisualStudio><UserProperties package_1json__JSONSchema="http://json.schemastore.org/avro-avsc" /></VisualStudio></ProjectExtensions>
+
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
+    <TypeScriptTarget>ES5</TypeScriptTarget>
+    <TypeScriptJSXEmit>None</TypeScriptJSXEmit>
+    <TypeScriptModuleKind />
+    <TypeScriptCompileOnSaveEnabled>True</TypeScriptCompileOnSaveEnabled>
+    <TypeScriptNoImplicitAny>False</TypeScriptNoImplicitAny>
+    <TypeScriptRemoveComments>True</TypeScriptRemoveComments>
+    <TypeScriptOutFile />
+    <TypeScriptOutDir />
+    <TypeScriptGeneratesDeclarations>False</TypeScriptGeneratesDeclarations>
+    <TypeScriptNoEmitOnError>True</TypeScriptNoEmitOnError>
+    <TypeScriptSourceMap>False</TypeScriptSourceMap>
+    <TypeScriptMapRoot />
+    <TypeScriptSourceRoot />
+  </PropertyGroup>
+
+</Project>

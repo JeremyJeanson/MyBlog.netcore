@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <Authors>Jérémy Jeanson</Authors>
+    <NeutralLanguage>en-US</NeutralLanguage>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Sendgrid" Version="9.11.0" />
+    <PackageReference Include="WindowsAzure.Storage" Version="9.3.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MyBlog.Engine.Data\MyBlog.Engine.Data.csproj" />
+    <ProjectReference Include="..\MyBlog.Resources\MyBlog.Resources.csproj" />
+    <ProjectReference Include="..\MyLib.Web\MyLib.Web.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,11 @@
+﻿@model System.Boolean
+<panel title="@Resources.EmailValidationSubject">
+    @if (Model)
+    {
+        <div class="alert alert-success">@Resources.EmailValidationStatusOk</div>
+    }
+    else
+    {
+        <div class="alert alert-danger">@Resources.EmailValidationStatusKo</div>
+    }
+</panel>
