@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using MyBlog.Engine;
+using MyBlog.Engine.Models;
+using MyBlog.Engine.Services;
 using MyBlog.Models;
 using MyBlog.Strings;
 using System;
@@ -36,7 +38,7 @@ namespace MyBlog.Controllers
         /// Get
         /// </summary>
         /// <returns></returns>
-        public ActionResult Index()
+        public ActionResult Index(String subject)
         {
             // Create model
             Mail model;
@@ -46,11 +48,15 @@ namespace MyBlog.Controllers
 
             // If user is available initialize mail
             model = user == null
-                ? new Mail()
+                ? new Mail
+                {
+                    Subject = subject
+                }
                 : new Mail
                 {
                     SenderMail = user.Email,
-                    SenderName = user.Name
+                    SenderName = user.Name,
+                    Subject = subject
                 };
 
             return View(model);
@@ -69,6 +75,8 @@ namespace MyBlog.Controllers
             {
                 // Try to send mail
                 if (await _mailService.Send(
+                    model.SenderMail,
+                    model.SenderName,
                     _options.Value.AuthorMail,
                     _options.Value.AuthorName,
                     model.Subject,

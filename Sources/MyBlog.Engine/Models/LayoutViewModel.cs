@@ -1,11 +1,5 @@
 ﻿using MyBlog.Engine.Data.Models;
-using MyBlog.Strings;
-using MyLib.Web.Helpers;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MyBlog.Engine.Models
 {
@@ -17,21 +11,6 @@ namespace MyBlog.Engine.Models
 
         #region Constructor
 
-        /// <summary>
-        /// Constructor
-        /// </summary>
-        /// <param name="data"></param>
-        /// <param name="user"></param>
-        /// <param name="userSettings"></param>
-        public LayoutViewModel(DataService data, UserService user, UserSettingsService userSettings)
-        {
-            Version = ApplicationHelper.GetVersion() + " " + Resources.VersionSuffix;
-            Categories = data.GetGateoriesCounters();
-            Archives = data.GetArchives();
-            User = user.Get();
-            UserSettings = userSettings.Get();
-        }
-
         #endregion
 
         #region Properties
@@ -39,27 +18,27 @@ namespace MyBlog.Engine.Models
         /// <summary>
         ///  counters
         /// </summary>
-        public Counter[] Categories { get; }
+        public Counter[] Categories { get; internal set; }
 
         /// <summary>
         /// Archives
         /// </summary>
-        public ArchiveLink[] Archives { get; }
+        public ArchiveLink[] Archives { get; internal set; }
 
         /// <summary>
         /// Version
         /// </summary>
-        public String Version { get; }
+        public String Version { get; internal set; }
 
         /// <summary>
         /// User loged in
         /// </summary>
-        public UserProfile User { get; }
+        public UserProfile User { get; internal set; }
 
         /// <summary>
         /// User's settings
         /// </summary>
-        public UserSettings UserSettings { get; }
+        public UserSettings UserSettings { get; internal set; }
 
         #endregion
     }

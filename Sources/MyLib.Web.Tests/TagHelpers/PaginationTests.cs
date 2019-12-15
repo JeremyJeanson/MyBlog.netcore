@@ -1,16 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Routing;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using MyLib.Web.TagHelpers;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MyLib.Web.Tests.TagHelpers
 {
-    [TestClass]
     public sealed class PaginationTests
     {
         private class UrlHelperMock : IUrlHelper
@@ -45,7 +39,7 @@ namespace MyLib.Web.Tests.TagHelpers
             }
         }
 
-        //[TestMethod]
+        //[Fact]
         //public void GetHtmlTest1()
         //{
         //    var p = new Pagination(new UrlHelperMock());

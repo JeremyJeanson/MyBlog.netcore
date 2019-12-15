@@ -31,7 +31,7 @@ This blog engine include many features :
 - ... and so many more to document ...
 
 # Tech skills and libraries used
-- .net Core 2.2.
+- .net Core 3.1.
 - ASP .net MVC.
 - TypeScript.
 - Azure SQL.
@@ -40,7 +40,7 @@ This blog engine include many features :
 - SASS.
 - Bootstrap 4 (SASS version).
 - Font Awesome (for icons).
-- Highlight.js (to render code in blog posts).
+- Prims js (to render code in blog posts).
 - NPM.
 - Gulp.
 

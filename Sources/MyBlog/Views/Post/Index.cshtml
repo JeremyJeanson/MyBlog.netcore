@@ -9,6 +9,13 @@
 @section scripts{
     <script src="~/js/post.js" async asp-append-version="true"></script>
 }
+@section head{
+    <meta property="og:url" content="@(options.Value.Url)" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="@(options.Value.Title)" />    
+    <meta property="og:site_name" content="@(options.Value.Title)" />
+    <meta property="og:description" content="Un petit recueil de trucs astuces sur les developpements .net, XAML, Xamarin, UWP, WPF, WCF et Workflow Foundation entre autre" />
+}
 @section ldjson{
     <partial name="_OrganisationLdJson" />
     <script type="application/ld+json">

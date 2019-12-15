@@ -42,9 +42,6 @@
   <data name="Me" xml:space="preserve">
     <value>Moi</value>
   </data>
-  <data name="MeContent" xml:space="preserve">
-    <value>Je surf sur la vague .net depuis ses débuts et j'aime partager les expériences que j'y fais...</value>
-  </data>
   <data name="ReadMore" xml:space="preserve">
     <value>Lire la suite</value>
   </data>
@@ -315,6 +312,9 @@ Les cookies peuvent être utilisés pour:
     <value>Votre message</value>
   </data>
   <data name="LogInWith" xml:space="preserve">
-    <value>Se connecter en utilisant votre compte {0}</value>
+    <value>Se connecter en utilisant {0}</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>Accueil</value>
   </data>
 </root>

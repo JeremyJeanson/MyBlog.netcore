@@ -6,14 +6,6 @@ namespace MyBlog.Engine.Data.Models
     {
         public String Text { get; set; }
 
-        public String Html
-        {
-            get
-            {
-                return Text;
-            }
-        }
-
         public DateTime DateCreatedGmt { get; set; }
 
         public String Author { get; set; }

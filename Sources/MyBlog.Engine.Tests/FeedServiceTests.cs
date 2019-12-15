@@ -1,21 +1,16 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using MyBlog.Engine.Services;
+using Xunit;
 
 namespace MyBlog.Engine.Tests
 {
-    [TestClass]
     public sealed class FeedServiceTests
     {
-        [TestMethod]
+        [Fact]
         public void GetTest1()
         {
             var feed = TestsSetvices.Current.Get<FeedService>();
             var result = feed.Get();
-            Assert.IsNotNull(result);
+            Assert.NotNull(result);
         }
     }
 }

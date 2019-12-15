@@ -1,12 +1,13 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MyBlog.Engine.Models;
+using MyBlog.Engine.Services;
 using MyLib.Web.Filters;
 using System;
 
 namespace MyBlog.Engine.Controllers
 {
 
-    [XRobotsTagNoIndex]
+    [XRobotsTagNoIndexAttribute]
     public class UserSettingsController : Controller
     {
         #region Declarations
@@ -53,7 +54,7 @@ namespace MyBlog.Engine.Controllers
         }
         
         [HttpPost]
-        public PartialViewResult _Accessibility()
+        public PartialViewResult PostAccessibility()
         {
             return PartialView("_Accessibility", _userSettingsService.Get());
         }

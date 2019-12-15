@@ -1,21 +1,16 @@
 ﻿using Microsoft.Extensions.Options;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MyBlog.Controllers;
-using MyBlog.Engine;
+using MyBlog.Engine.Models;
+using MyBlog.Engine.Services;
 using MyBlog.Engine.Tests;
-using MyLib.Web.SoeSiteMap;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using MyLib.Web.Soe;
+using Xunit;
 
 namespace MyBlog.Tests.Controllers
 {
-    [TestClass]
     public class SiteMapControllerTests
     {
-        [TestMethod]
+        [Fact]
         public void IndexTest()
         {
             var controller = new SiteMapController(

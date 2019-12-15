@@ -1,62 +1,57 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using MyBlog.Engine.Data;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Xunit;
 
 namespace MyBlog.Engine.Tests.DataService
 {
-    [TestClass]
     public class CategoriesTests
     {
-        [TestMethod]
+        [Fact]
         public void AddAndRemoveCategoryTest1()
         {
-            var db = TestsSetvices.Current.Get<MyBlog.Engine.DataService>();
+            var db = TestsSetvices.Current.Get<Services.DataService>();
             var category = new Data.Models.Category { Name = ("Test " + Guid.NewGuid().ToString()).Substring(0,40) };
             if (db.AddCategory(category))
             {
                 // Get from db
                 category = db.GetCategories().FirstOrDefault(c => c.Name == category.Name);
                 // Remove
-                Assert.IsTrue(db.RemoveCategory(category));
+                Assert.True(db.RemoveCategory(category));
             }
             else
             {
-                Assert.Fail("AddCategory() returned false");
+                throw new Exception("AddCategory() returned false");
             }
         }
 
-        [TestMethod]
+        [Fact]
         public void GetCategoriesAndCreatIfNotExistsTest1()
         {
-            var db = TestsSetvices.Current.Get<MyBlog.Engine.DataService>();
+            var db = TestsSetvices.Current.Get<Services.DataService>();
             String category1 = "Catégorie 1";
             String category2 = "C@t€gor# 2";
             var categories = db.GetCategoriesAndCreatIfNotExists(new[] { category1, category2 });
-            Assert.AreEqual(2, categories.Length);
-            Assert.AreEqual(category1, categories[0].Name);
-            Assert.AreEqual(category2, categories[1].Name);
+            Assert.Equal(2, categories.Length);
+            Assert.Equal(category1, categories[0].Name);
+            Assert.Equal(category2, categories[1].Name);
 
             var result = db.GetCategories();
-            Assert.AreNotEqual(0, result.Length);
-            Assert.IsTrue(result.Length >= 2);
+            Assert.NotEmpty(result);
+            Assert.True(result.Length >= 2);
         }
 
-        [TestMethod]
+        [Fact]
         public void GetGateoriesCountersTest1()
         {
-            var db = TestsSetvices.Current.Get<MyBlog.Engine.DataService>();
+            var db = TestsSetvices.Current.Get<Services.DataService>();
             var result = db.GetGateoriesCounters();
         }
 
 
-        [TestMethod]
+        [Fact]
         public void GetPostsInCategory1()
         {
-            var db = TestsSetvices.Current.Get<MyBlog.Engine.DataService>();
+            var db = TestsSetvices.Current.Get<Services.DataService>();
             String category1 = "Category 1";
             var categories = db.GetCategoriesAndCreatIfNotExists(new[] { category1 });
             db.AddPost(new Data.Models.Post
@@ -69,9 +64,11 @@ namespace MyBlog.Engine.Tests.DataService
                 EndOfContent = "End " + Guid.NewGuid().ToString()
             }, categories.Select(c => c.Id).ToArray());
 
-            var result = db.GetPostsInCategory(categories[0].Id, 0);
-            Assert.AreNotEqual(0, result.Length);
-            Assert.IsTrue(result.Length >= 1);
+            var categoryId = categories[0].Id;
+
+            var result = db.GetPostsInCategory(categoryId, 0);
+            Assert.NotEmpty(result);
+            Assert.True(result.Length >= 1);
         }
     }
 }

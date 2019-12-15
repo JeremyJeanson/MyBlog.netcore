@@ -83,9 +83,5 @@ namespace MyBlog.Engine.Models
         }
 
         #endregion
-
-        #region Methodes
-
-        #endregion
     }
 }

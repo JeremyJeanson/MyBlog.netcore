@@ -1,0 +1,60 @@
+﻿// Theme
+$blue: #337ab7;
+$dark: #201F1E; // Menu bg
+$enable-shadows: true;
+
+$body-bg: #252423;
+$header-bg: #323130;
+$footer-bg: $dark;
+
+$body-color: rgba(255,255,255,0.95);
+$info-color: rgba(255,255,255,0.8);
+$small-color: rgba(255,255,255,0.8);
+
+$border-color: #3E3E42;
+$card-bg: #323130;
+$card-border-color: $border-color;
+
+$white: #fff;
+$black: #000;
+$navbar-dark-color: $white;
+$navbar-dark-hover-color: $white;
+$navbar-light-color: rgba($black, .9);
+$navbar-light-hover-color: rgba($black, 1);
+
+$dropdown-color: $body-color;
+$dropdown-link-color: $body-color;
+$dropdown-bg: $body-bg;
+$dropdown-link-hover-bg: $card-bg;
+$dropdown-link-hover-color: $white;
+
+$modal-content-bg: $body-bg;
+$modal-content-border-color: $border-color;
+$close-color: $body-color;
+
+$list-group-bg: $card-bg ;
+$list-group-hover-bg: $body-bg;
+$list-group-action-color: $body-color;
+$list-group-active-border-color: $card-bg;
+$list-group-action-hover-color: $white;
+
+$input-bg: $body-bg ;
+$input-color: $body-color;
+$input-placeholder-color: $body-color ;
+$input-border-color: $border-color;
+$light: $body-bg ;
+
+$pagination-bg: $card-bg;
+$pagination-border-color: $border-color ;
+$pagination-hover-border-color: $border-color;
+$pagination-hover-bg: rgba($black, 0.9);
+    
+$code-color: $body-color;
+$blockquote-bg: $body-bg;
+$blockquote-border: $border-color;
+
+@import "all.scss";
+
+.btn-light {
+    border-color: $border-color;
+}

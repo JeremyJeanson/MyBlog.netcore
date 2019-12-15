@@ -295,7 +295,7 @@ namespace MyBlog.Strings {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to This website uses cookies and similar technologies to allow us to promote our services and enhance your browsing experience. If you continue to use this website you agree to our use of cookies..
+        ///   Looks up a localized string similar to This website uses cookies to allow us to enhance your browsing experience (accessibility settings). If you continue to use this website you agree to our use of cookies..
         /// </summary>
         public static string CookiesConcentContent {
             get {
@@ -567,6 +567,15 @@ namespace MyBlog.Strings {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Home.
+        /// </summary>
+        public static string Home {
+            get {
+                return ResourceManager.GetString("Home", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Hosted on Microsoft Azure.
         /// </summary>
         public static string HostedOnAzure {
@@ -603,7 +612,7 @@ namespace MyBlog.Strings {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Log in using your {0} account.
+        ///   Looks up a localized string similar to Log in using {0}.
         /// </summary>
         public static string LogInWith {
             get {
@@ -662,15 +671,6 @@ namespace MyBlog.Strings {
         public static string Me {
             get {
                 return ResourceManager.GetString("Me", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Je surf sur la vague .net depuis ses débuts et j&apos;aime partager les expériences que j&apos;y fais....
-        /// </summary>
-        public static string MeContent {
-            get {
-                return ResourceManager.GetString("MeContent", resourceCulture);
             }
         }
         
@@ -747,7 +747,7 @@ namespace MyBlog.Strings {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;p&gt;To  allow you to log in, this application have to store Open Auth informations shared by your providers (Facebook, Twitter.. .etc...). It si only technical data (token). Out of this application, this informations cannot be used and have none interest.&lt;/p&gt;&lt;p&gt;Informations collected when you are ednting you profile are used only by this application and are not shared with third parties or other applications. At any time, you are able to edit/delete your informations. It will be permanently removed from the  [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to &lt;p&gt;To  allow you to log in, this application have to store Open Auth informations shared by your providers (Facebook, Twitter.. .etc...). It si only technical data (token). Out of this application, this informations cannot be used and have none interest.&lt;/p&gt;&lt;p&gt;Informations collected when you are editing you profile are used only by this application and are not shared with third parties or other applications. At any time, you are able to edit/delete your informations. It will be permanently removed from the  [rest of string was truncated]&quot;;.
         /// </summary>
         public static string PrivacyPolicyContent {
             get {

@@ -1,15 +1,7 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Options;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MyBlog.Engine;
 using MyBlog.Engine.Data;
-using Microsoft.EntityFrameworkCore;
-using System.Diagnostics;
 
 namespace MyBlog.Engine.Tests
 {
@@ -17,12 +9,7 @@ namespace MyBlog.Engine.Tests
     {
         #region Singleton
 
-        static TestsSetvices()
-        {
-            Current = new TestsSetvices();
-        }
-
-        public static TestsSetvices Current { get; }
+        public static TestsSetvices Current => new TestsSetvices();
 
         #endregion
 

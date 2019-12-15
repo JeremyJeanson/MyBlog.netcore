@@ -1,39 +1,56 @@
 ﻿using Microsoft.Extensions.Options;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MyBlog.Engine.Data;
+using MyBlog.Engine.Models;
 using MyBlog.Engine.Tests.DataService;
+using Services.Tests.DataService;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Xml.Linq;
+using Xunit;
 
 namespace MyBlog.Engine.Tests
 {
-    [TestClass]
     public sealed class MetaWeblogServiceTests
     {
+        private const String Login = "admin";
+        private const String Password = "Password#1";
+
+        public MetaWeblogServiceTests()
+        {
+            // Reset de l'identifiant
+            var context = TestsSetvices.Current.Get<DataContext>();
+            var todelete = context.Publishers.ToArray();
+            foreach (var p in todelete)
+            {
+                context.Publishers.Remove(p);
+            }
+            context.SaveChanges();
+
+            var ds = TestsSetvices.Current.Get<Services.DataService>();
+            ds.CreatePublisher(Login, Password);
+        }
+
         /// <summary>
         /// Process to MetaWeblogService access
         /// </summary>
         /// <param name="xml"></param>
         /// <returns></returns>
-        private XDocument Process(String xml, Boolean expected)
+        private static XDocument Process(String xml, Boolean expected)
         {
-            var service = TestsSetvices.Current.Get<MetaWeblogService>();
+            var service = TestsSetvices.Current.Get<Services.MetaWeblogService>();
             XDocument input = XDocument.Parse(xml);
             var actual = service.Process(input);
             // Test fault
-            Assert.AreEqual(expected, !actual.Descendants("fault").Any());
+            Assert.Equal(expected, !actual.Descendants("fault").Any());
 
             return actual;
         }
 
 
-        [TestMethod]
+        [Fact]
         public void GetUsersBlogs1()
         {
-            var result = Process(@"<methodCall>
+            var result = Process($@"<methodCall>
   <methodName>blogger.getUsersBlogs</methodName>
   <params>
     <param>
@@ -43,36 +60,36 @@ namespace MyBlog.Engine.Tests
     </param>
     <param>
       <value>
-        <string>admin</string>
+        <string>{Login}</string>
       </value>
     </param>
     <param>
       <value>
-        <string>password</string>
+        <string>{Password}</string>
       </value>
     </param>
   </params>
 </methodCall>",true);
-            Assert.IsNotNull(result);
+            Assert.NotNull(result);
 
             // Get value
             var actual = result.Descendants("struct");
-            Assert.IsNotNull(actual);
+            Assert.NotNull(actual);
             var values = actual.Descendants("value").Select(c=>c.Value).ToArray();
-            Assert.AreEqual(3, values.Length);
+            Assert.Equal(3, values.Length);
 
 
             // Settings
             var settings = TestsSetvices.Current.Get<IOptions<Settings>>()?.Value;
 
-            Assert.AreEqual(settings.Url, values[0]);
-            Assert.AreEqual(settings.Title, values[2]);
+            Assert.Equal(settings.Url, values[0]);
+            Assert.Equal(settings.Title, values[2]);
         }
 
-        [TestMethod]
+        [Fact]
         public void GetUsersBlogs2()
         {
-            var result = Process(@"<methodCall>
+            var result = Process($@"<methodCall>
   <methodName>blogger.getUsersBlogs</methodName>
   <params>
     <param>
@@ -82,7 +99,7 @@ namespace MyBlog.Engine.Tests
     </param>
     <param>
       <value>
-        <string>admin</string>
+        <string>{Login}</string>
       </value>
     </param>
     <param>
@@ -92,15 +109,15 @@ namespace MyBlog.Engine.Tests
     </param>
   </params>
 </methodCall>", false);
-            Assert.IsNotNull(result);
+            Assert.NotNull(result);
         }
 
-        [TestMethod]
+        [Fact]
         public void GetGetCategories()
         {
             new CategoriesTests().GetCategoriesAndCreatIfNotExistsTest1();
 
-            var result = Process(@"<methodCall>
+            var result = Process($@"<methodCall>
   <methodName>metaWeblog.getCategories</methodName>
   <params>
     <param>
@@ -110,12 +127,12 @@ namespace MyBlog.Engine.Tests
     </param>
     <param>
       <value>
-        <string>admin</string>
+        <string>{Login}</string>
       </value>
     </param>
     <param>
       <value>
-        <string>password</string>
+        <string>{Password}</string>
       </value>
     </param>
   </params>
@@ -123,19 +140,19 @@ namespace MyBlog.Engine.Tests
 
             // Get value
             var actual = result.Descendants("struct");
-            Assert.IsNotNull(actual);
-            Assert.IsTrue(actual.Count() > 0);
+            Assert.NotNull(actual);
+            Assert.True(actual.Count() > 0);
             var values = actual.Descendants("value").Select(c => c.Value).ToArray();
-            Assert.IsTrue(values.Length > 0);
+            Assert.True(values.Length > 0);
         }
 
-        [TestMethod]
+        [Fact]
         public void GetRecentPosts()
         {
             // Create a new post
             new PostsTests().CreatePostTest1();
 
-            var result = Process(@"<methodCall>
+            var result = Process($@"<methodCall>
   <methodName>metaWeblog.getRecentPosts</methodName>
   <params>
     <param>
@@ -145,12 +162,12 @@ namespace MyBlog.Engine.Tests
     </param>
     <param>
       <value>
-        <string>admin</string>
+        <string>{Login}</string>
       </value>
     </param>
     <param>
       <value>
-        <string>password</string>
+        <string>{Password}</string>
       </value>
     </param>
     <param>
@@ -162,17 +179,17 @@ namespace MyBlog.Engine.Tests
 </methodCall>",true);
 
             var actual = result.Descendants("struct");
-            Assert.IsNotNull(actual);
-            Assert.IsTrue(actual.Count() > 0);
+            Assert.NotNull(actual);
+            Assert.True(actual.Count() > 0);
         }
 
-        [TestMethod]
+        [Fact]
         public void GetPost1()
         {
             // Create afirst post
             new PostsTests().CreatePostTest1();
 
-            var result = Process(@"<methodCall>
+            var result = Process($@"<methodCall>
   <methodName>metaWeblog.getPost</methodName>
   <params>
     <param>
@@ -182,12 +199,12 @@ namespace MyBlog.Engine.Tests
     </param>
     <param>
       <value>
-        <string>admin</string>
+        <string>{Login}</string>
       </value>
     </param>
     <param>
       <value>
-        <string>password</string>
+        <string>{Password}</string>
       </value>
     </param>
     <param>
@@ -199,17 +216,17 @@ namespace MyBlog.Engine.Tests
 </methodCall>", true);
 
             var actual = result.Descendants("struct");
-            Assert.IsNotNull(actual);
-            Assert.IsTrue(actual.Count() > 0);
+            Assert.NotNull(actual);
+            Assert.True(actual.Count() > 0);
         }
 
-        [TestMethod]
+        [Fact]
         public void GetPost2()
         {
             // Create afirst post
             new PostsTests().CreatePostTest1();
 
-            var result = Process(@"<methodCall>
+            var result = Process($@"<methodCall>
   <methodName>metaWeblog.getPost</methodName>
   <params>
     <param>
@@ -219,12 +236,12 @@ namespace MyBlog.Engine.Tests
     </param>
     <param>
       <value>
-        <string>admin</string>
+        <string>{Login}</string>
       </value>
     </param>
     <param>
       <value>
-        <string>password</string>
+        <string>{Password}</string>
       </value>
     </param>
   </params>
@@ -232,13 +249,13 @@ namespace MyBlog.Engine.Tests
         }
 
 
-        [TestMethod]
+        [Fact]
         public void GetPost3()
         {
             // Create afirst post
             new PostsTests().CreatePostTest1();
 
-            var result = Process(@"<methodCall>
+            var result = Process($@"<methodCall>
   <methodName>metaWeblog.getPost</methodName>
   <params>
     <param>
@@ -253,14 +270,14 @@ namespace MyBlog.Engine.Tests
     </param>
     <param>
       <value>
-        <string>password</string>
+        <string>{Password}</string>
       </value>
     </param>
   </params>
 </methodCall>", false);
         }
 
-        [TestMethod]
+        [Fact]
         public void GetDeletePost1()
         {
             // Create afirst post
@@ -269,11 +286,10 @@ namespace MyBlog.Engine.Tests
             // Get the last post
             
             var db = TestsSetvices.Current.Get<DataContext>();
-            Int32 id = db.Posts.LastOrDefault()?.Id ?? 0;
+            Int32 id = db.Posts.AsEnumerable().LastOrDefault()?.Id ?? 0;
             if (id == 0)
             {
-                Assert.Inconclusive("Last post is not available!");
-                return;
+                throw new Exception("Last post is not available!");
             }
 
             var result = Process($@"<methodCall>
@@ -291,12 +307,12 @@ namespace MyBlog.Engine.Tests
     </param>
     <param>
       <value>
-        <string>admin</string>
+        <string>{Login}</string>
       </value>
     </param>
     <param>
       <value>
-        <string>password</string>
+        <string>{Password}</string>
       </value>
     </param>
     <param>
@@ -308,14 +324,14 @@ namespace MyBlog.Engine.Tests
 </methodCall>", true);
 
             var actual = result.Descendants("boolean").FirstOrDefault()?.Value;
-            Assert.IsNotNull(actual);
-            Assert.AreEqual("1",actual);
+            Assert.NotNull(actual);
+            Assert.Equal("1",actual);
         }
 
-        [TestMethod]
+        [Fact]
         public void NewPost1()
         {
-            var result = Process(@"<methodCall>
+            var result = Process($@"<methodCall>
   <methodName>metaWeblog.newPost</methodName>
   <params>
     <param>
@@ -325,12 +341,12 @@ namespace MyBlog.Engine.Tests
     </param>
     <param>
       <value>
-        <string>admin</string>
+        <string>{Login}</string>
       </value>
     </param>
     <param>
       <value>
-        <string>password</string>
+        <string>{Password}</string>
       </value>
     </param>
     <param>
@@ -376,10 +392,10 @@ namespace MyBlog.Engine.Tests
         }
 
 
-        [TestMethod]
+        [Fact]
         public void NewPost2()
         {
-            var result = Process(@"<methodCall>
+            var result = Process($@"<methodCall>
   <methodName>metaWeblog.newPost</methodName>
   <params>
     <param>
@@ -389,12 +405,12 @@ namespace MyBlog.Engine.Tests
     </param>
     <param>
       <value>
-        <string>admin</string>
+        <string>{Login}</string>
       </value>
     </param>
     <param>
       <value>
-        <string>password</string>
+        <string>{Password}</string>
       </value>
     </param>
     <param>
@@ -451,10 +467,10 @@ namespace MyBlog.Engine.Tests
 </methodCall>", true);
         }
 
-        [TestMethod]
+        [Fact]
         public void NewPost3()
         {
-            var result = Process(@"<methodCall>
+            var result = Process($@"<methodCall>
   <methodName>metaWeblog.newPost</methodName>
   <params>
     <param>
@@ -464,12 +480,12 @@ namespace MyBlog.Engine.Tests
     </param>
     <param>
       <value>
-        <string>admin</string>
+        <string>{Login}</string>
       </value>
     </param>
     <param>
       <value>
-        <string>password</string>
+        <string>{Password}</string>
       </value>
     </param>
     <param>
@@ -511,13 +527,13 @@ namespace MyBlog.Engine.Tests
 </methodCall>", true);
         }
 
-        [TestMethod]
+        [Fact]
         public void EditPost1()
         {
             // Create a new post
             new PostsTests().CreatePostTest1();
 
-            var result = Process(@"<methodCall>
+            var result = Process($@"<methodCall>
   <methodName>metaWeblog.editPost</methodName>
   <params>
     <param>
@@ -527,12 +543,12 @@ namespace MyBlog.Engine.Tests
     </param>
     <param>
       <value>
-        <string>admin</string>
+        <string>{Login}</string>
       </value>
     </param>
     <param>
       <value>
-        <string>password</string>
+        <string>{Password}</string>
       </value>
     </param>
     <param>
@@ -574,10 +590,10 @@ namespace MyBlog.Engine.Tests
 </methodCall>", true);
         }
 
-        [TestMethod]
+        [Fact]
         public void EditPost2()
         {
-            var result = Process(@"<methodCall>
+            var result = Process($@"<methodCall>
   <methodName>metaWeblog.editPost</methodName>
   <params>
     <param>
@@ -587,12 +603,12 @@ namespace MyBlog.Engine.Tests
     </param>
     <param>
       <value>
-        <string>admin</string>
+        <string>{Login}</string>
       </value>
     </param>
     <param>
       <value>
-        <string>password</string>
+        <string>{Password}</string>
       </value>
     </param>
     <param>
@@ -634,13 +650,13 @@ namespace MyBlog.Engine.Tests
 </methodCall>", true);
         }
 
-        //[TestMethod]
-        public void NewMediaObject()
+        //[Fact]
+        private void NewMediaObject()
         {
             // Init fileservices
-            TestsSetvices.Current.Get<FilesService>().Initilize();
+            TestsSetvices.Current.Get<Services.FilesService>().Initilize();
 
-            var result = Process(@"<methodCall>
+            var result = Process($@"<methodCall>
   <methodName>metaWeblog.newMediaObject</methodName>
   <params>
     <param>
@@ -650,12 +666,12 @@ namespace MyBlog.Engine.Tests
     </param>
     <param>
       <value>
-        <string>admin</string>
+        <string>{Login}</string>
       </value>
     </param>
     <param>
       <value>
-        <string>password</string>
+        <string>{Password}</string>
       </value>
     </param>
     <param>

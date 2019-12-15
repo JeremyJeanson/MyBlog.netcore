@@ -1,26 +1,27 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.2</TargetFramework>
-    <AssemblyVersion>2.0.0.25</AssemblyVersion>
-    <FileVersion>2.0.0.25</FileVersion>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
     <NeutralLanguage>en-US</NeutralLanguage>
-    <Version>1.0.0</Version>
-    <TypeScriptToolsVersion>3.3</TypeScriptToolsVersion>
+    <AssemblyVersion>3.1.0.0</AssemblyVersion>
+    <FileVersion>3.1.0.0</FileVersion>
+    <Version>3.1.0.0</Version>
+    <TypeScriptToolsVersion>Latest</TypeScriptToolsVersion>
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="www\js\Account-Edit.ts" />
-    <None Remove="www\js\App.ts" />
-    <None Remove="www\js\Get-More-Items.ts" />
-    <None Remove="www\js\Post-Details.ts" />
-    <None Remove="www\js\_my.ts" />
+    <None Remove="_www\js\Account-Edit.ts" />
+    <None Remove="_www\js\app.ts" />
+    <None Remove="_www\js\Get-More-Items.ts" />
+    <None Remove="_www\js\Post-Details.ts" />
+    <None Remove="_www\js\_ajax.ts" />
+    <None Remove="_www\js\_dialog.ts" />
+    <None Remove="_www\js\_my.ts" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.VisualStudio.Web.BrowserLink" Version="2.2.0" />
-    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.3" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -35,12 +36,14 @@
   </ItemGroup>
 
   <ItemGroup>
-    <TypeScriptCompile Include="www\js\Account-Edit.ts" />
-    <TypeScriptCompile Include="www\js\Get-More-Items.ts" />
-    <TypeScriptCompile Include="www\js\App.ts" />
-    <TypeScriptCompile Include="www\js\Post-Details.ts" />
-    <TypeScriptCompile Include="www\js\_my.ts" />
-    <TypeScriptCompile Include="www\js\Accessibility.ts" />
+    <TypeScriptCompile Include="_www\js\account-edit.ts" />
+    <TypeScriptCompile Include="_www\js\get-more-items.ts" />
+    <TypeScriptCompile Include="_www\js\app.ts" />
+    <TypeScriptCompile Include="_www\js\post-details.ts" />
+    <TypeScriptCompile Include="_www\js\_ajax.ts" />
+    <TypeScriptCompile Include="_www\js\_dialog.ts" />
+    <TypeScriptCompile Include="_www\js\_my.ts" />
+    <TypeScriptCompile Include="_www\js\accessibility.ts" />
   </ItemGroup>
 
   <ProjectExtensions><VisualStudio><UserProperties package_1json__JSONSchema="http://json.schemastore.org/avro-avsc" /></VisualStudio></ProjectExtensions>

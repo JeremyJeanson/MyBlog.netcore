@@ -1,22 +1,20 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Xunit;
+using MyBlog.Engine;
+using MyBlog.Engine.Tests;
 
-namespace MyBlog.Engine.Tests.DataService
+namespace Services.Tests.DataService
 {
-    [TestClass]
     public sealed class PostsTests
     {
-        [TestMethod]
+        [Fact]
         public void CreatePostTest1()
         {
-            var db = TestsSetvices.Current.Get<MyBlog.Engine.DataService>();
+            var db = TestsSetvices.Current.Get<MyBlog.Engine.Services.DataService>();
             var categories = db.GetCategoriesAndCreatIfNotExists(new[] { "CreatePost Test1" });
 
-            var result = db.AddPost(new Data.Models.Post
+            var result = db.AddPost(new MyBlog.Engine.Data.Models.Post
             {
                 Title = $"Title test {DateTime.Now.ToLongDateString()}",
                 DateCreatedGmt = DateTime.UtcNow.AddMinutes(-5),
@@ -25,49 +23,49 @@ namespace MyBlog.Engine.Tests.DataService
                 ContentIsSplitted = true,
                 Published = true
             }, categories.Select(c => c.Id).ToArray());
-            Assert.IsTrue(result);
+            Assert.True(result);
         }
 
-        [TestMethod]
+        [Fact]
         public void GetPostsTest1()
         {
-            var db = TestsSetvices.Current.Get<MyBlog.Engine.DataService>();
+            var db = TestsSetvices.Current.Get<MyBlog.Engine.Services.DataService>();
             
             var posts = db.GetPosts(0);
             
-            Assert.IsNotNull(posts);
-            Assert.IsTrue(posts.Length > 0);
+            Assert.NotNull(posts);
+            Assert.True(posts.Length > 0);
         }
 
-        [TestMethod]
+        [Fact]
         public void GetPostWithDetailsTest1()
         {
-            var db = TestsSetvices.Current.Get<MyBlog.Engine.DataService>();
+            var db = TestsSetvices.Current.Get<MyBlog.Engine.Services.DataService>();
             
             var posts = db.GetPosts(0);
 
-            Assert.IsNotNull(posts);
-            Assert.IsTrue(posts.Length > 0);
+            Assert.NotNull(posts);
+            Assert.True(posts.Length > 0);
             var post = db.GetPostWithDetails(posts[0].Id);
-            Assert.IsNotNull(post);
-            Assert.AreEqual(posts[0].Id, post.Id);
+            Assert.NotNull(post);
+            Assert.Equal(posts[0].Id, post.Id);
         }
 
-        [TestMethod]
+        [Fact]
         public void GetPreviousPostTest1()
         {
-            var db = TestsSetvices.Current.Get<MyBlog.Engine.DataService>();
+            var db = TestsSetvices.Current.Get<MyBlog.Engine.Services.DataService>();
 
             var posts = db.GetPosts(0);
 
-            Assert.IsNotNull(posts);
-            Assert.IsTrue(posts.Length > 0);
+            Assert.NotNull(posts);
+            Assert.True(posts.Length > 0);
             var post = db.GetPreviousPost(posts[0].Id, posts[0].DateCreatedGmt);
-            Assert.IsNotNull(post);
-            Assert.AreEqual(posts[1].Id, post.Id);
+            Assert.NotNull(post);
+            Assert.Equal(posts[1].Id, post.Id);
         }
 
-        [TestMethod]
+        [Fact]
         public void GetPreviousPostTest2()
         {
             // Create 3 posts
@@ -75,87 +73,96 @@ namespace MyBlog.Engine.Tests.DataService
             CreatePostTest1();
             CreatePostTest1();
 
-            var db = TestsSetvices.Current.Get<MyBlog.Engine.DataService>();
+            var db = TestsSetvices.Current.Get<MyBlog.Engine.Services.DataService>();
 
             var posts = db.GetPosts(0);
 
-            Assert.IsNotNull(posts);
-            Assert.IsTrue(posts.Length > 0);
+            Assert.NotNull(posts);
+            Assert.True(posts.Length > 0);
             if (posts.Length > 1)
             {
                 var post = db.GetPreviousPost(posts[1].Id, posts[1].DateCreatedGmt);
-                Assert.IsNotNull(post);
+                Assert.NotNull(post);
                 if (posts.Length > 2)
                 {
-                    Assert.AreEqual(posts[2].Id, post.Id);
+                    Assert.Equal(posts[2].Id, post.Id);
                 }
             }
             else
             {
-                Assert.Inconclusive("Need more posts for this test");
+                throw new Exception("Need more posts for this test");
             }
         }
 
-        [TestMethod]
+        [Fact]
         public void GetNextPostTest1()
         {
             // Create 2 posts
             CreatePostTest1();
             CreatePostTest1();
 
-            var db = TestsSetvices.Current.Get<MyBlog.Engine.DataService>();
+            var db = TestsSetvices.Current.Get<MyBlog.Engine.Services.DataService>();
 
             var posts = db.GetPosts(0);
 
-            Assert.IsNotNull(posts);
-            Assert.IsTrue(posts.Length > 0);
+            Assert.NotNull(posts);
+            Assert.True(posts.Length > 0);
             var post = db.GetNextPost(posts[0].Id, posts[0].DateCreatedGmt);
-            Assert.IsNull(post);
+            Assert.Null(post);
         }
 
-        [TestMethod]
+        [Fact]
         public void GetNextPostTest2()
         {
+            // Create posts
+            CreatePostTest1();
+            CreatePostTest1();
             CreatePostTest1();
             CreatePostTest1();
 
-            var db = TestsSetvices.Current.Get<MyBlog.Engine.DataService>();
+            var db = TestsSetvices.Current.Get<MyBlog.Engine.Services.DataService>();
 
             var posts = db.GetPosts(0);
 
-            Assert.IsNotNull(posts);
-            Assert.IsTrue(posts.Length > 0);
+            Assert.NotNull(posts);
+            Assert.True(posts.Length > 0);
             if (posts.Length > 1)
             {
                 var post = db.GetNextPost(posts[1].Id, posts[1].DateCreatedGmt);
-                Assert.IsNotNull(post);
-                Assert.AreEqual(posts[0].Id, post.Id);
+                Assert.NotNull(post);
+                Assert.Equal(posts[0].Id, post.Id);
             }
         }
 
-        [TestMethod]
+        [Fact]
         public void GetPostsInSearchTest1()
         {
-            var db = TestsSetvices.Current.Get<MyBlog.Engine.DataService>();
+            // Create posts
+            CreatePostTest1();
+            CreatePostTest1();
+            CreatePostTest1();
+            CreatePostTest1();
+
+            var db = TestsSetvices.Current.Get<MyBlog.Engine.Services.DataService>();
 
             var posts = db.GetPostsInSearch("test", 0);
-            Assert.IsNotNull(posts);
+            Assert.NotNull(posts);
             if (posts.Length == 0)
             {
-                Assert.Inconclusive("Need more posts for this test");
+                throw new Exception("Need more posts for this test");
             }
         }
 
-        [TestMethod]
+        [Fact]
         public void GetPostsInSearchTest2()
         {
-            var db = TestsSetvices.Current.Get<MyBlog.Engine.DataService>();
+            var db = TestsSetvices.Current.Get<MyBlog.Engine.Services.DataService>();
 
             var posts = db.GetPostsInSearch("golo golo", 0);
-            Assert.IsNotNull(posts);
+            Assert.NotNull(posts);
             if (posts.Length > 0)
             {
-                Assert.Inconclusive("Strange data ;)");
+                throw new Exception("Strange data ;)");
             }
         }
     }

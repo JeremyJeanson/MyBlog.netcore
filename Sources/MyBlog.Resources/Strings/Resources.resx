@@ -153,9 +153,6 @@
   <data name="Me" xml:space="preserve">
     <value>Me</value>
   </data>
-  <data name="MeContent" xml:space="preserve">
-    <value>Je surf sur la vague .net depuis ses débuts et j'aime partager les expériences que j'y fais...</value>
-  </data>
   <data name="ReadMore" xml:space="preserve">
     <value>Read more</value>
   </data>
@@ -295,7 +292,7 @@
     <value>Privacy Policy </value>
   </data>
   <data name="PrivacyPolicyContent" xml:space="preserve">
-    <value>&lt;p&gt;To  allow you to log in, this application have to store Open Auth informations shared by your providers (Facebook, Twitter.. .etc...). It si only technical data (token). Out of this application, this informations cannot be used and have none interest.&lt;/p&gt;&lt;p&gt;Informations collected when you are ednting you profile are used only by this application and are not shared with third parties or other applications. At any time, you are able to edit/delete your informations. It will be permanently removed from the database.&lt;/p&gt;</value>
+    <value>&lt;p&gt;To  allow you to log in, this application have to store Open Auth informations shared by your providers (Facebook, Twitter.. .etc...). It si only technical data (token). Out of this application, this informations cannot be used and have none interest.&lt;/p&gt;&lt;p&gt;Informations collected when you are editing you profile are used only by this application and are not shared with third parties or other applications. At any time, you are able to edit/delete your informations. It will be permanently removed from the database.&lt;/p&gt;</value>
   </data>
   <data name="TermsOfService" xml:space="preserve">
     <value>Terms of service</value>
@@ -310,7 +307,7 @@
     <value>There are no results for this search.</value>
   </data>
   <data name="CookiesConcentContent" xml:space="preserve">
-    <value>This website uses cookies and similar technologies to allow us to promote our services and enhance your browsing experience. If you continue to use this website you agree to our use of cookies.</value>
+    <value>This website uses cookies to allow us to enhance your browsing experience (accessibility settings). If you continue to use this website you agree to our use of cookies.</value>
   </data>
   <data name="CookiesConcentTitle" xml:space="preserve">
     <value>Cookies</value>
@@ -429,6 +426,9 @@ Cookies that could be used are:
     <value>Your message</value>
   </data>
   <data name="LogInWith" xml:space="preserve">
-    <value>Log in using your {0} account</value>
+    <value>Log in using {0}</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>Home</value>
   </data>
 </root>

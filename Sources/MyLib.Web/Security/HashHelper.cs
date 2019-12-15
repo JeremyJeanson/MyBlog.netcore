@@ -74,20 +74,4 @@ namespace MyLib.Web.Security
             return Convert.ToBase64String(salt);
         }
     }
-
-    /// <summary>
-    /// Hash and Salt used
-    /// </summary>
-    public struct HashResult
-    {
-        /// <summary>
-        /// Hash
-        /// </summary>
-        public String Hash { get; set; }
-
-        /// <summary>
-        /// Salt used to create the hash
-        /// </summary>
-        public String Salt { get; set; }
-    }
 }

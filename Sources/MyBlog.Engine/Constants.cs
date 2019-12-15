@@ -2,10 +2,10 @@
 
 namespace MyBlog.Engine
 {
-    public sealed class Constants
+    internal sealed class Constants
     {
-        public const String MethodPost = "POST";
+        internal const String MethodPost = "POST";
 
-        public const String SignInScheme = "MyBlogScheme";
+        internal const String SignInScheme = "MyBlogScheme";
     }
 }

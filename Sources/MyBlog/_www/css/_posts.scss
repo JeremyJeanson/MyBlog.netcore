@@ -1,0 +1,223 @@
+﻿@mixin buildinfo($content) {
+    //display: inline;
+    color: $info-color;
+
+    i {
+        @extend .fas;
+    }
+
+    i:before {
+        content: $content;
+    }
+}
+
+article {
+    h2 {
+        border-bottom: 1px solid $card-border-color;
+        padding-bottom: 0.4rem;
+    }
+
+    h2, h3 {
+        text-align: center;
+        color: $blue;
+    }
+
+    @include media-breakpoint-up(md) {
+        h2, h3 {
+            text-align: left;
+        }
+    }
+
+    .info {
+        @extend .d-flex;
+        @extend .flex-column;
+        @extend .flex-md-row;
+
+        & > div:first-child {
+            @extend .d-flex;
+            @extend .flex-column;
+            /*@extend .mx-auto;
+            @extend .ml-md-0;
+            @extend .mr-md-auto;*/
+            div {
+                @extend .mx-auto;
+                @extend .ml-md-0;
+                @extend .mr-md-auto;
+            }
+        }
+
+        .date {
+            @include buildinfo("\f073");
+            margin-right: 8px;
+        }
+
+        .comments {
+            @include buildinfo("\f075");
+            margin-right: 8px;
+        }
+
+        .categories {
+            @include buildinfo("\f02c");
+            @extend .mt-3;
+            @extend .my-md-3;
+
+            ul {
+                display: inline;
+                padding: 0;
+            }
+
+            li {
+                display: inline;
+                list-style: none;
+                margin: 0 6px;
+            }
+
+            .category {
+                @extend .badge;
+                @extend .badge-primary;
+                padding: 0.6em 1em
+            }
+        }
+
+        .share {
+            @extend .mx-auto;
+            @extend .my-3;
+            @extend .mr-md-0;
+            @extend .ml-md-auto;
+            @extend .my-md-0;
+            @extend .d-flex;
+
+            .btn-social-icon {
+                /*@extend .smallshadow;*/
+                border-radius: 50%;
+                margin-right: 8px;
+                height: 2.2rem;
+                width: 2.2rem;
+
+                & > :first-child {
+                    vertical-align: central;
+                }
+            }
+
+            .dropdown {
+                .btn {
+                    @extend .smallshadow;
+                    border-radius: 50%;
+                    border-color: $border-color;
+                    height: 2.2rem;
+                    width: 2.2rem;
+
+                    i {
+                        margin-left: -.5em;
+                    }
+                }
+            }
+        }
+    }
+
+    .content {
+        img {
+            @extend .img-fluid;
+        }
+
+        .btn-block {
+            width: auto;
+            display: inline-block;
+        }
+
+        code {
+            padding: 1px 6px;
+            background-color: $blockquote-bg;
+            border: 1px solid $blockquote-border;
+            border-radius: 4px;
+        }
+
+        pre {
+            padding: 1px 6px;
+            background-color: $blockquote-bg;
+            border: 1px solid $blockquote-border;
+            border-radius: 4px;
+            border-left: 0.4rem solid rgb(0, 128, 0);
+
+            code {
+                padding: 0;
+                border: none;
+            }
+        }
+    }
+
+    .author {
+        @include buildinfo("\f303");
+        float: right;
+    }
+}
+
+blockquote {
+    padding: 1.25rem;
+    margin-top: 1.25rem;
+    margin-bottom: 1.25rem;
+    background: $blockquote-bg;
+    border: 1px solid $blockquote-border;
+    border-left: 0.4rem solid $blue;
+    border-radius: .25rem;
+
+    p:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.indexednavigation {
+    @extend .d-flex;
+    @extend .flex-column;
+    @extend .flex-md-row;
+
+    #btn-getmore {
+        @extend .mb-3;
+        @extend .mr-md-3;
+    }
+
+    nav {
+        @extend .mx-auto;
+        @extend .ml-md-0;
+        @extend .mr-md-auto;
+    }
+}
+
+.detailscomments {
+    @extend .list-group;
+    @extend .list-group-flush;
+    //margin-bottom: 1rem;
+    margin: -1.25rem -1.25rem 1rem -1.25rem;
+
+    .list-group-item {
+        h4 {
+            @extend .d-flex;
+            @extend .flex-column;
+            @extend .flex-md-row;
+
+
+            i {
+                @extend .far;
+                @extend .fa-comment;
+                @extend .fa-flip-horizontal;
+                margin-right: .25rem;
+            }
+
+            small {
+                font-size: 0.8rem;
+                @extend .ml-0;
+                @extend .mr-auto;
+                @extend .ml-md-auto;
+                @extend .mr-md-0;
+                @extend .mb-md-0;
+                margin-top: 0.8rem;
+            }
+        }
+    }
+}
+
+.previous-next {
+    .btn.btn-outline-primary:not(:hover):not(:focus) {
+        background-color: $card-bg;
+    }
+}

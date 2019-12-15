@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authentication;
 using System.Security.Claims;
+using MyBlog.Engine.Services;
 
 namespace MyBlog.Engine.Controllers
 {

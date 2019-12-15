@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 using MyBlog.Engine;
 using MyBlog.Engine.Data;
 using MyLib.Web;
@@ -33,8 +34,7 @@ namespace MyBlog
                 .AddViews()
                 .AddRazorViewEngine()
                 .AddCacheTagHelper()
-                .AddDataAnnotations()
-                .AddJsonFormatters();
+                .AddDataAnnotations();
 
             // Add BlogEngine
             services.AddMyBlogEngine(Configuration, mvc);
@@ -43,7 +43,7 @@ namespace MyBlog
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
             {
@@ -55,21 +55,23 @@ namespace MyBlog
                 app.UseExceptionHandler("/Home/Error");
                 app.UseHsts();
             }
-            
-            // Use BlogEngine
-            app.UseMyBlogEngine();
 
             // Use MVC
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-            app.UseMvc(routes =>
+            app.UseRouting();
+
+            // Use BlogEngine
+            app.UseMyBlogEngine();
+
+            app.UseEndpoints(endpoints =>
             {
-                routes.MapRoute(
-                    name: "default",
-                    template: "{controller=Post}/{action=Index}/{id?}");
-                routes.MapRoute(
-                    name: "withTitle",
-                    template: "{controller=Post}/{action=Details}/{id}/{title?}");
+                endpoints.MapControllerRoute(
+                    "default",
+                    "{controller=Post}/{action=Index}/{id?}");
+                endpoints.MapControllerRoute(
+                    "withTitle",
+                    "{controller=Post}/{action=Details}/{id}/{title?}");
             });
         }
     }

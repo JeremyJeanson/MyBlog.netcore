@@ -1,7 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
-using MyBlog.Engine;
-using MyLib.Web.SoeSiteMap;
+using MyBlog.Engine.Models;
+using MyBlog.Engine.Services;
+using MyLib.Web.Soe;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +13,7 @@ namespace MyBlog.Controllers
     {
         #region Declarations
 
-        private readonly IOptions<Engine.Settings> _options;
+        private readonly IOptions<Settings> _options;
         private readonly DataService _dataService;
 
         #endregion
@@ -24,7 +25,7 @@ namespace MyBlog.Controllers
         /// </summary>
         /// <param name="options"></param>
         /// <param name="dataService"></param>
-        public SiteMapController(IOptions<Engine.Settings> options, DataService dataService)
+        public SiteMapController(IOptions<Settings> options, DataService dataService)
         {
             _options = options;
             _dataService = dataService;

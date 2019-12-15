@@ -54,10 +54,6 @@
           <source>Me</source>
           <target state="final">Moi</target>
         </trans-unit>
-        <trans-unit id="MeContent" translate="yes" xml:space="preserve">
-          <source>Je surf sur la vague .net depuis ses débuts et j'aime partager les expériences que j'y fais...</source>
-          <target state="final">Je surf sur la vague .net depuis ses débuts et j'aime partager les expériences que j'y fais...</target>
-        </trans-unit>
         <trans-unit id="ReadMore" translate="yes" xml:space="preserve">
           <source>Read more</source>
           <target state="final">Lire la suite</target>
@@ -247,7 +243,7 @@
           <target state="final">Politique de confidentialité</target>
         </trans-unit>
         <trans-unit id="PrivacyPolicyContent" translate="yes" xml:space="preserve">
-          <source><bpt id="1">&lt;p&gt;</bpt>To  allow you to log in, this application have to store Open Auth informations shared by your providers (Facebook, Twitter.. .etc...). It si only technical data (token). Out of this application, this informations cannot be used and have none interest.<ept id="1">&lt;/p&gt;</ept><bpt id="2">&lt;p&gt;</bpt>Informations collected when you are ednting you profile are used only by this application and are not shared with third parties or other applications. At any time, you are able to edit/delete your informations. It will be permanently removed from the database.<ept id="2">&lt;/p&gt;</ept></source>
+          <source><bpt id="1">&lt;p&gt;</bpt>To  allow you to log in, this application have to store Open Auth informations shared by your providers (Facebook, Twitter.. .etc...). It si only technical data (token). Out of this application, this informations cannot be used and have none interest.<ept id="1">&lt;/p&gt;</ept><bpt id="2">&lt;p&gt;</bpt>Informations collected when you are editing you profile are used only by this application and are not shared with third parties or other applications. At any time, you are able to edit/delete your informations. It will be permanently removed from the database.<ept id="2">&lt;/p&gt;</ept></source>
           <target state="final"><bpt id="1">&lt;p&gt;</bpt>Afin de vous permettre de vous connecter, cette application doit stocker les informations d'authentification OpenAuth partagées par vos fournisseurs (Facebook, Twitter... etc...). Il s'agit uniquement de données techniques (token). Hors de cette application, ces informations ne peuvent pas être utilisées et n'ont aucun intérêt.<ept id="1">&lt;/p&gt;</ept><bpt id="2">&lt;p&gt;</bpt>Les informations collectés lors de la saise de votre profile sont uniquement utilisées par cette application et ne sont pas partégées avec d'autres applications. A tout moment, vous être en mesure d'éditer ou supprimer ces  informations. Elles seront suprimées définitivement de la base de données.<ept id="2">&lt;/p&gt;</ept></target>
         </trans-unit>
         <trans-unit id="TermsOfService" translate="yes" xml:space="preserve">
@@ -267,7 +263,7 @@
           <target state="final">Il n'y a aucun résultat pour cette recherche.</target>
         </trans-unit>
         <trans-unit id="CookiesConcentContent" translate="yes" xml:space="preserve">
-          <source>This website uses cookies and similar technologies to allow us to promote our services and enhance your browsing experience. If you continue to use this website you agree to our use of cookies.</source>
+          <source>This website uses cookies to allow us to enhance your browsing experience (accessibility settings). If you continue to use this website you agree to our use of cookies.</source>
           <target state="final">Ce site utilise des cookies pour améliorer votre expérience de navigation (paramètres personnels). Si vous continuez de naviguer sur ce site, vous êtes en accord avec cet usage des cookies.</target>
         </trans-unit>
         <trans-unit id="CookiesConcentTitle" translate="no" xml:space="preserve">
@@ -429,8 +425,12 @@ Les cookies peuvent être utilisés pour:
           <target state="final">Votre message</target>
         </trans-unit>
         <trans-unit id="LogInWith" translate="yes" xml:space="preserve">
-          <source>Log in using your {0} account</source>
-          <target state="final">Se connecter en utilisant votre compte {0}</target>
+          <source>Log in using {0}</source>
+          <target state="final">Se connecter en utilisant {0}</target>
+        </trans-unit>
+        <trans-unit id="Home" translate="yes" xml:space="preserve">
+          <source>Home</source>
+          <target state="final">Accueil</target>
         </trans-unit>
       </group>
     </body>

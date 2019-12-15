@@ -1,13 +1,14 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MyBlog.Engine.Data.Models;
 using MyBlog.Engine.Models;
+using MyBlog.Engine.Services;
 using MyLib.Web.Filters;
 using System;
 using static MyBlog.Engine.TagHelpers.Socials;
 
 namespace MyBlog.Engine.Controllers
 {
-    [XRobotsTagNoIndex]
+    [XRobotsTagNoIndexAttribute]
     public class ShareController : Controller
     {
         #region Declarations
