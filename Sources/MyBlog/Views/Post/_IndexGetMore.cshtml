@@ -13,5 +13,5 @@ else
 {
     <text>$("#btn-getmore").hide();</text>
 }
-    $("#pagination").html('@Html.Raw(Html.GetPagination("Index", Model.Available, Model.Page, Options.Value.PostQuantityPerPage,null))');
+    $("#pagination").html('@Html.Raw(Url.GetPagination("Index", Model.Available, Model.Page, Options.Value.PostQuantityPerPage,null))');            
 </script>

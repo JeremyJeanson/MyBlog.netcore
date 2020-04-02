@@ -29,10 +29,10 @@ namespace MyLib.Web.TagHelpers
         /// <param name="pageSize"></param>
         /// <param name="routeValues"></param>
         /// <returns></returns>
-        public static String GetPagination(this IHtmlHelper htmlHelper, String action, Int32 count, Int32 page, Int32 pageSize, Object routeValues)
+        public static String GetPagination(this IUrlHelper urlHelper, String action, Int32 count, Int32 page, Int32 pageSize, Object routeValues)
         {
-            // Get UrlHelper
-            UrlHelper urlHelper = new UrlHelper(htmlHelper.ViewContext);
+            //// Get UrlHelper
+            //UrlHelper urlHelper = new UrlHelper(htmlHelper.ViewContext);
 
             // Get inner html
             String innerHtml = GetInnerHtml(urlHelper, page, pageSize, count, action, routeValues);

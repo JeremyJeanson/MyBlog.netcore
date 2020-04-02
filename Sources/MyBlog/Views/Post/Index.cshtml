@@ -47,7 +47,7 @@
 <div class="indexednavigation">
     @if (Model.HaveMoreResults)
     {
-        <button type="button" id="btn-getmore" class="btn btn-primary" data-action="Index" data-args="?page=@Model.NextPage">@Resources.GetMorePost</button>
+        <button type="button" id="btn-getmore" class="btn btn-primary" data-action="IndexGetMore" data-args="?page=@Model.NextPage">@Resources.GetMorePost</button>
     }
     <div id="pagination">
         <pagination action="Index"

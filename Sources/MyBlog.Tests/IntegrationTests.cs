@@ -31,7 +31,7 @@ namespace MyBlog.Tests
         [InlineData("/Mail/Sended", HtmlContentType)]       
         [InlineData("/Post", HtmlContentType)]
         [InlineData("/Post/Category/1", HtmlContentType)]
-        //[InlineData("/Post/Details/1", HtmlContentType)]
+        [InlineData("/Post/Details/1", HtmlContentType)]
         [InlineData("/Post/Archive/1977-5", HtmlContentType)]
         [InlineData("/Post/Search/?query=foo", HtmlContentType)]
         [InlineData("/sitemap", XmlContentType)]
