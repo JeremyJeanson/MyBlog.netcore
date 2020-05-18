@@ -2,7 +2,7 @@
 
 var snippets = document.querySelectorAll("pre[class]");
 [].forEach.call(snippets, function (snippet) {
-    snippet.firstChild.insertAdjacentHTML("beforebegin", "<button class='btn float-right' data-placement='left' data-clipboard-code title='Copy to clipboard'><i class='far fa-copy'></i></button>");
+    snippet.firstChild.insertAdjacentHTML("beforebegin", "<button class='btn float-right' data-placement='left' data-clipboard-code title='Copy to clipboard' aria-label='Copy to clipboard'><i class='far fa-copy'></i></button>");
 });
 var clipboardSnippets = new ClipboardJS("[data-clipboard-code]", {
     target: function (trigger) {
