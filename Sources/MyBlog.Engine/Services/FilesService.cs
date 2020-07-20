@@ -1,9 +1,10 @@
-﻿using Microsoft.Extensions.Options;
-using Microsoft.WindowsAzure.Storage;
-using Microsoft.WindowsAzure.Storage.Blob;
+﻿using Azure.Storage.Blobs;
+using Azure.Storage.Blobs.Models;
+using Microsoft.Extensions.Options;
 using MyBlog.Engine.Models;
 using System;
 using System.Diagnostics;
+using System.IO;
 using System.Threading.Tasks;
 
 namespace MyBlog.Engine.Services
@@ -43,17 +44,13 @@ namespace MyBlog.Engine.Services
         {
             try
             {
-                CloudBlobContainer container = GetBlogContainer();
+                var container = GetBlogContainer();
 
                 // Create if not exists
                 await container.CreateIfNotExistsAsync();
 
                 // Set permissions
-                await container.SetPermissionsAsync(
-                    new BlobContainerPermissions
-                    {
-                        PublicAccess = BlobContainerPublicAccessType.Container
-                    });
+                await container.SetAccessPolicyAsync(PublicAccessType.BlobContainer);
             }
             catch (Exception ex)
             {
@@ -65,14 +62,12 @@ namespace MyBlog.Engine.Services
         ///  Get blob container
         /// </summary>
         /// <returns></returns>
-        private CloudBlobContainer GetBlogContainer()
+        private BlobContainerClient GetBlogContainer()
         {
-            // Get the configuration
-            CloudStorageAccount storageAccount = CloudStorageAccount.Parse(_options.AzureStorageConnectionString);
-            // Get a new client
-            CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
             // Get the container
-            CloudBlobContainer container = blobClient.GetContainerReference(ContainerName);
+            BlobContainerClient container = new BlobContainerClient(
+                    _options.AzureStorageConnectionString,
+                    ContainerName);
             return container;
         }
 
@@ -85,10 +80,10 @@ namespace MyBlog.Engine.Services
         public async Task<Uri> Upload(String name, Byte[] content)
         {
             // Get the blog by name
-            CloudBlockBlob blob = GetBlogContainer().GetBlockBlobReference(name);
-
+            var blob = GetBlogContainer().GetBlobClient(name);
+            
             // upload bytes
-            await blob.UploadFromByteArrayAsync(content, 0, content.Length);
+            await blob.UploadAsync(new MemoryStream(content));
 
             // Return the blog uri
             return blob.Uri;
@@ -102,7 +97,7 @@ namespace MyBlog.Engine.Services
         public async Task<Uri> Delete(String name)
         {
             // Get the blog by name
-            CloudBlockBlob blob = GetBlogContainer().GetBlockBlobReference(name);
+            var blob = GetBlogContainer().GetBlobClient(name);
             // upload bytes
             await blob.DeleteIfExistsAsync();
 

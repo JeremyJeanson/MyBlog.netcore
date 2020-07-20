@@ -1,8 +1,9 @@
-/* <binding AfterBuild='build' />*/
+/// <binding AfterBuild='build' Clean='clean' ProjectOpened='watch' />
 "use strict";
 
 // Common 
 const { src, dest, parallel, watch } = require("gulp");
+const del = require("del");
 const concat = require("gulp-concat");
 
 // Plugin for scripts
@@ -30,7 +31,7 @@ const paths = {
     input: "./_www/",
     outputJs: "./wwwroot/js",
     outputCss: "./wwwroot/css",
-    destFonts: "./wwwroot/fonts"
+    outputFonts: "./wwwroot/fonts"
 };
 
 /*--------------------------------------------------------------------------------------------------------------------------------------------
@@ -139,13 +140,38 @@ function buildFonts() {
     return src([
         paths.input + "fonts/*",
         paths.npm + "@fortawesome/fontawesome-free/webfonts/*"])
-        .pipe(dest(paths.destFonts));
+        .pipe(dest(paths.outputFonts));
 }
 
 exports.buildFonts = buildFonts;
+
+/*--------------------------------------------------------------------------------------------------------------------------------------------
+ * Dev tasks
+ * --------------------------------------------------------------------------------------------------------------------------------------------*/
+
+// Watch
+exports.watch = function () {
+    watch(paths.input + "js/*.js", function (cb) {
+        exports.buildScripts();
+        cb();
+    });
+    watch(paths.input + "css/*", function (cb) {
+        exports.buildCss();
+        cb();
+    });
+};
 
 // Build
 exports.build = parallel(
     exports.buildScripts,
     exports.buildCss,
     exports.buildFonts);
+
+// Clean
+exports.clean = function () {
+    return del([
+        paths.outputCss,
+        paths.outputJs,
+        paths.outputFonts
+    ]);
+};
