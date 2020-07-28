@@ -178,7 +178,22 @@ namespace MyBlog.Engine.Services
         }
 
         /// <summary>
-        /// Return list of ccategories and count post of each
+        /// Return list the lastests categories and count post of each
+        /// </summary>
+        /// <returns></returns>
+        public Counter[] GetGateoriesCountersLatests()
+        {
+            return (from c in _context.Categories
+                    where c.Posts.Any(p => p.Post != null && p.Post.Published && p.Post.DateCreatedGmt <= DateTime.UtcNow)
+                    select new Counter() { Id = c.Id, Name = c.Name, Count = c.Posts.Count(p => p.Post != null && p.Post.Published && p.Post.DateCreatedGmt <= DateTime.UtcNow) }
+                    )
+                    .OrderByDescending(c => c.Count)
+                    .Take(Constants.CategoriesDisplayedOnLayoutMax)
+                    .ToArray();
+        }
+
+        /// <summary>
+        /// Return list of all ccategories and count post of each
         /// </summary>
         /// <returns></returns>
         public Counter[] GetGateoriesCounters()
@@ -630,7 +645,34 @@ namespace MyBlog.Engine.Services
         #region Archives
 
         /// <summary>
-        /// Get archives links and counters
+        /// Get only latest archives
+        /// </summary>
+        /// <returns></returns>
+        public ArchiveLink[] GetArchivesLatests()
+        {
+            return (from p in _context.Posts
+                         where p.Published && p.DateCreatedGmt <= DateTime.UtcNow
+                         group p by new { p.DateCreatedGmt.Year, p.DateCreatedGmt.Month } into g
+                         select new
+                         {
+                             g.Key.Year,
+                             g.Key.Month,
+                             Count = g.Count()
+                         })
+                         .OrderByDescending(c=>c.Year)
+                         .ThenByDescending(c=>c.Month)
+                         .Take(Constants.ArchivesDisplayedOnLayoutMax)
+                         .AsEnumerable()
+                         .Select(m => new ArchiveLink
+                         {
+                             Id = new ArchiveId(m.Year, m.Month),
+                             Count = m.Count
+                         })
+                         .ToArray();
+        }
+
+        /// <summary>
+        /// Get all archives links and counters
         /// </summary>
         /// <returns></returns>
         public ArchiveLink[] GetArchives()
@@ -788,10 +830,8 @@ namespace MyBlog.Engine.Services
         /// <returns></returns>
         public Int32  CounPostsInCategory(Int32 categoryId)
         {
-            return _context.Categories
-                .FirstOrDefault(c => c.Id == categoryId)
-                ?.Posts
-                ?.Count() ?? 0;
+            return _context.PostCategories
+                .Count(c => c.CategoryId == categoryId);
         }
 
         #endregion

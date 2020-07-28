@@ -1,4 +1,7 @@
+/// <reference path="_my.ts" />
+/// <reference path="_dialog.ts" />
 My.ready(function () {
+    // Header scroll
     window.addEventListener("scroll", function (e) {
         var distanceY = window.pageYOffset || document.documentElement.scrollTop;
         var body = this.document.getElementsByTagName("body")[0];
@@ -16,8 +19,10 @@ My.ready(function () {
 });
 var App;
 (function (App) {
+    // Login dialog
     function Login() {
         Dialog.Post(document.getElementById("login").innerHTML, "/Authentication/", { "returnUrl": window.location.href });
     }
     App.Login = Login;
 })(App || (App = {}));
+//# sourceMappingURL=App.js.map

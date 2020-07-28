@@ -1,5 +1,6 @@
 var My;
 (function (My) {
+    // Call when document is ready
     function ready(callback) {
         if (document.readyState === "interactive" || document.readyState === "complete") {
             callback();
@@ -10,3 +11,4 @@ var My;
     }
     My.ready = ready;
 })(My || (My = {}));
+//# sourceMappingURL=_my.js.map

@@ -432,6 +432,22 @@ Les cookies peuvent être utilisés pour:
           <source>Home</source>
           <target state="final">Accueil</target>
         </trans-unit>
+        <trans-unit id="ArchivesListDescription" translate="yes" xml:space="preserve">
+          <source>List of all archives</source>
+          <target state="final">Liste de toutes les archives</target>
+        </trans-unit>
+        <trans-unit id="CategoriesListDescription" translate="yes" xml:space="preserve">
+          <source>List of all categories</source>
+          <target state="final">Liste de toutes les catégories</target>
+        </trans-unit>
+        <trans-unit id="ArchivesShowAll" translate="yes" xml:space="preserve">
+          <source>Show the list of all archives</source>
+          <target state="final">Afficher la liste de toutes les archives</target>
+        </trans-unit>
+        <trans-unit id="CategoriesShowAll" translate="yes" xml:space="preserve">
+          <source>Show the list of all categories</source>
+          <target state="final">Afficher la liste de toutes les catégories</target>
+        </trans-unit>
       </group>
     </body>
   </file>

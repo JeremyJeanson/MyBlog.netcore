@@ -11,17 +11,7 @@
     <div id="items" class="list-group list-group-flush">
         <partial name="_PostsWithoutContent" model="Model.Items" />
     </div>
-    <div class="indexednavigation">
-        @if (Model.HaveMoreResults)
-        {
-            <button type="button" id="btn-getmore" class="btn btn-primary" data-action="@Model.Action" data-args="@Model.Id?page=@Model.NextPage">@Resources.GetMorePost</button>
-        }
-        <div id="pagination">
-            <pagination action="@Model.Action"
-                        count="Model.Available"
-                        page="Model.Page"
-                        page-size="options.Value.PostQuantityPerPage"
-                        route-values="new { Id = Model.Id }"></pagination>
-        </div>
-    </div>
 </panel>
+<div id="indexednavigation">
+    <partial name="_FilterPagination" model="Model" />
+</div>

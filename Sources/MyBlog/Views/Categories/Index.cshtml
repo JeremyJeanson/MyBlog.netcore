@@ -1,0 +1,8 @@
+﻿@model MyBlog.Models.CategoriesVewModel
+@{ 
+    ViewBag.Title = Resources.Categories;
+    ViewBag.Description = Resources.CategoriesListDescription;
+}
+<panel title="@Resources.Categories" icon="fa-tags" remove-padding="true">
+    <partial name="_Index" model="@Model"/>
+</panel>

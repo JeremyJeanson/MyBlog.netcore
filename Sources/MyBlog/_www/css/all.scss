@@ -4,6 +4,8 @@ $grid-gutter-width: 10px;
 $focus-width: 1px;
 $focus-color: rgba(darken($blue, 15%),0.9);
 
+$card-cap-bg: $card-bg;
+
 *:focus {
     outline: none;
 }

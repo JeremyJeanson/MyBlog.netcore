@@ -250,11 +250,47 @@ namespace MyBlog.Strings {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to List of all archives.
+        /// </summary>
+        public static string ArchivesListDescription {
+            get {
+                return ResourceManager.GetString("ArchivesListDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show the list of all archives.
+        /// </summary>
+        public static string ArchivesShowAll {
+            get {
+                return ResourceManager.GetString("ArchivesShowAll", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Categories.
         /// </summary>
         public static string Categories {
             get {
                 return ResourceManager.GetString("Categories", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to List of all categories.
+        /// </summary>
+        public static string CategoriesListDescription {
+            get {
+                return ResourceManager.GetString("CategoriesListDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show the list of all categories.
+        /// </summary>
+        public static string CategoriesShowAll {
+            get {
+                return ResourceManager.GetString("CategoriesShowAll", resourceCulture);
             }
         }
         

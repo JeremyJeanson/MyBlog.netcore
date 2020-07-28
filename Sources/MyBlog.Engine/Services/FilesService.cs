@@ -81,7 +81,7 @@ namespace MyBlog.Engine.Services
         {
             // Get the blog by name
             var blob = GetBlogContainer().GetBlobClient(name);
-            
+
             // upload bytes
             await blob.UploadAsync(new MemoryStream(content));
 

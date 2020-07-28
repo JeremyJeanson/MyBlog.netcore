@@ -1,0 +1,11 @@
+﻿@model MyBlog.Models.CategoriesVewModel
+<div class="list-group list-group-wrap">
+    @foreach (var item in Model.Categories)
+    {
+        <a class="list-group-item list-group-item-action col-12 col-sm-6 col-md-4 col-lg-6 d-flex justify-content-between align-items-center"
+           asp-controller="Post" asp-action="Category" asp-route-id="@item.Id">
+            @item.Name
+            <span class="badge badge-pill badge-primary">@item.Count</span>
+        </a>
+    }
+</div>

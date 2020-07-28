@@ -1,3 +1,6 @@
+/// <reference path="_ajax.ts" />
+/// <reference path="_dialog.ts" />
+// Accessibiliy class to allow users to set accessibilty settings
 var Accessibility;
 (function (Accessibility) {
     function show(title) {
@@ -60,9 +63,11 @@ var Accessibility;
     function set(url) {
         Ajax.Post(url, undefined, function (e) {
             Ajax.Post("/UserSettings/Style", undefined, function (response) {
+                // Replace inline style
                 var container = document.getElementById("layoutStyle");
                 container.outerHTML = response;
             });
         });
     }
 })(Accessibility || (Accessibility = {}));
+//# sourceMappingURL=accessibility.js.map

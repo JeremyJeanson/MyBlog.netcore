@@ -1,3 +1,4 @@
+/// <reference path="_dialog.ts" />
 My.ready(function () {
     var button = document.getElementById("sendvalidationmail");
     if (button) {
@@ -6,3 +7,4 @@ My.ready(function () {
         };
     }
 });
+//# sourceMappingURL=Account-Edit.js.map

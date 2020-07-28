@@ -1,0 +1,11 @@
+﻿@model MyBlog.Models.ArchivesViewModel
+<div class="list-group list-group-wrap">
+    @foreach (var item in Model.Archives)
+    {
+        <a class="list-group-item  list-group-item-action col-6 col-sm-4 d-flex justify-content-between align-items-center"
+           asp-controller="Post" asp-action="Archive" asp-route-id="@item.Id.Id">
+            @item.Title
+            <span class="badge badge-pill badge-primary">@item.Count</span>
+        </a>
+    }
+</div>

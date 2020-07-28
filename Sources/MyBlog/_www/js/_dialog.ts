@@ -7,7 +7,7 @@ namespace Dialog {
     export function Post(title, url, data): void {
         Ajax.Post(url, data, (view) => {
             // Create dialog via Vanilla JS to be ready when bootstrap 5 will drop Jquery
-            let dialog = document.createElement("div");
+            const dialog = document.createElement("div");
             dialog.setAttribute("class", "modal fade");
             dialog.setAttribute("tabindex", "-1");
             dialog.setAttribute("role", "dialog");

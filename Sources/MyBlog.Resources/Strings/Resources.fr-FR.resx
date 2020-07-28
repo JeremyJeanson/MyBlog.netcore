@@ -317,4 +317,16 @@ Les cookies peuvent être utilisés pour:
   <data name="Home" xml:space="preserve">
     <value>Accueil</value>
   </data>
+  <data name="ArchivesListDescription" xml:space="preserve">
+    <value>Liste de toutes les archives</value>
+  </data>
+  <data name="CategoriesListDescription" xml:space="preserve">
+    <value>Liste de toutes les catégories</value>
+  </data>
+  <data name="ArchivesShowAll" xml:space="preserve">
+    <value>Afficher la liste de toutes les archives</value>
+  </data>
+  <data name="CategoriesShowAll" xml:space="preserve">
+    <value>Afficher la liste de toutes les catégories</value>
+  </data>
 </root>

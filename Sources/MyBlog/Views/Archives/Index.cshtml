@@ -1,0 +1,8 @@
+﻿@model MyBlog.Models.ArchivesViewModel
+@{ 
+    ViewBag.Title = Resources.Archives;
+    ViewBag.Description = Resources.ArchivesListDescription;
+}
+<panel title="@Resources.Archives" icon="fa-calendar" remove-padding="true">
+    <partial name="_Index" model="@Model"/>
+</panel>

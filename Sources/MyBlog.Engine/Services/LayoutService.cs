@@ -23,8 +23,8 @@ namespace MyBlog.Engine.Services
             Model = new LayoutViewModel
             {
                 Version = ApplicationHelper.GetVersion() + " " + Resources.VersionSuffix,
-                Categories = data.GetGateoriesCounters(),
-                Archives = data.GetArchives(),
+                Categories = data.GetGateoriesCountersLatests(),
+                Archives = data.GetArchivesLatests(),
                 User = user.Get(),
                 UserSettings = userSettings.Get(),
             };

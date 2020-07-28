@@ -19,16 +19,6 @@
         }
     </div>
 </panel>
-<div class="indexednavigation">
-    @if (Model.HaveMoreResults)
-    {
-        <button type="button" id="btn-getmore" class="btn btn-primary" data-action="@Model.Action" data-args="@Model.Id?page=@Model.NextPage&query=@Uri.EscapeDataString(Model.Query)">@Resources.GetMorePost</button>
-    }
-    <div id="pagination">
-        <pagination action="@Model.Action"
-                    count="Model.Available"
-                    page="Model.Page"
-                    page-size="options.Value.PostQuantityPerSearch"
-                    route-values="new { Id = Model.Id, Query = Model.Query }"></pagination>
-    </div>
+<div id="indexednavigation">
+    <partial name="_SearchPagination" model="Model"/>
 </div>

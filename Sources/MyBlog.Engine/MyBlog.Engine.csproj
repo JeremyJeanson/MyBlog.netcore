@@ -22,7 +22,7 @@
     <PackageReference Include="Microsoft.AspNetCore.Authentication.MicrosoftAccount" Version="3.1.6" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.Twitter" Version="3.1.6" />
     <PackageReference Include="Microsoft.AspNetCore.DataProtection.Abstractions" Version="3.1.6" />
-    <PackageReference Include="Sendgrid" Version="9.18.0" />
+    <PackageReference Include="Sendgrid" Version="9.19.0" />
   </ItemGroup>
 
   <ItemGroup>

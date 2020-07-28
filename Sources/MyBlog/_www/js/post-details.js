@@ -1,4 +1,6 @@
+/// <reference path="_dialog.ts" />
 My.ready(function () {
+    // Allow user to subscrib/unsubscribe to comment notifications
     var checkbox = document.getElementById("CurrentUserSubscibed");
     if (checkbox) {
         checkbox.addEventListener("change", function () {
@@ -9,3 +11,4 @@ My.ready(function () {
         });
     }
 });
+//# sourceMappingURL=Post-Details.js.map

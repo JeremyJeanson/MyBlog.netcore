@@ -431,4 +431,16 @@ Cookies that could be used are:
   <data name="Home" xml:space="preserve">
     <value>Home</value>
   </data>
+  <data name="ArchivesListDescription" xml:space="preserve">
+    <value>List of all archives</value>
+  </data>
+  <data name="CategoriesListDescription" xml:space="preserve">
+    <value>List of all categories</value>
+  </data>
+  <data name="ArchivesShowAll" xml:space="preserve">
+    <value>Show the list of all archives</value>
+  </data>
+  <data name="CategoriesShowAll" xml:space="preserve">
+    <value>Show the list of all categories</value>
+  </data>
 </root>

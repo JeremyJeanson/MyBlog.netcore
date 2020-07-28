@@ -2,7 +2,7 @@
     // Post
     export function Post(url: string, data?: any, callback?: (response: string) => void): void {
         BlockUi();
-        let request = new XMLHttpRequest();
+        const request = new XMLHttpRequest();
         request.open("POST", url, true);
 
         // Callback        
@@ -61,7 +61,7 @@
     // Unblock the user interface
     function UnBlockUi(): void {
         // Test if the div container is available
-        let container = document.getElementById("blockui") as HTMLDivElement;
+        const container = document.getElementById("blockui") as HTMLDivElement;
         // Remove the container
         if (container) container.remove();
     }

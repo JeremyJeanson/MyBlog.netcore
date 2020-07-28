@@ -41,12 +41,21 @@ namespace MyBlog.Engine.Tests.DataService
         }
 
         [Fact]
-        public void GetGateoriesCountersTest1()
+        public void GetGateoriesCounters()
         {
             var db = TestsSetvices.Current.Get<Services.DataService>();
             var result = db.GetGateoriesCounters();
+            Assert.NotNull(result);
         }
 
+        [Fact]
+        public void GetGateoriesCountersLatests()
+        {
+            var db = TestsSetvices.Current.Get<Services.DataService>();
+            var result = db.GetGateoriesCountersLatests();
+            Assert.NotNull(result);
+            Assert.True(result.Length<=Constants.CategoriesDisplayedOnLayoutMax);
+        }
 
         [Fact]
         public void GetPostsInCategory1()

@@ -44,15 +44,6 @@
         <partial name="_PostWithSummary" model="item" />
     }
 </div>
-<div class="indexednavigation">
-    @if (Model.HaveMoreResults)
-    {
-        <button type="button" id="btn-getmore" class="btn btn-primary" data-action="IndexGetMore" data-args="?page=@Model.NextPage">@Resources.GetMorePost</button>
-    }
-    <div id="pagination">
-        <pagination action="Index"
-                    count="Model.Available"
-                    page="Model.Page"
-                    page-size="options.Value.PostQuantityPerPage"></pagination>
-    </div>
+<div id="indexednavigation">
+    <partial name="_IndexPagination" model="Model"/>
 </div>
