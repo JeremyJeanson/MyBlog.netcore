@@ -1,11 +1,13 @@
 ﻿/// <reference path="_my.ts" />
 /// <reference path="_dialog.ts" />
+/// <reference path="localizations/localization.ts" />
 
+// Document is ready
 My.ready(() => {
     // Header scroll
     window.addEventListener("scroll", function (e) {
-        let distanceY = window.pageYOffset || document.documentElement.scrollTop;
-        let body = this.document.getElementsByTagName("body")[0] as HTMLBodyElement;
+        const distanceY = window.pageYOffset || document.documentElement.scrollTop;
+        const body = this.document.getElementsByTagName("body")[0] as HTMLBodyElement;
 
         if (distanceY > 300) {
             if (body.classList.contains("bigheader")) {
@@ -17,13 +19,16 @@ My.ready(() => {
             }
         }
     });
+
+    // Tooltips
+    $('[data-toggle="tooltip"]').tooltip();
 });
 
 namespace App {
     // Login dialog
     export function Login(): void {
         Dialog.Post(
-            document.getElementById("login").innerHTML,
+            `<i class="fas fa-sign-in-alt"></i> ${L10n.LogInOrSignUp}`,
             "/Authentication/",
             { "returnUrl": window.location.href }
         );

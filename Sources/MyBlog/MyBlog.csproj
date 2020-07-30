@@ -1,14 +1,19 @@
-﻿<Project Sdk="Microsoft.NET.Sdk.Web">
-
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup Label="MultilingualAppToolkit">
+    <MultilingualAppToolkitVersion>4.0</MultilingualAppToolkitVersion>
+    <MultilingualFallbackLanguage>en-US</MultilingualFallbackLanguage>
+    <TranslationReport Condition="'$(Configuration)' == 'Release'">true</TranslationReport>
+    <SuppressPseudoWarning Condition="'$(Configuration)' == 'Debug'">true</SuppressPseudoWarning>
+  </PropertyGroup>
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <NeutralLanguage>en-US</NeutralLanguage>
-    <AssemblyVersion>3.1.0.13</AssemblyVersion>
-    <FileVersion>3.1.0.13</FileVersion>
-    <Version>3.1.0.13</Version>
+    <AssemblyVersion>3.1.0.16</AssemblyVersion>
+    <FileVersion>3.1.0.16</FileVersion>
+    <Version>3.1.0.16</Version>
     <TypeScriptToolsVersion>Latest</TypeScriptToolsVersion>
   </PropertyGroup>
-
   <ItemGroup>
     <None Remove="_www\js\Account-Edit.ts" />
     <None Remove="_www\js\app.ts" />
@@ -18,23 +23,19 @@
     <None Remove="_www\js\_dialog.ts" />
     <None Remove="_www\js\_my.ts" />
   </ItemGroup>
-
   <ItemGroup>
     <PackageReference Include="Microsoft.VisualStudio.Web.BrowserLink" Version="2.2.0" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.3" />
   </ItemGroup>
-
   <ItemGroup>
     <ProjectReference Include="..\MyBlog.Engine.Data\MyBlog.Engine.Data.csproj" />
     <ProjectReference Include="..\MyBlog.Engine\MyBlog.Engine.csproj" />
     <ProjectReference Include="..\MyBlog.Resources\MyBlog.Resources.csproj" />
     <ProjectReference Include="..\MyLib.Web\MyLib.Web.csproj" />
   </ItemGroup>
-
   <ItemGroup>
     <Folder Include="Views\Account\" />
   </ItemGroup>
-
   <ItemGroup>
     <TypeScriptCompile Include="_www\js\account-edit.ts" />
     <TypeScriptCompile Include="_www\js\get-more-items.ts" />
@@ -45,9 +46,11 @@
     <TypeScriptCompile Include="_www\js\_my.ts" />
     <TypeScriptCompile Include="_www\js\accessibility.ts" />
   </ItemGroup>
-
-  <ProjectExtensions><VisualStudio><UserProperties package_1json__JSONSchema="http://json.schemastore.org/avro-avsc" /></VisualStudio></ProjectExtensions>
-
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties package_1json__JSONSchema="http://json.schemastore.org/avro-avsc" />
+    </VisualStudio>
+  </ProjectExtensions>
   <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
     <TypeScriptTarget>ES5</TypeScriptTarget>
     <TypeScriptJSXEmit>None</TypeScriptJSXEmit>
@@ -63,5 +66,8 @@
     <TypeScriptMapRoot />
     <TypeScriptSourceRoot />
   </PropertyGroup>
-
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\Multilingual App Toolkit\Microsoft.Multilingual.ResxResources.targets" Label="MultilingualAppToolkit" Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\Multilingual App Toolkit\v$(MultilingualAppToolkitVersion)\Microsoft.Multilingual.ResxResources.targets')" />
+  <Target Name="MATPrerequisite" BeforeTargets="PrepareForBuild" Condition="!Exists('$(MSBuildExtensionsPath)\Microsoft\Multilingual App Toolkit\Microsoft.Multilingual.ResxResources.targets')" Label="MultilingualAppToolkit">
+    <Warning Text="$(MSBuildProjectFile) is Multilingual build enabled, but the Multilingual App Toolkit is unavailable during the build. If building with Visual Studio, please check to ensure that toolkit is properly installed." />
+  </Target>
 </Project>

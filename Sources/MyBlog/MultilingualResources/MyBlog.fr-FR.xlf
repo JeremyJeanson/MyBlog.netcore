@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-US" target-language="fr-FR" original="MYBLOG/_WWW/JS/LOCALIZATIONS/LOCALIZATION.RESX" tool-id="MultilingualAppToolkit" product-name="n/a" product-version="n/a" build-num="n/a">
+    <header>
+      <tool tool-id="MultilingualAppToolkit" tool-name="Multilingual App Toolkit" tool-version="4.0.6916.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="MYBLOG/_WWW/JS/LOCALIZATIONS/LOCALIZATION.RESX" datatype="resx">
+        <trans-unit id="Accessibility" translate="yes" xml:space="preserve">
+          <source>Accessibility settings</source>
+          <target state="final">Paramètres d'accessibilité</target>
+        </trans-unit>
+        <trans-unit id="Close" translate="yes" xml:space="preserve">
+          <source>Close</source>
+          <target state="final">Fermer</target>
+        </trans-unit>
+        <trans-unit id="CloseSuffix" translate="yes" xml:space="preserve">
+          <source>this messagebox</source>
+          <target state="final">cette boîte de dialogue</target>
+        </trans-unit>
+        <trans-unit id="Copied" translate="yes" xml:space="preserve">
+          <source>Copied!</source>
+          <target state="final">Copié!</target>
+        </trans-unit>
+        <trans-unit id="Copy" translate="yes" xml:space="preserve">
+          <source>Copy to clipboard</source>
+          <target state="final">Copier vers le presse-papier</target>
+        </trans-unit>
+        <trans-unit id="Loading" translate="yes" xml:space="preserve">
+          <source>Loading</source>
+          <target state="final">Chargement</target>
+        </trans-unit>
+        <trans-unit id="LogInOrSignUp" translate="yes" xml:space="preserve">
+          <source>Login in</source>
+          <target state="final">Se connecter</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

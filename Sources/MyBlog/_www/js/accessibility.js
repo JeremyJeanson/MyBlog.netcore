@@ -1,10 +1,11 @@
 /// <reference path="_ajax.ts" />
 /// <reference path="_dialog.ts" />
+/// <reference path="localizations/localization.ts" />
 // Accessibiliy class to allow users to set accessibilty settings
 var Accessibility;
 (function (Accessibility) {
     function show(title) {
-        Dialog.Post(title, "/UserSettings/PostAccessibility", null);
+        Dialog.Post("<i class=\"fab fa-accessible-icon\"></i> " + L10n.Accessibility, "/UserSettings/PostAccessibility", null);
     }
     Accessibility.show = show;
     ;

@@ -2,17 +2,19 @@
 "use strict";
 
 // Common 
-const { src, dest, parallel, watch } = require("gulp");
+const { src, dest, parallel, watch, series } = require("gulp");
 const del = require("del");
 const concat = require("gulp-concat");
 
 // Plugin for scripts
 var terser = require("gulp-terser");
-
 const browserify = require("browserify");
 const source = require("vinyl-source-stream");
 const streamify = require("gulp-streamify");
 
+// Plugin for RESX files
+const resx_out = require("gulp-resx-out");
+const ext_replace = require('gulp-ext-replace');
 
 // Plugins for styles
 const sass = require('gulp-sass');
@@ -33,6 +35,42 @@ const paths = {
     outputCss: "./wwwroot/css",
     outputFonts: "./wwwroot/fonts"
 };
+
+/*--------------------------------------------------------------------------------------------------------------------------------------------
+ * Resx files
+ * --------------------------------------------------------------------------------------------------------------------------------------------*/
+function convertResx() {
+    //return string that should be written to file
+    function onwrite(result, file) {
+        return `var L10n = ${JSON.stringify(result, null, "\t")};`;
+    }
+
+    function onparse(item, element, result, file) {
+        return {
+            name: item.name,
+            value: item.value
+        };
+    }
+
+    return src(paths.input + "js/Localizations/*.resx")
+        .pipe(resx_out({
+            delimiter: '.',
+            onwrite: onwrite,
+            onparse: onparse
+        }))
+        .pipe(ext_replace(".ts"))
+        .pipe(dest(paths.input + "js/Localizations/"));
+}
+
+function copyLocalizations() {
+    return src(paths.input + "js/Localizations/*.ts")
+        .pipe(ext_replace(".js"))
+        .pipe(terser())
+        .pipe(dest(paths.outputJs));
+}
+
+exports.buildResx = series(convertResx, copyLocalizations);
+
 
 /*--------------------------------------------------------------------------------------------------------------------------------------------
  * Scripts
@@ -151,6 +189,10 @@ exports.buildFonts = buildFonts;
 
 // Watch
 exports.watch = function () {
+    watch(paths.input + "js/Localizations/*.resx", function (cb) {
+        exports.buildResx();
+        cb();
+    });
     watch(paths.input + "js/*.js", function (cb) {
         exports.buildScripts();
         cb();
@@ -163,7 +205,7 @@ exports.watch = function () {
 
 // Build
 exports.build = parallel(
-    exports.buildScripts,
+    series(exports.buildResx, exports.buildScripts),
     exports.buildCss,
     exports.buildFonts);
 

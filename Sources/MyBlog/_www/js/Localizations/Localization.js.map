@@ -1,0 +1,1 @@
+{"version":3,"file":"localization.js","sourceRoot":"","sources":["localization.ts"],"names":[],"mappings":"AAAA,IAAI,IAAI,GAAG;IACV,eAAe,EAAE,wBAAwB;IACzC,OAAO,EAAE,OAAO;IAChB,aAAa,EAAE,iBAAiB;IAChC,QAAQ,EAAE,SAAS;IACnB,MAAM,EAAE,mBAAmB;IAC3B,SAAS,EAAE,SAAS;IACpB,eAAe,EAAE,UAAU;CAC3B,CAAC"}

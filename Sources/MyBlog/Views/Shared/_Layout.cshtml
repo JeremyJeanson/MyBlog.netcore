@@ -238,6 +238,13 @@
             </div>
         </div>
     </footer>
+    @{
+        String culture = System.Globalization.CultureInfo.CurrentUICulture.Name;
+        culture = String.Equals(culture, "en-US", StringComparison.InvariantCultureIgnoreCase)
+            ? ""
+            : $".{culture}";
+    }
+    <script src="~/js/localization@(culture).js" asp-append-version="true"></script>
     <script src="~/js/common.js" asp-append-version="true"></script>
     @if (!model.UserSettings.CookiesConcentClosed)
     {

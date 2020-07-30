@@ -1,10 +1,11 @@
 ﻿/// <reference path="_ajax.ts" />
 /// <reference path="_dialog.ts" />
+/// <reference path="localizations/localization.ts" />
 
 // Accessibiliy class to allow users to set accessibilty settings
 namespace Accessibility {
     export function show(title: string): void {
-        Dialog.Post(title, "/UserSettings/PostAccessibility", null);
+        Dialog.Post(`<i class="fab fa-accessible-icon"></i> ${L10n.Accessibility}`, "/UserSettings/PostAccessibility", null);
     };
 
     export function setDefaultFont():void {
@@ -50,7 +51,7 @@ namespace Accessibility {
         Ajax.Post(url, undefined, (e) => {
             Ajax.Post("/UserSettings/Style", undefined, (response) => {
                 // Replace inline style
-                let container = document.getElementById("layoutStyle");
+                const container = document.getElementById("layoutStyle");
                 container.outerHTML = response;
             });
         });

@@ -27,6 +27,24 @@ namespace Services.Tests.DataService
         }
 
         [Fact]
+        public void CreatePostTest2()
+        {
+            var db = TestsSetvices.Current.Get<MyBlog.Engine.Services.DataService>();
+            var categories = db.GetCategoriesAndCreatIfNotExists(new[] { "Code" });
+
+            var result = db.AddPost(new MyBlog.Engine.Data.Models.Post
+            {
+                Title = $"Code {DateTime.Now.ToLongDateString()}",
+                DateCreatedGmt = DateTime.UtcNow.AddMinutes(-5),
+                BeginningOfContent = $"<p>Begin content test {Guid.NewGuid()}</p><pre><code class=\"language-cs\">int i = 0;\r\ni++;\r\nConsole.WrileLine(\"i =\" + i);</code></pre><br/>",
+                EndOfContent = $"<p>End content test {Guid.NewGuid()}</p>",
+                ContentIsSplitted = true,
+                Published = true
+            }, categories.Select(c => c.Id).ToArray());
+            Assert.True(result);
+        }
+
+        [Fact]
         public void GetPostsTest1()
         {
             var db = TestsSetvices.Current.Get<MyBlog.Engine.Services.DataService>();

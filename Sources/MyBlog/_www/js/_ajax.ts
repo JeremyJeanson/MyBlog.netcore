@@ -1,4 +1,6 @@
-﻿namespace Ajax {
+﻿/// <reference path="localizations/localization.ts" />
+
+namespace Ajax {
     // Post
     export function Post(url: string, data?: any, callback?: (response: string) => void): void {
         BlockUi();
@@ -13,10 +15,10 @@
                     callback(request.response);
                 }
             }
-        };        
+        };
 
         // Error
-        request.onerror = function (this: XMLHttpRequest, ev: ProgressEvent): any  {
+        request.onerror = function (this: XMLHttpRequest, ev: ProgressEvent): any {
             UnBlockUi();
         };
 
@@ -47,11 +49,11 @@
 
         // Add the id
         container.setAttribute("id", "blockui");
-        container.innerHTML = "<div class='blockuibackground'></div><div class='blockuicontainer'><div><div>"
-            + "<i class='fas fa-cog fa-spin fa-5x fa-fw'></i>"
-            + "<i class='fas fa-cog fa-spin2 fa-5x fa-fw' style='margin:-37px;' ></i>"
-            + "<i class='fas fa-cog fa-spin fa-5x fa-fw'></i>"
-            + "</div><div tabindex='-1' role='status'>Chargement...</div></div></div>";
+        container.innerHTML = `<div class='blockuibackground'></div><div class='blockuicontainer'><div><div>
+            <i class='fas fa-cog fa-spin fa-5x fa-fw'></i>
+            <i class='fas fa-cog fa-spin2 fa-5x fa-fw' style='margin:-37px;' ></i>
+            <i class='fas fa-cog fa-spin fa-5x fa-fw'></i>
+            </div><div tabindex='-1' role='status'>${L10n.Loading}...</div></div></div>`;
 
         // Append to the body
         let body = document.getElementsByTagName("body")[0] as HTMLBodyElement;

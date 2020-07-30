@@ -1,5 +1,7 @@
 /// <reference path="_my.ts" />
 /// <reference path="_dialog.ts" />
+/// <reference path="localizations/localization.ts" />
+// Document is ready
 My.ready(function () {
     // Header scroll
     window.addEventListener("scroll", function (e) {
@@ -16,12 +18,14 @@ My.ready(function () {
             }
         }
     });
+    // Tooltips
+    $('[data-toggle="tooltip"]').tooltip();
 });
 var App;
 (function (App) {
     // Login dialog
     function Login() {
-        Dialog.Post(document.getElementById("login").innerHTML, "/Authentication/", { "returnUrl": window.location.href });
+        Dialog.Post("<i class=\"fas fa-sign-in-alt\"></i> " + L10n.LogInOrSignUp, "/Authentication/", { "returnUrl": window.location.href });
     }
     App.Login = Login;
 })(App || (App = {}));
