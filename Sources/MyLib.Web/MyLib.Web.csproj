@@ -25,7 +25,7 @@
     <None Remove="MultilingualResources\MyLib.Web.fr-FR.xlf" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="System.ServiceModel.Syndication" Version="4.7.0" />
+    <PackageReference Include="System.ServiceModel.Syndication" Version="5.0.0" />
   </ItemGroup>
   <ItemGroup>
     <XliffResource Include="MultilingualResources\MyLib.Web.fr-FR.xlf" />
