@@ -1,4 +1,4 @@
-/// <binding Clean='clean' ProjectOpened='watch' />
+/// <binding AfterBuild='build' Clean='clean' ProjectOpened='watch' />
 "use strict";
 
 // Common 
