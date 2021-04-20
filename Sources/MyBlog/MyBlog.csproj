@@ -9,9 +9,9 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <NeutralLanguage>en-US</NeutralLanguage>
-    <AssemblyVersion>3.1.0.16</AssemblyVersion>
-    <FileVersion>3.1.0.16</FileVersion>
-    <Version>3.1.0.16</Version>
+    <AssemblyVersion>3.1.0.21</AssemblyVersion>
+    <FileVersion>3.1.0.21</FileVersion>
+    <Version>3.1.0.21</Version>
     <TypeScriptToolsVersion>Latest</TypeScriptToolsVersion>
   </PropertyGroup>
   <ItemGroup>
@@ -24,8 +24,12 @@
     <None Remove="_www\js\_my.ts" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="Microsoft.TypeScript.MSBuild" Version="4.0.3">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Web.BrowserLink" Version="2.2.0" />
-    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.3" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.4" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MyBlog.Engine.Data\MyBlog.Engine.Data.csproj" />
@@ -34,6 +38,7 @@
     <ProjectReference Include="..\MyLib.Web\MyLib.Web.csproj" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="MultilingualResources\" />
     <Folder Include="Views\Account\" />
   </ItemGroup>
   <ItemGroup>

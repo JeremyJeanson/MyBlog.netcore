@@ -263,8 +263,8 @@
           <target state="final">Il n'y a aucun résultat pour cette recherche.</target>
         </trans-unit>
         <trans-unit id="CookiesConcentContent" translate="yes" xml:space="preserve">
-          <source>This website uses cookies to allow us to enhance your browsing experience (accessibility settings). If you continue to use this website you agree to our use of cookies.</source>
-          <target state="final">Ce site utilise des cookies pour améliorer votre expérience de navigation (paramètres personnels). Si vous continuez de naviguer sur ce site, vous êtes en accord avec cet usage des cookies.</target>
+          <source>This website uses cookies to allow us to enhance your browsing experience (accessibility settings). None personal data are collected or shared.</source>
+          <target state="final">Ce site utilise des cookies pour améliorer votre expérience de navigation (paramètres personnels). Aucune donnée personnelle n’est recueillie ou partagée.</target>
         </trans-unit>
         <trans-unit id="CookiesConcentTitle" translate="no" xml:space="preserve">
           <source>Cookies</source>

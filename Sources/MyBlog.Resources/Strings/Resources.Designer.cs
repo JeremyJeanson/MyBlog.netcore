@@ -331,7 +331,7 @@ namespace MyBlog.Strings {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to This website uses cookies to allow us to enhance your browsing experience (accessibility settings). If you continue to use this website you agree to our use of cookies..
+        ///   Looks up a localized string similar to This website uses cookies to allow us to enhance your browsing experience (accessibility settings). None personal data are collected or shared..
         /// </summary>
         public static string CookiesConcentContent {
             get {

@@ -1,4 +1,4 @@
-/// <binding AfterBuild='build' Clean='clean' ProjectOpened='watch' />
+/// <binding Clean='clean' ProjectOpened='watch' />
 "use strict";
 
 // Common 
@@ -7,7 +7,7 @@ const del = require("del");
 const concat = require("gulp-concat");
 
 // Plugin for scripts
-var terser = require("gulp-terser");
+const terser = require("gulp-terser");
 const browserify = require("browserify");
 const source = require("vinyl-source-stream");
 const streamify = require("gulp-streamify");
@@ -71,12 +71,12 @@ function copyLocalizations() {
 
 exports.buildResx = series(convertResx, copyLocalizations);
 
-
 /*--------------------------------------------------------------------------------------------------------------------------------------------
  * Scripts
  * --------------------------------------------------------------------------------------------------------------------------------------------*/
 // common.js
 function jsCommon() {
+    console.info("Env : " + process.env.NODE_ENV);
     return src([
         paths.npm + "jquery/dist/jquery.js",
         paths.npm + "bootstrap/dist/js/bootstrap.bundle.js",
