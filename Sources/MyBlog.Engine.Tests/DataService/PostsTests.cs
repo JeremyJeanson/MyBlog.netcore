@@ -82,36 +82,7 @@ namespace Services.Tests.DataService
             Assert.NotNull(post);
             Assert.Equal(posts[1].Id, post.Id);
         }
-
-        [Fact]
-        public void GetPreviousPostTest2()
-        {
-            // Create 3 posts
-            CreatePostTest1();
-            CreatePostTest1();
-            CreatePostTest1();
-
-            var db = TestsSetvices.Current.Get<MyBlog.Engine.Services.DataService>();
-
-            var posts = db.GetPosts(0);
-
-            Assert.NotNull(posts);
-            Assert.True(posts.Length > 0);
-            if (posts.Length > 1)
-            {
-                var post = db.GetPreviousPost(posts[1].Id, posts[1].DateCreatedGmt);
-                Assert.NotNull(post);
-                if (posts.Length > 2)
-                {
-                    Assert.Equal(posts[2].Id, post.Id);
-                }
-            }
-            else
-            {
-                throw new Exception("Need more posts for this test");
-            }
-        }
-
+        
         [Fact]
         public void GetNextPostTest1()
         {
