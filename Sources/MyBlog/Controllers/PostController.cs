@@ -161,7 +161,7 @@ namespace MyBlog.Controllers
         public ActionResult Details(Int32 id)
         {
             // Initialize mode lwith post from database
-            Details model = new Details()
+            var model = new Details()
             {
                 Post = _dataService.GetPostWithDetails(id)
             };
@@ -219,6 +219,7 @@ namespace MyBlog.Controllers
 
         [Authorize]
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public PartialViewResult SubscribToCommentNotification(Int32 id, Boolean subscription)
         {
             Boolean model;
@@ -241,7 +242,7 @@ namespace MyBlog.Controllers
         /// <returns></returns>
         public ActionResult Archive(PostsFilter model)
         {
-            ArchiveId id = new ArchiveId(model.Id);
+            var id = new ArchiveId(model.Id);
             // Title
             model.Title = Resources.Archives;
 
@@ -264,7 +265,7 @@ namespace MyBlog.Controllers
         /// <returns></returns>
         public PartialViewResult ArchiveGetMore(PostsFilter model)
         {
-            ArchiveId id = new ArchiveId(model.Id);
+            var id = new ArchiveId(model.Id);
             InitializeArchiveModel(model, id);
             return PartialView(FilterGetMoreView, model);
         }

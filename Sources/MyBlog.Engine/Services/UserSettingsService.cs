@@ -73,9 +73,8 @@ namespace MyBlog.Engine.Services
         /// <returns>Default value if cookie isn't used</returns>
         private UserSettings GetFromCookie()
         {
-            String cookie;
             // Try to get the cookie value
-            if (!_httpContextAccessor.HttpContext.Request.Cookies.TryGetValue(KeyName, out cookie)
+            if (!_httpContextAccessor.HttpContext.Request.Cookies.TryGetValue(KeyName, out String cookie)
                 || String.IsNullOrWhiteSpace(cookie))
             {
                 return null;
@@ -110,7 +109,9 @@ namespace MyBlog.Engine.Services
                 new CookieOptions
                 {
                     // Expire in one year
-                    Expires = DateTime.Now.AddYears(1)
+                    Expires = DateTime.Now.AddYears(1),
+                    Secure = true,
+                    HttpOnly = true
                 });
         }
 

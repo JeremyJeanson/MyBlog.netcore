@@ -37,12 +37,12 @@ article {
             @extend .d-flex;
             @extend .flex-column;
             /*@extend .mx-auto;
-            @extend .ml-md-0;
-            @extend .mr-md-auto;*/
+            @extend .ms-md-0;
+            @extend .me-md-auto;*/
             div {
                 @extend .mx-auto;
-                @extend .ml-md-0;
-                @extend .mr-md-auto;
+                @extend .ms-md-0;
+                @extend .me-md-auto;
             }
         }
 
@@ -74,7 +74,7 @@ article {
 
             .category {
                 @extend .badge;
-                @extend .badge-primary;
+                @extend .bg-primary;
                 padding: 0.6em 1em
             }
         }
@@ -82,8 +82,8 @@ article {
         .share {
             @extend .mx-auto;
             @extend .my-3;
-            @extend .mr-md-0;
-            @extend .ml-md-auto;
+            @extend .me-md-0;
+            @extend .ms-md-auto;
             @extend .my-md-0;
             @extend .d-flex;
 
@@ -173,13 +173,13 @@ blockquote {
 
     #btn-getmore {
         @extend .mb-3;
-        @extend .mr-md-3;
+        @extend .me-md-3;
     }
 
     nav {
         @extend .mx-auto;
-        @extend .ml-md-0;
-        @extend .mr-md-auto;
+        @extend .ms-md-0;
+        @extend .me-md-auto;
     }
 }
 
@@ -205,10 +205,10 @@ blockquote {
 
             small {
                 font-size: 0.8rem;
-                @extend .ml-0;
-                @extend .mr-auto;
-                @extend .ml-md-auto;
-                @extend .mr-md-0;
+                @extend .ms-0;
+                @extend .me-auto;
+                @extend .ms-md-auto;
+                @extend .me-md-0;
                 @extend .mb-md-0;
                 margin-top: 0.8rem;
             }

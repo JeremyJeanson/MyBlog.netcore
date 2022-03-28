@@ -19,13 +19,16 @@ My.ready(function () {
         }
     });
     // Tooltips
-    $('[data-toggle="tooltip"]').tooltip();
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+    tooltipTriggerList.map(function (tooltipTriggerEl) {
+        return new bootstrap.Tooltip(tooltipTriggerEl);
+    });
 });
 var App;
 (function (App) {
     // Login dialog
     function Login() {
-        Dialog.Post("<i class=\"fas fa-sign-in-alt\"></i> " + L10n.LogInOrSignUp, "/Authentication/", { "returnUrl": window.location.href });
+        Dialog.Post("<i class=\"fas fa-sign-in-alt\"></i> ".concat(L10n.LogInOrSignUp), "/Authentication/", { "returnUrl": window.location.href });
     }
     App.Login = Login;
 })(App || (App = {}));

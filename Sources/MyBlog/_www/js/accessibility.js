@@ -5,7 +5,7 @@
 var Accessibility;
 (function (Accessibility) {
     function show(title) {
-        Dialog.Post("<i class=\"fab fa-accessible-icon\"></i> " + L10n.Accessibility, "/UserSettings/PostAccessibility", null);
+        Dialog.Post("<i class=\"fab fa-accessible-icon\"></i> ".concat(L10n.Accessibility), "/UserSettings/PostAccessibility", null);
     }
     Accessibility.show = show;
     ;

@@ -6,7 +6,7 @@ function getMoreItems(e) {
     var args = button.getAttribute("data-args");
     var container = document.getElementById("items");
     if (container) {
-        Ajax.Post("/post/" + action + "/" + args, undefined, function (data) {
+        Ajax.Post("/post/".concat(action, "/").concat(args), undefined, function (data) {
             var doc = document.createElement("div");
             doc.innerHTML = data;
             var items = doc.getElementsByTagName("items")[0];

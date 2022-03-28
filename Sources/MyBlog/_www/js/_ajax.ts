@@ -1,6 +1,9 @@
 ﻿/// <reference path="localizations/localization.ts" />
 
-namespace Ajax {
+module Ajax {
+    export let tokenHeaderName: string;
+    export let tokenValue: string;
+
     // Post
     export function Post(url: string, data?: any, callback?: (response: string) => void): void {
         BlockUi();
@@ -21,6 +24,9 @@ namespace Ajax {
         request.onerror = function (this: XMLHttpRequest, ev: ProgressEvent): any {
             UnBlockUi();
         };
+
+        // header for antiforgerytoken
+        request.setRequestHeader(Ajax.tokenHeaderName, Ajax.tokenValue);
 
         // Data to send?
         if (data != undefined && data != null) {

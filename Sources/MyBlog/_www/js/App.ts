@@ -21,10 +21,13 @@ My.ready(() => {
     });
 
     // Tooltips
-    $('[data-toggle="tooltip"]').tooltip();
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+    tooltipTriggerList.map(function (tooltipTriggerEl) {
+        return new bootstrap.Tooltip(tooltipTriggerEl)
+    })
 });
 
-namespace App {
+module App {
     // Login dialog
     export function Login(): void {
         Dialog.Post(

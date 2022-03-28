@@ -48,13 +48,15 @@ namespace MyLib.Web.Security
             Byte[] tohashBytes = new Byte[saltBytes.Length + passwordBytes.Length];
             Buffer.BlockCopy(saltBytes, 0, tohashBytes, 0, saltBytes.Length);
             Buffer.BlockCopy(passwordBytes, 0, tohashBytes, saltBytes.Length, passwordBytes.Length);
+            
+            using (var provider = SHA512.Create())
+            {
+                // Hash            
+                Byte[] hashedBytes = provider.ComputeHash(tohashBytes);
 
-            // Hash 
-            var provider = new SHA512CryptoServiceProvider();
-            Byte[] hashedBytes = provider.ComputeHash(tohashBytes);
-
-            // Return the hash as String
-            return Convert.ToBase64String(hashedBytes);
+                // Return the hash as String
+                return Convert.ToBase64String(hashedBytes);
+            }
         }
 
         /// <summary>
@@ -65,13 +67,15 @@ namespace MyLib.Web.Security
         {
             // Set salt length
             Byte[] salt = new Byte[SaltLength];
+            
+            using (var provider = RandomNumberGenerator.Create())
+            {
+                // Build the salt array
+                provider.GetBytes(salt);
 
-            // Build the salt array
-            RNGCryptoServiceProvider provider = new RNGCryptoServiceProvider();            
-            provider.GetBytes(salt);
-
-            // Return the salt as string
-            return Convert.ToBase64String(salt);
+                // Return the salt as string
+                return Convert.ToBase64String(salt);
+            }
         }
     }
 }

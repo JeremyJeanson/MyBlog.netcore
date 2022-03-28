@@ -57,6 +57,10 @@ a:focus {
     border-width: $focus-width;
     border-color: transparent;
     border-style: solid;
+
+    &:focus {
+        text-decoration: none;
+    }
 }
 
 a:focus img {
@@ -79,3 +83,11 @@ button:hover:not(.close), button:focus:not(.close), :not(.close) a:hover .btn, a
     label.focus {
         text-decoration: underline;
     }
+
+.btn-check {
+    &:focus {
+        + .btn {
+            text-decoration: underline;
+        }
+    }
+}

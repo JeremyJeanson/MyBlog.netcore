@@ -19,6 +19,8 @@ var Ajax;
         request.onerror = function (ev) {
             UnBlockUi();
         };
+        // header for antiforgerytoken
+        request.setRequestHeader(Ajax.tokenHeaderName, Ajax.tokenValue);
         // Data to send?
         if (data != undefined && data != null) {
             // Set forms params
@@ -43,7 +45,7 @@ var Ajax;
         container = document.createElement("div");
         // Add the id
         container.setAttribute("id", "blockui");
-        container.innerHTML = "<div class='blockuibackground'></div><div class='blockuicontainer'><div><div>\n            <i class='fas fa-cog fa-spin fa-5x fa-fw'></i>\n            <i class='fas fa-cog fa-spin2 fa-5x fa-fw' style='margin:-37px;' ></i>\n            <i class='fas fa-cog fa-spin fa-5x fa-fw'></i>\n            </div><div tabindex='-1' role='status'>" + L10n.Loading + "...</div></div></div>";
+        container.innerHTML = "<div class='blockuibackground'></div><div class='blockuicontainer'><div><div>\n            <i class='fas fa-cog fa-spin fa-5x fa-fw'></i>\n            <i class='fas fa-cog fa-spin2 fa-5x fa-fw' style='margin:-37px;' ></i>\n            <i class='fas fa-cog fa-spin fa-5x fa-fw'></i>\n            </div><div tabindex='-1' role='status'>".concat(L10n.Loading, "...</div></div></div>");
         // Append to the body
         var body = document.getElementsByTagName("body")[0];
         if (body)

@@ -51,7 +51,7 @@ namespace MyBlog.Engine.Controllers
         [HttpGet, HttpPost]
         public ActionResult Index(String returnUrl)
         {
-            AuthenticationProviders model = new AuthenticationProviders
+            var model = new AuthenticationProviders
             {
                 Providers = GetAccountProviders().ToArray()
             };
@@ -159,12 +159,22 @@ namespace MyBlog.Engine.Controllers
                 return RedirectToAction("Edit", "Account");
             }
 
-            //if (String.IsNullOrWhiteSpace(model.ReturnUrl))
-            //{
-            //    Redirect("~/");
-            //}
+            // Check redirection lenght
+            if (String.IsNullOrWhiteSpace(model.ReturnUrl))
+            {
+                Redirect("~/");
+            }
+
+            // Check redirection url
+            if (model.ReturnUrl.StartsWith(_options.Value.Url, StringComparison.InvariantCultureIgnoreCase))
+            {
+#pragma warning disable SCS0027 // Potential Open Redirect vulnerability was found where '{0}' in '{1}' may be tainted by user-controlled data from '{2}' in method '{3}'.
+                return Redirect(model.ReturnUrl);
+#pragma warning restore SCS0027 // Potential Open Redirect vulnerability was found where '{0}' in '{1}' may be tainted by user-controlled data from '{2}' in method '{3}'.
+            }
+
             // Redirection
-            return Redirect(model.ReturnUrl);
+            return Redirect("~/");
         }
 
         #endregion

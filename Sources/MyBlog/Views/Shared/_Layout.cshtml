@@ -1,5 +1,6 @@
 ﻿@inject MyBlog.Engine.Services.LayoutService service
 @inject IOptions<Settings> options
+@inject Microsoft.AspNetCore.Antiforgery.IAntiforgery Antiforgery
 @{
     var model = service.Model;
 }
@@ -38,12 +39,13 @@
     <link rel="apple-touch-icon" sizes="152x152" href="~/images/apple/logo-152.png" />
     <link rel="apple-touch-icon" sizes="167x167" href="~/images/apple/logo-167.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="~/images/apple/logo-180.png" />
+    <partial name="_Analytics"/>
 </head>
 <body class="bigheader">
-    <div id="skiptocontent"><a href="#maincontent">Skip to main content <span aria-hidden="true">&rarr;</span></a></div>
+    <div id="skiptocontent"><a href="#maincontent">@Resources.SkipToContent <span aria-hidden="true">&rarr;</span></a></div>
     <header class="fixed-top">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <div class="container">
+            <div class="container container-fluid">
                 <div class="navbar-brand" role="banner">
                     <a href="/" aria-label="@options.Value.Title - @Resources.Home">
                         <div aria-hidden="true">
@@ -55,28 +57,19 @@
                         </div>
                     </a>
                 </div>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarcollapse" aria-controls="navbarcollapse" aria-expanded="false" aria-label="@Resources.ToggleNavigation">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarcollapse" aria-controls="navbarcollapse" aria-expanded="false" aria-label="@Resources.ToggleNavigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse justify-content-end" id="navbarcollapse" role="navigation">
                     <ul class="navbar-nav">
                         <li>
-                            <a class="nav-link" asp-controller="UserSettings" asp-action="Accessibility" role="button" onclick="Accessibility.show('@System.Net.WebUtility.HtmlEncode(Resources.AccessibilityFullTitle)'); return false">
-                                <span class="sr-only">@Resources.AccessibilityFullTitle</span>
+                            <a class="nav-link" asp-controller="UserSettings" asp-action="Accessibility" role="button" onclick="Accessibility.show(); return false">
+                                <span class="visually-hidden">@Resources.AccessibilityFullTitle</span>
                                 <span aria-hidden="true"><i class="fab fa-accessible-icon"></i> @Resources.Accessibility</span>
                             </a>
                         </li>
-                        @*<li class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i aria-hidden="true" class="fas fa-tags"></i> @Resources.Categories</a>
-                                <div class="dropdown-menu">
-                                    @foreach (var category in model.Categories)
-                                    {
-                                        <a class="dropdown-item d-flex justify-content-between align-items-center" href="@Url.Action("Category", "Post", new { Id = category.Id })">@category.Name <span class="badge badge-pill badge-primary">@category.Count</span></a>
-                                    }
-                                </div>
-                            </li>*@
                         <li class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fas fa-rss" aria-hidden="true"></i> @Resources.Feeds</a>
+                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fas fa-rss" aria-hidden="true"></i> @Resources.Feeds</a>
                             <div class="dropdown-menu">
                                 <a class="dropdown-item" asp-controller="Feed" asp-action="Atom" type="application/atom+xml"><i class="fas fa-rss" aria-hidden="true"></i> @Resources.FeedAtom</a>
                                 <a class="dropdown-item" asp-controller="Feed" asp-action="Rss" type="application/rss+xml"><i class="fas fa-rss" aria-hidden="true"></i> @Resources.FeedRss</a>
@@ -96,7 +89,7 @@
                         else
                         {
                             <li class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user-circle" aria-hidden="true"></i> @(model.User.Name)</a>
+                                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user-circle" aria-hidden="true"></i> @(model.User.Name)</a>
                                 <div class="dropdown-menu">
                                     <a class="dropdown-item" asp-controller="Account" asp-action="Edit"><i class="far fa-id-card" aria-hidden="true"></i> @Resources.EditAccount</a>
                                     <a class="dropdown-item" asp-controller="Authentication" asp-action="Logout"><i class="fas fa-sign-out-alt" aria-hidden="true"></i> @Resources.Logout</a>
@@ -105,14 +98,12 @@
                         }
                     </ul>
                     <form asp-controller="Post" asp-action="Search" method="get" class="form-inline my-2 my-lg-0" role="search">
-                        <label for="query" class="sr-only">@Resources.SearchText</label>
+                        <label for="query" class="visually-hidden">@Resources.SearchText</label>
                         <div class="input-group">
                             <input type="text" class="form-control" placeholder="@Resources.SearchText" id="query" name="query">
-                            <span class="input-group-append">
-                                <button type="submit" class="btn btn-light" aria-label="@Resources.Search">
-                                    <span class="fas fa-search"></span>
-                                </button>
-                            </span>
+                            <button type="submit" class="btn btn-light" aria-label="@Resources.Search">
+                                <span class="fas fa-search"></span>
+                            </button>
                         </div>
                     </form>
                 </div>
@@ -126,29 +117,23 @@
             </main>
             <aside class="col-lg-3">
                 <panel id="me" icon="fa-id-badge" title="@options.Value.AuthorName">
-                    <div class="row">
-                        <div class="col-lg-12 col-3">
-                            <img class="img-fluid mx-auto d-block rounded-circle" src="~/images/me.png" alt="@options.Value.AuthorName" />
-                        </div>
-                        <div class="col-lg-12 col-9">
-                            @Html.Raw("<center>[Your bio, ... etc ...]</center>")<br />
-                            <a class="float-right" asp-controller="About" asp-action="Index"><i class="fas fa-info"></i> @Resources.About</a>
-                        </div>
-                    </div>
+                    <partial name="_SidePanelMe"/>
                 </panel>
                 <div class="card mb-3">
+                    @{
+                        Boolean toomanyCategories = model.Categories.Length >= Constants.CategoriesDisplayedOnLayoutMax;
+                    }
                     <div class="card-header">
                         <h2>
                             <i class="fas fa-tags" aria-hidden="true"></i>
                             @Resources.Categories
-                            @if (model.Categories.Length >= Constants.CategoriesDisplayedOnLayoutMax)
+                            @if (toomanyCategories)
                             {
-
-                                <a class="float-right"
-                                   onclick="Dialog.Post('@Resources.CategoriesListDescription', '/Categories/PostIndex');return false"
+                                <a class="float-end"
+                                   onclick="Dialog.Post('@Resources.CategoriesListDescription', '/Categories/PostIndex', null, true);return false"
                                    asp-controller="Categories"
                                    asp-action="Index"
-                                   data-toggle="tooltip"
+                                   data-bs-toggle="tooltip"
                                    title="@Resources.CategoriesShowAll">
                                     ...
                                 </a>
@@ -161,34 +146,38 @@
                             <a class="list-group-item list-group-item-action col-12 col-sm-6 col-md-4 col-lg-12 d-flex justify-content-between align-items-center"
                                asp-controller="Post" asp-action="Category" asp-route-id="@item.Id">
                                 @item.Name
-                                <span class="badge badge-pill badge-primary">@item.Count</span>
+                                <span class="badge rounded-pill bg-primary">@item.Count</span>
+                            </a>
+                        }
+                        @if (toomanyCategories)
+                        {
+                            <a class="list-group-item list-group-item-action col-12 col-sm-6 col-md-4 col-lg-12 d-flex justify-content-between align-items-center"
+                                onclick="Dialog.Post('@Resources.CategoriesListDescription', '/Categories/PostIndex', null, true);return false"
+                                asp-controller="Categories"
+                                asp-action="Index">
+                                @Resources.CategoriesShowAll
                             </a>
                         }
                     </div>
                 </div>
                 <panel id="links">
-                    <a href="https://twitter.com/JeremyJeanson" target="_blank" class="btn btn-block btn-social btn-twitter" rel="noopener">
-                        <i class="fab fa-twitter"></i> Twitter
-                    </a>
-                    <a href="https://www.linkedin.com/in/jeremyjeanson" target="_blank" class="btn btn-block btn-social btn-linkedin" rel="noopener">
-                        <i class="fab fa-linkedin-in"></i> LinkedIn
-                    </a>
-                    <a href="https://www.viadeo.com/fr/profile/jeremy.jeanson" target="_blank" class="btn btn-block btn-social btn-viadeo" rel="noopener">
-                        <i class="fab fa-viadeo"></i> Viadéo
-                    </a>
+                    <partial name="_SidePanelLinks"/>
                 </panel>
                 <div class="card mb-3">
+                    @{
+                        Boolean toomanyArchives = model.Archives.Length >= Constants.ArchivesDisplayedOnLayoutMax;
+                    }
                     <div class="card-header">
                         <h2>
                             <i class="fas fa-calendar" aria-hidden="true"></i>
                             @Resources.Archives
-                            @if (model.Archives.Length >= Constants.ArchivesDisplayedOnLayoutMax)
+                            @if (toomanyArchives)
                             {
-                                <a class="float-right"
-                                   onclick="Dialog.Post('@Resources.ArchivesListDescription', '/Archives/PostIndex');return false"
+                                <a class="float-end"
+                                   onclick="Dialog.Post('@Resources.ArchivesListDescription', '/Archives/PostIndex', null, true);return false"
                                    asp-controller="Archives"
                                    asp-action="Index"
-                                   data-toggle="tooltip"
+                                   data-bs-toggle="tooltip"
                                    title="@Resources.ArchivesShowAll">
                                     ...
                                 </a>
@@ -198,10 +187,19 @@
                     <div class="list-group list-group-wrap">
                         @foreach (var item in model.Archives)
                         {
-                            <a class="list-group-item  list-group-item-action col-6 col-sm-3 col-lg-12 d-flex justify-content-between align-items-center"
+                            <a class="list-group-item list-group-item-action col-6 col-sm-3 col-lg-12 d-flex justify-content-between align-items-center"
                                asp-controller="Post" asp-action="Archive" asp-route-id="@item.Id.Id">
                                 @item.Title
-                                <span class="badge badge-pill badge-primary">@item.Count</span>
+                                <span class="badge rounded-pill bg-primary">@item.Count</span>
+                            </a>
+                        }
+                        @if (toomanyArchives)
+                        {
+                            <a class="list-group-item list-group-item-action col-6 col-sm-3 col-lg-12 d-flex justify-content-between align-items-center"
+                                   onclick="Dialog.Post('@Resources.ArchivesListDescription', '/Archives/PostIndex', null, true);return false"
+                                   asp-controller="Archives"
+                                   asp-action="Index">
+                                @Resources.ArchivesShowAll
                             </a>
                         }
                     </div>
@@ -250,21 +248,37 @@
     {
         <div class="alert alert-info fade show footeralert" id="cookieConcent">
             <div class="container">
-                <a href="#" role="button" class="close" aria-label="close"><span aria-hidden="true">&times;</span></a>
-                <h2><i class="fas fa-cookie-bite"></i> @Resources.CookiesConcentTitle <small>@Html.ActionLink(Resources.CookiesPolityTitle, "Cookies", "About", null, new { @class = "alert-link" })</small></h2>
+                <button id="cookieConcentClose" type="button" class="btn-close float-end" data-bs-dismiss="alert" aria-label="@Resources.Close"></button>
+                <h2>
+                    <i class="fas fa-cookie-bite"></i> @Resources.CookiesConcentTitle <small>@Html.ActionLink(Resources.CookiesPolityTitle, "Cookies", "About", null, new { @class = "alert-link" })</small>
+                </h2>
                 @Resources.CookiesConcentContent
             </div>
         </div>
         <script>
-    $(function () {
-        setTimeout(function () { $("#cookieConcent").addClass("cookieConcentBottom"); }, 10000);
-        $("#cookieConcent .close").click(function () {
-            $.post("@Url.Action("CookiesConcentClosed", "UserSettings")", function () { $("#cookieConcent").alert("close"); })
-        });
-    });
+            My.ready(function() {
+                setTimeout(function () {
+                    var cookieConcent = document.getElementById("cookieConcent");
+                    if (cookieConcent !== undefined) {
+                        cookieConcent.classList.add("cookieConcentBottom");
+                    }
+                }, 10000);
+                var cookieConcentClose = document.getElementById("cookieConcentClose");
+                cookieConcentClose.onclick = function () {
+                    Ajax.Post("@Url.Action("CookiesConcentClosed", "UserSettings")");
+                    return true;
+                };
+                });
         </script>
     }
     <script src="~/js/layout.js" asp-append-version="true" async></script>
+    <script>
+        @{
+            var antiforgeryToken = Antiforgery.GetAndStoreTokens(Context);
+        }
+        Ajax.tokenHeaderName = "@(antiforgeryToken.HeaderName)";
+        Ajax.tokenValue = "@(antiforgeryToken.RequestToken)";
+    </script>
     @RenderSection("scripts", false)
 </body>
 </html>

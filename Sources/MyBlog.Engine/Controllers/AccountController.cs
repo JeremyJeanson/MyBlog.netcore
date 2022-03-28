@@ -62,7 +62,7 @@ namespace MyBlog.Engine.Controllers
             if (user == null) return NotFound();
 
             // Set model
-            EditAccount model = new EditAccount
+            var model = new EditAccount
             {
                 User = user,
                 Success = null // none action done at this time
@@ -113,6 +113,7 @@ namespace MyBlog.Engine.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<PartialViewResult> SendValidationMail()
         {
             Boolean model;

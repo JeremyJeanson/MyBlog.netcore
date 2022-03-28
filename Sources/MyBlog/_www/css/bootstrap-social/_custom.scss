@@ -131,11 +131,14 @@ $bs-height-xs: floor($btn-line-height + $btn-padding-x-sm * 2);
 }
 
 @mixin btn-social($color-bg, $color: null) {
-  @if $color {
+    /*  @if $color {
     color: $color;
   }
+  @else {
+    color: white;
+  }*/
 
-  @include button-variant($color-bg, $color-bg);
+    @include button-variant($color-bg, $color-bg, white,$hover-color: white);
 }
 
 .btn-adn {

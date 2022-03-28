@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using MyBlog.Engine.Models;
 using MyBlog.Engine.Services;
 using MyLib.Web.Filters;
 using System;
@@ -32,6 +31,7 @@ namespace MyBlog.Engine.Controllers
         #region Cookies 
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult CookiesConcentClosed()
         {
             // Get current settings
@@ -54,12 +54,14 @@ namespace MyBlog.Engine.Controllers
         }
         
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public PartialViewResult PostAccessibility()
         {
             return PartialView("_Accessibility", _userSettingsService.Get());
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public JsonResult SetDyslexicFont(Boolean value)
         {
             // Get current settings
@@ -72,6 +74,7 @@ namespace MyBlog.Engine.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public JsonResult SetTextIsJutified(Boolean value)
         {
             // Get current settings
@@ -84,6 +87,7 @@ namespace MyBlog.Engine.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public JsonResult SetLineHeight(Int32 value)
         {
             // Get current settings
@@ -96,6 +100,7 @@ namespace MyBlog.Engine.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public JsonResult SetZoom(Int32 value)
         {
             // Get current settings
@@ -108,6 +113,7 @@ namespace MyBlog.Engine.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public JsonResult SetTheme(Int32 value)
         {
             // Get current settings
@@ -128,6 +134,7 @@ namespace MyBlog.Engine.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public PartialViewResult Style()
         {
             return PartialView("_Style",_userSettingsService.Get());

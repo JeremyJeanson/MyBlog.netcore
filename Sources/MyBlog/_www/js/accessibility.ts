@@ -3,7 +3,7 @@
 /// <reference path="localizations/localization.ts" />
 
 // Accessibiliy class to allow users to set accessibilty settings
-namespace Accessibility {
+module Accessibility {
     export function show(title: string): void {
         Dialog.Post(`<i class="fab fa-accessible-icon"></i> ${L10n.Accessibility}`, "/UserSettings/PostAccessibility", null);
     };

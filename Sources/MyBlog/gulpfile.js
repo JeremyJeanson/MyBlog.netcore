@@ -10,14 +10,15 @@ const concat = require("gulp-concat");
 const terser = require("gulp-terser");
 const browserify = require("browserify");
 const source = require("vinyl-source-stream");
-const streamify = require("gulp-streamify");
+const merge = require("merge-stream");
+const buffer = require("vinyl-buffer");
 
 // Plugin for RESX files
 const resx_out = require("gulp-resx-out");
 const ext_replace = require('gulp-ext-replace');
 
 // Plugins for styles
-const sass = require('gulp-sass');
+const sass = require('gulp-sass')(require('sass'));
 const cleanCss = require('gulp-clean-css');
 // Clean css options
 const cleanCssOptions = {
@@ -78,9 +79,7 @@ exports.buildResx = series(convertResx, copyLocalizations);
 function jsCommon() {
     console.info("Env : " + process.env.NODE_ENV);
     return src([
-        paths.npm + "jquery/dist/jquery.js",
         paths.npm + "bootstrap/dist/js/bootstrap.bundle.js",
-        paths.npm + "clipboard/dist/clipboard.min.js",
         paths.input + "js/_ajax.js",
         paths.input + "js/_dialog.js",
         paths.input + "js/_my.js"])
@@ -102,13 +101,18 @@ function jsLayout() {
 
 // Post
 function jsPost() {
-    return browserify([
-        paths.input + "js/Prism.js",
-        paths.input + "js/Prism-Clipboard.js"
-    ])
+    // Browserify the prism js
+    var prism = browserify([
+        paths.input + "js/Prism.js"])
         .bundle()
-        .pipe(source("post.js"))
-        .pipe(streamify(terser()))
+        .pipe(source("prism.js"))
+        .pipe(buffer());
+    // Merge with others script
+    return merge(prism, src([
+        paths.npm + "clipboard/dist/clipboard.min.js",
+        paths.input + "js/Prism-Clipboard.js"]))
+        .pipe(concat("post.js"))
+        .pipe(terser())
         .pipe(dest(paths.outputJs));
 }
 

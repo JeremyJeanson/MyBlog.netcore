@@ -1,0 +1,10 @@
+﻿@inject IOptions<Settings> options
+<div class="row">
+    <div class="col-lg-12 col-3">
+        <img class="img-fluid mx-auto d-block rounded-circle" src="~/images/me.png" alt="Me ..." />
+    </div>
+    <div class="col-lg-12 col-9">
+        Add your message here...<br />
+        <a class="float-right" asp-controller="About" asp-action="Index"><i class="fas fa-info"></i> @Resources.About</a>
+    </div>
+</div>

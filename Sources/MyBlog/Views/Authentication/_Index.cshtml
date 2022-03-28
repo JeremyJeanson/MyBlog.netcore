@@ -2,13 +2,13 @@
 <form asp-action="Login" asp-controller="Authentication" method="post" asp-antiforgery="true">
     <input asp-for="ReturnUrl" type="hidden" />
     <div>
-        <p>
+        <div class="d-grid gap-2">
             @foreach (var p in Model.Providers)
             {
-                <button type="submit" class="btn btn-block btn-social btn-@p.Style" name="provider" value="@p.Provider">
+                <button type="submit" class="btn btn-social btn-@p.Style" name="provider" value="@p.Provider">
                     <i class="fab fa-@p.Icon"></i> @String.Format(Resources.LogInWith, p.Name)
                 </button>
             }
-        </p>
+        </div>
     </div>
 </form>

@@ -4,13 +4,12 @@
     "noEmitOnError": true,
     "removeComments": false,
     "sourceMap": true,
-    "target": "ES5",
-    "typeRoots": [ "./node_modules/@types" ]
+    "target": "ES5"
   },
   "compileOnSave": true,
   "exclude": [
     "node_modules",
     "wwwroot",
-    "Localizations"
+    "_www/js/Localizations"
   ]
 }

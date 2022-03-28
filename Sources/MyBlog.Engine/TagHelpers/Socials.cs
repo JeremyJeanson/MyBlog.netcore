@@ -51,7 +51,7 @@ namespace MyBlog.Engine.TagHelpers
             output.Content.AppendHtml(GetSocial("Linked In", "linkedin", "fab fa-linkedin-in"));
             output.Content.AppendHtml(GetSocial("Yammer", "yammer", "fab fa-yammer"));
             output.Content.AppendHtml("<div class=\"dropdown\">");
-            output.Content.AppendHtml($"<button class=\"btn btn-light\" type=\"button\" id=\"menu{Id}\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\" aria-label=\"{Resources.ShowMoreShareOptions}\"><i class=\"fas fa-share-alt\" aria-hidden=\"true\"></i></button>");
+            output.Content.AppendHtml($"<button class=\"btn btn-light\" type=\"button\" id=\"menu{Id}\" data-bs-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\" aria-label=\"{Resources.ShowMoreShareOptions}\"><i class=\"fas fa-share-alt\" aria-hidden=\"true\"></i></button>");
             output.Content.AppendHtml($"<div class=\"dropdown-menu\" aria-labelledby=\"menu{Id}\">");
             output.Content.AppendHtml(GetSocialDrop("Viadéo", "viadeo", "fab fa-viadeo"));
             output.Content.AppendHtml(GetSocialDrop("Reddit", "reddit", "fab fa-reddit-alien"));
@@ -63,17 +63,17 @@ namespace MyBlog.Engine.TagHelpers
 
         private String GetSocial(String networkName, String networkKey, String fontAwesome)
         {
-            return $"<a target=\"_blank\" class=\"btn btn-social-icon btn-{networkKey}\" href=\"/Share/?id={Id}&N={networkKey}\"><i aria-hidden=\"true\" class=\"{fontAwesome}\"></i><span class=\"sr-only\">{Resources.ShareWith} {networkName}</span></a>";
+            return $"<a target=\"_blank\" class=\"btn btn-social-icon btn-{networkKey}\" href=\"/Share/?id={Id}&N={networkKey}\"><i aria-hidden=\"true\" class=\"{fontAwesome}\"></i><span class=\"visually-hidden\">{Resources.ShareWith} {networkName}</span></a>";
         }
 
         private String GetSocialDrop(String networkName, String networkKey, String fontAwesome)
         {
-            return $"<a target=\"_blank\" class=\"dropdown-item\" href=\"/Share/?id={Id}&N={networkKey}\"><i aria-hidden=\"true\" class=\"{fontAwesome}\"></i> <span aria-hidden=\"true\">{networkName}</span><span class=\"sr-only\">{Resources.ShareWith} {networkName}</span></a>";
+            return $"<a target=\"_blank\" class=\"dropdown-item\" href=\"/Share/?id={Id}&N={networkKey}\"><i aria-hidden=\"true\" class=\"{fontAwesome}\"></i> <span aria-hidden=\"true\">{networkName}</span><span class=\"visually-hidden\">{Resources.ShareWith} {networkName}</span></a>";
         }
 
         private String GetMail()
         {
-            return $"<a target=\"_blank\" class=\"dropdown-item\" href=\"mailto:?subject={System.Uri.EscapeDataString(WebUtility.HtmlDecode(Title))}&body={System.Uri.EscapeDataString(Uri)}\"><i aria-hidden=\"true\" class=\"fas fa-envelope\"></i> <span aria-hidden=\"true\">Mail</span><span class=\"sr-only\">{Resources.ShareWith} mail</span></a>";
+            return $"<a target=\"_blank\" class=\"dropdown-item\" href=\"mailto:?subject={System.Uri.EscapeDataString(WebUtility.HtmlDecode(Title))}&body={System.Uri.EscapeDataString(Uri)}\"><i aria-hidden=\"true\" class=\"fas fa-envelope\"></i> <span aria-hidden=\"true\">Mail</span><span class=\"visually-hidden\">{Resources.ShareWith} mail</span></a>";
         }
 
         #endregion

@@ -436,17 +436,25 @@ Les cookies peuvent être utilisés pour:
           <source>List of all archives</source>
           <target state="final">Liste de toutes les archives</target>
         </trans-unit>
-        <trans-unit id="CategoriesListDescription" translate="yes" xml:space="preserve">
-          <source>List of all categories</source>
-          <target state="final">Liste de toutes les catégories</target>
-        </trans-unit>
         <trans-unit id="ArchivesShowAll" translate="yes" xml:space="preserve">
           <source>Show the list of all archives</source>
           <target state="final">Afficher la liste de toutes les archives</target>
         </trans-unit>
+        <trans-unit id="CategoriesListDescription" translate="yes" xml:space="preserve">
+          <source>List of all categories</source>
+          <target state="final">Liste de toutes les catégories</target>
+        </trans-unit>
         <trans-unit id="CategoriesShowAll" translate="yes" xml:space="preserve">
           <source>Show the list of all categories</source>
           <target state="final">Afficher la liste de toutes les catégories</target>
+        </trans-unit>
+        <trans-unit id="Close" translate="yes" xml:space="preserve">
+          <source>Close</source>
+          <target state="final">Fermer</target>
+        </trans-unit>
+        <trans-unit id="SkipToContent" translate="yes" xml:space="preserve">
+          <source>Skip to main content</source>
+          <target state="final">Aller directement au contenu de la page</target>
         </trans-unit>
       </group>
     </body>

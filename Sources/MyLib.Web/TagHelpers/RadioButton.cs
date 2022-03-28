@@ -27,6 +27,8 @@ namespace MyLib.Web.TagHelpers
         /// </summary>
         public String Group { get; set; }
 
+        public String Onclick { get; set; }
+
         #endregion
 
         #region Methodes
@@ -38,25 +40,17 @@ namespace MyLib.Web.TagHelpers
         /// <param name="output"></param>
         public override void Process(TagHelperContext context, TagHelperOutput output)
         {
-            // Tag
-            output.TagName = "label";
-            output.TagMode = TagMode.StartTagAndEndTag;
+            output.SuppressOutput();
 
-            // Add class
-            output.Attributes.Add("class", 
-                Checked
-                ? "btn btn-primary active"
-                : "btn btn-primary");
-
-            output.Attributes.Add("id", context.UniqueId);
-
-            // Inner HTML
-            output.Content.AppendHtml($"<input type=\"radio\" name=\"{Group}\" autocomplete=\"off\" id=\"{context.UniqueId}\" ");
+            output.Content.AppendHtml($"<input type=\"radio\" class=\"btn-check\" name=\"{Group}\" autocomplete=\"off\" id=\"{context.UniqueId}\" onclick=\"{Onclick}\"");
             if (Checked)
             {
                 output.Content.AppendHtml("checked");
             }
-            output.Content.AppendHtml($"> {Title}");
+            output.Content.AppendHtml(">");
+
+            // Tag
+            output.Content.AppendHtml($"<label class=\"btn btn-outline-primary\" for={context.UniqueId} onclick=\"{Onclick}\">{Title}</label>");
         }
 
         #endregion

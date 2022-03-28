@@ -2,7 +2,7 @@
 <div class="form" id="accessibilityForm">
     <div class="form-group">
         <label for="themeOptions" class="col-sm-12">@Resources.AccessibilityTheme</label>
-        <div id="themeOptions" class="btn-group-vertical btn-group-toggle d-flex" data-toggle="buttons" role="group">
+        <div id="themeOptions" class="btn-group-vertical btn-group-toggle d-flex" role="group">
             <radio-button group="themeOptions" checked="Model.Theme==0" title="@Resources.AccessibilityThemeDefault" onclick="Accessibility.setThemeDefault()" />
             <radio-button group="themeOptions" checked="Model.Theme==1" title="@Resources.AccessibilityThemeDark" onclick="Accessibility.setThemeDark()" />
             <radio-button group="themeOptions" checked="Model.Theme==2" title="@Resources.AccessibilityThemeHighContrast" onclick="Accessibility.setThemeHighContrast()" />
@@ -10,14 +10,14 @@
     </div>
     <div class="form-group">
         <label for="fontOptions" class="col-sm-12">@Resources.AccessibilitySettingsFontTitle</label>
-        <div id="fontOptions" class="btn-group-vertical btn-group-toggle d-flex" data-toggle="buttons" role="group">
+        <div id="fontOptions" class="btn-group-vertical btn-group-toggle d-flex" role="group">
             <radio-button group="fontOptions" checked="!Model.UseDyslexicFont" title="@Resources.AccessibilitySettingsFontUseDefault" onclick="Accessibility.setDefaultFont()" />
             <radio-button group="fontOptions" checked="Model.UseDyslexicFont" title="@Resources.AccessibilitySettingsFontUseDylexia" onclick="Accessibility.setDysFont()" />
         </div>
     </div>
     <div class="form-group">
         <label for="textjustifyOptions" class="col-sm-12">@Resources.AccessibilitySettingsTextAlign</label>
-        <div id="textjustifyOptions" class="btn-group-vertical btn-group-toggle d-flex" data-toggle="buttons" role="group">
+        <div id="textjustifyOptions" class="btn-group-vertical btn-group-toggle d-flex" role="group">
             <radio-button group="textjustifyOptions" checked="Model.TextIsJutified" title="@Resources.AccessibilitySettingsSetTextIsJutified" onclick="Accessibility.setTextIsJutified()" />
             <radio-button group="textjustifyOptions" checked="!Model.TextIsJutified" title="@Resources.AccessibilitySettingsSetTextIsNotJutified" onclick="Accessibility.setTextIsNotJutified()" />
         </div>
@@ -39,13 +39,3 @@
         </div>
     </div>
 </div>
-<script>
-    // Accessibilit radio issue
-    $('input[type=radio]')
-        .focus(function () {
-            $(this).closest("label").addClass("focus");
-        })
-        .blur(function () {
-            $(this).closest("label").removeClass("focus");
-        });
-</script>

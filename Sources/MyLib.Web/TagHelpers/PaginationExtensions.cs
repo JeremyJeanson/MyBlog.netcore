@@ -13,8 +13,6 @@ namespace MyLib.Web.TagHelpers
     {
         #region Declarations
 
-        private const Int32 PageMax = 10;
-
         #endregion
 
         #region Methodes
@@ -63,7 +61,7 @@ namespace MyLib.Web.TagHelpers
             // Add li for each page
             Int32[] pages = Enumerable.Range(page - pageSize, pageSize * 2)
                 .Where(c => c >= 0 && c * pageSize < count)
-                .Take(PageMax)
+                .Take(pageSize)
                 .ToArray();
 
             // Setting fo li list
@@ -96,7 +94,7 @@ namespace MyLib.Web.TagHelpers
                 {
                     sb.Append("<li class=\"page-item active\">");
                     sb.Append($"<span class=\"page-link\">{pages[i] + 1}</span>");
-                    sb.Append($"<span class=\"sr-only\">{Resources.PageCurrent}</span>");
+                    sb.Append($"<span class=\"visually-hidden\">{Resources.PageCurrent}</span>");
                 }
                 else
                 {

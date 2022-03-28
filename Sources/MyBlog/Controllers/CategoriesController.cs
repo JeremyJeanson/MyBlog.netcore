@@ -31,6 +31,7 @@ namespace MyBlog.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult PostIndex()
         {
             return PartialView("_Index", GetModel());
