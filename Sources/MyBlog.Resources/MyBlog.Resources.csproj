@@ -15,7 +15,7 @@
     <None Remove="MultilingualResources\MyBlog.Resources.fr-FR.xlf" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="SecurityCodeScan.VS2019" Version="5.6.2">
+    <PackageReference Include="SecurityCodeScan.VS2019" Version="5.6.3">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
