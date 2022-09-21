@@ -3,7 +3,7 @@
 
 // Common 
 const { src, dest, parallel, watch, series } = require("gulp");
-const del = require("del");
+const del = import("del");
 const concat = require("gulp-concat");
 
 // Plugin for scripts
