@@ -1,9 +1,12 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.29519.181
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33110.190
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{21F1F0B6-D974-4241-AB71-F6374BF83158}"
+	ProjectSection(SolutionItems) = preProject
+		directory.build.props = directory.build.props
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyLib.Web", "MyLib.Web\MyLib.Web.csproj", "{79A0F744-D088-4DDD-B6DA-6A4F00B37A32}"
 EndProject

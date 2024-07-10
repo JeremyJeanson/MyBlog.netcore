@@ -1,4 +1,4 @@
-/// <binding AfterBuild='build' Clean='clean' ProjectOpened='watch' />
+/// <binding Clean='clean' ProjectOpened='watch' />
 "use strict";
 
 // Common 
@@ -110,7 +110,8 @@ function jsPost() {
     // Merge with others script
     return merge(prism, src([
         paths.npm + "clipboard/dist/clipboard.min.js",
-        paths.input + "js/Prism-Clipboard.js"]))
+        paths.input + "js/Prism-Clipboard.js",
+        paths.input + "js/External-Anchors.js"]))
         .pipe(concat("post.js"))
         .pipe(terser())
         .pipe(dest(paths.outputJs));
@@ -181,7 +182,10 @@ exports.buildCss = parallel(cssDark, cssDefault, cssHighContrast);
 function buildFonts() {
     return src([
         paths.input + "fonts/*",
-        paths.npm + "@fortawesome/fontawesome-free/webfonts/*"])
+        paths.npm + "@fortawesome/fontawesome-free/webfonts/*"],
+        {
+            encoding: false
+        })
         .pipe(dest(paths.outputFonts));
 }
 
@@ -208,7 +212,7 @@ exports.watch = function () {
 };
 
 // Build
-exports.build = parallel(
+exports.default = parallel(
     series(exports.buildResx, exports.buildScripts),
     exports.buildCss,
     exports.buildFonts);

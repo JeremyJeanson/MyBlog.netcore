@@ -136,6 +136,8 @@ namespace MyBlog.Engine
 
             #endregion
 
+            services.AddHealthChecks();
+
             return services;
         }
 
@@ -177,6 +179,13 @@ namespace MyBlog.Engine
 
             // XmlRpc + Metaweblog
             app.Map("/metaweblog", MetaWeblog.Configure);
+
+
+            app.UseEndpoints(endpoints =>
+            {
+                // Heath check
+                endpoints.MapHealthChecks("/health");
+            });
 
             return app;
         }

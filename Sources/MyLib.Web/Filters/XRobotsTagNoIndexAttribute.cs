@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc.Filters;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc.Filters;
 using System;
 
 namespace MyLib.Web.Filters
@@ -13,7 +14,7 @@ namespace MyLib.Web.Filters
 
         public override void OnActionExecuting(ActionExecutingContext filterContext)
         {
-            filterContext.HttpContext.Response.Headers.Add(TagName, NoIndexValue);
+            filterContext.HttpContext.Response.Headers.Append(TagName, NoIndexValue);
         }
     }
 }

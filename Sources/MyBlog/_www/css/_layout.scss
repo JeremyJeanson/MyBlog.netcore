@@ -172,7 +172,13 @@ body > header {
 }
 
 aside {
-    #links {        
+    #links {
+        @include media-breakpoint-up(lg) {
+            > div > a {
+                display: flex;
+                justify-content: center;
+            }
+        }
         img {
             margin-bottom: 10px;
         }

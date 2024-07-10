@@ -7,11 +7,8 @@
     <SuppressPseudoWarning Condition="'$(Configuration)' == 'Debug'">true</SuppressPseudoWarning>
   </PropertyGroup>
   <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
-    <NeutralLanguage>en-US</NeutralLanguage>
-    <AssemblyVersion>6.0.10.0</AssemblyVersion>
-    <FileVersion>6.0.10.0</FileVersion>
-    <Version>6.0.10.0</Version>
+    <TargetFramework>net8.0</TargetFramework>
+    <NeutralLanguage>en-US</NeutralLanguage>   
     <TypeScriptToolsVersion>Latest</TypeScriptToolsVersion>
   </PropertyGroup>
   <ItemGroup>
@@ -24,12 +21,11 @@
     <None Remove="_www\js\_my.ts" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Microsoft.TypeScript.MSBuild" Version="4.8.4">
+    <PackageReference Include="Microsoft.TypeScript.MSBuild" Version="5.5.3">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Microsoft.VisualStudio.Web.BrowserLink" Version="2.2.0" />
-    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.10" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.3" />
     <PackageReference Include="SecurityCodeScan.VS2019" Version="5.6.7">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>

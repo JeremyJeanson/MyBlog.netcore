@@ -31,7 +31,7 @@ This blog engine include many features :
 - ... and so many more to document ...
 
 # Tech skills and libraries used
-- .net 6.
+- .net 8.
 - ASP .net MVC.
 - TypeScript.
 - Azure SQL.

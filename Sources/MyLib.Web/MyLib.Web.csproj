@@ -7,7 +7,7 @@
     <SuppressPseudoWarning Condition="'$(Configuration)' == 'Debug'">true</SuppressPseudoWarning>
   </PropertyGroup>
   <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
     <NeutralLanguage>en-US</NeutralLanguage>
     <Authors>Jérémy Jeanson</Authors>
   </PropertyGroup>
@@ -26,7 +26,7 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="System.ServiceModel.Syndication" Version="6.0.0" />
+    <PackageReference Include="System.ServiceModel.Syndication" Version="8.0.0" />
   </ItemGroup>
   <ItemGroup>
     <XliffResource Include="MultilingualResources\MyLib.Web.fr-FR.xlf" />
